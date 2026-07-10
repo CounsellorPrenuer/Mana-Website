@@ -9,14 +9,14 @@ import { SITE, ORIENTATION } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Register for a Free Orientation",
   description:
-    "Join a free, live MANA orientation session — see the practice model, meet faculty, get your questions answered, and hear the fee and Founder's Offer explained in full.",
+    "Join a free, live MANA orientation session, see the practice model, meet faculty, get your questions answered, and hear the fee and Founder's Offer explained in full.",
 };
 
 const expectItems = [
   { icon: Users, text: "See the two-engine practice model explained live, with real numbers" },
-  { icon: MessageSquareText, text: "Meet faculty and ask anything — no scripted pitch" },
+  { icon: MessageSquareText, text: "Meet faculty and ask anything, no scripted pitch" },
   { icon: Wallet, text: "Get the fee and Founder's Offer explained in full, no surprises" },
-  { icon: CheckCircle2, text: "Leave with a clear next step — no obligation to enrol" },
+  { icon: CheckCircle2, text: "Leave with a clear next step, no obligation to enrol" },
 ];
 
 export default function OrientationPage() {
@@ -34,7 +34,7 @@ export default function OrientationPage() {
           </Reveal>
           <Reveal delay={0.12}>
             <p className="mx-auto mt-6 max-w-2xl text-balance text-lg leading-relaxed text-white/70 sm:text-xl">
-              Everything about MANA — the practice model, the faculty, the fee — explained live before you
+              Everything about MANA, the practice model, the faculty, and the fee, explained live before you
               commit to anything.
             </p>
           </Reveal>

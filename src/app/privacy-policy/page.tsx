@@ -22,7 +22,7 @@ export default function PrivacyPolicyPage() {
               body: (
                 <p>
                   When you register for an Orientation session, request a download, join a waitlist, or
-                  contact us, we collect the information you provide directly — typically your name, email
+                  contact us, we collect the information you provide directly, typically your name, email
                   address, and WhatsApp number. We do not collect payment information through this website;
                   fees are discussed and processed separately.
                 </p>
@@ -34,7 +34,7 @@ export default function PrivacyPolicyPage() {
                 <p>
                   Your information is used to confirm Orientation registrations, send reminders and
                   programme updates, respond to enquiries, deliver requested resources (brochures,
-                  curriculum overviews, and similar materials), and — where you&apos;ve opted in — to keep
+                  curriculum overviews, and similar materials), and where you&apos;ve opted in, to keep
                   you informed about the MANA certification and future Mentoria Training &amp; Certification
                   programmes.
                 </p>

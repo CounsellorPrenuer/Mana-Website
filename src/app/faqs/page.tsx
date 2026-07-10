@@ -18,7 +18,7 @@ export default function FaqsPage() {
       <PageHero
         eyebrow="FAQs"
         title="Every question, answered"
-        description="Organised by category — if you can't find what you're looking for, ask us directly at Orientation."
+        description="Organised by category, if you can't find what you're looking for, ask us directly at Orientation."
       />
 
       <Section bg="white">

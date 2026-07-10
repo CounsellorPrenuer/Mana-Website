@@ -21,13 +21,13 @@ const workSans = Work_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://certifications.mentoria.com"),
   title: {
-    default: "MANA — Mentoria AI Navigation Architect Certification",
+    default: "MANA | Mentoria AI Navigation Architect Certification",
     template: "%s | MANA by Mentoria",
   },
   description:
     "MANA trains counsellors, educators and career professionals to build a self-sufficient, AI-era career architecture practice. Register for a free live orientation session.",
   openGraph: {
-    title: "MANA — Mentoria AI Navigation Architect Certification",
+    title: "MANA | Mentoria AI Navigation Architect Certification",
     description:
       "India's first AI-era career facilitator certification. A Mentoria Training & Certification vertical programme.",
     siteName: "MANA by Mentoria",

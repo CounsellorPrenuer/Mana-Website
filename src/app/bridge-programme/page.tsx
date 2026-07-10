@@ -15,27 +15,27 @@ export const metadata: Metadata = {
 
 const modules = [
   {
-    title: "Bridge Module 1 — TMS 2.0 Platform Mastery",
+    title: "Bridge Module 1: TMS 2.0 Platform Mastery",
     hours: "6 hrs",
     description:
-      "Full platform walkthrough for counsellors who understand assessment interpretation but haven't used TMS 2.0 — not a condensed overview.",
+      "Full platform walkthrough for counsellors who understand assessment interpretation but haven't used TMS 2.0, not a condensed overview.",
   },
   {
-    title: "Bridge Module 2 — AI Literacy & Career Impact",
+    title: "Bridge Module 2: AI Literacy & Career Impact",
     hours: "4 hrs",
     description:
-      "A condensed version of Foundation 1, focused specifically on what's changed since previous training — the AI-Occupational Index, the 10-year skill shelf-life framework, and updated scripts.",
+      "A condensed version of Foundation 1, focused specifically on what's changed since previous training, the AI-Occupational Index, the 10-year skill shelf-life framework, and updated scripts.",
   },
   {
-    title: "Bridge Module 3 — Workshop Certification",
+    title: "Bridge Module 3: Workshop Certification",
     hours: "6 hrs",
     description:
-      "The AI Career Navigator Workshop is entirely new content — no prior credit given. The most important module for building a self-sufficient practice.",
+      "The AI Career Navigator Workshop is entirely new content, no prior credit given. The most important module for building a self-sufficient practice.",
   },
   {
     title: "Practicum Case + Workshop Delivery",
     hours: "2 hrs",
-    description: "Final certification gate — assessed to the exact same standard as the full MANA programme.",
+    description: "Final certification gate, assessed to the exact same standard as the full MANA programme.",
   },
 ];
 
@@ -52,7 +52,7 @@ export default function BridgeProgrammePage() {
         <div className="grid gap-6 sm:grid-cols-3">
           {[
             ["18 hours", "Across 4 condensed modules"],
-            [`${FEES.currency}${FEES.bridgeMin.toLocaleString("en-IN")}–${FEES.currency}${FEES.bridgeMax.toLocaleString("en-IN")}`, "Reduced fee — not free"],
+            [`${FEES.currency}${FEES.bridgeMin.toLocaleString("en-IN")}–${FEES.currency}${FEES.bridgeMax.toLocaleString("en-IN")}`, "Reduced fee, not free"],
             ["Full MANA credential", "Awarded on passing both gate components"],
           ].map(([value, label]) => (
             <Reveal key={value}>
@@ -80,7 +80,7 @@ export default function BridgeProgrammePage() {
       </Section>
 
       <Section bg="white">
-        <SectionHeading eyebrow="The Modules" title="What's covered — and what isn't" />
+        <SectionHeading eyebrow="The Modules" title="What's covered and what isn't" />
         <div className="mt-10 space-y-4">
           {modules.map((m, i) => (
             <Reveal key={m.title} delay={i * 0.06}>
@@ -109,7 +109,7 @@ export default function BridgeProgrammePage() {
 
       <FinalCta
         title="Ready to bridge to MANA?"
-        description="Talk to us at Orientation about which route — full programme or Bridge — fits your background."
+        description="Talk to us at Orientation about which route, full programme or Bridge, fits your background."
       />
     </>
   );

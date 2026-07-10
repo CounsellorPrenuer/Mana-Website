@@ -10,7 +10,7 @@ import { MODULES } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Curriculum",
   description:
-    "The full MANA module roadmap — 60 hours across 8 modules, the mandatory 90-day sprint, and the non-waivable Capstone gate.",
+    "The full MANA module roadmap, 60 hours across 8 modules, the mandatory 90-day sprint, and the non-waivable Capstone gate.",
 };
 
 export default function CurriculumPage() {
@@ -19,7 +19,7 @@ export default function CurriculumPage() {
       <PageHero
         eyebrow="Curriculum"
         title="60 hours. 8 modules. One roadmap."
-        description="A high-level overview of the MANA architecture — the complete session-by-session curriculum, facilitator notes, and assessment rubrics are shared only after enrolment."
+        description="A high-level overview of the MANA architecture, the complete session-by-session curriculum, facilitator notes, and assessment rubrics are shared only after enrolment."
       />
 
       <Section bg="lavender" className="!py-8">
@@ -75,7 +75,7 @@ export default function CurriculumPage() {
               <p className="mt-3 text-sm leading-relaxed text-white/70">
                 Foundation 3&apos;s school-outreach training extends into a mandatory 90-day
                 practice-building sprint after certification. No sprint completion means no Active Practice
-                Badge — MANA certifies practitioners who actually launch.
+                Badge, MANA certifies practitioners who actually launch.
               </p>
             </div>
           </Reveal>

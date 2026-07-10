@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 };
 
 const eligibility = [
-  "Graduate in any stream — minimum qualification",
+  "Graduate in any stream, minimum qualification",
   "Background in psychology or education is helpful, but not mandatory",
-  "No prior AI experience required — Foundation 1 builds this from zero",
+  "No prior AI experience required, Foundation 1 builds this from zero",
   "Genuine interest in guiding Class 8–12 and undergraduate students",
 ];
 
@@ -27,7 +27,7 @@ export default function WhoShouldJoinPage() {
       <PageHero
         eyebrow="Who Should Join"
         title="Is MANA the right fit for you?"
-        description="If you already guide, teach, assess, or counsel people — MANA gives you a structured, AI-era practice to build on."
+        description="If you already guide, teach, assess, or counsel people, MANA gives you a structured, AI-era practice to build on."
       />
 
       <Section bg="white">
@@ -67,8 +67,8 @@ export default function WhoShouldJoinPage() {
               <p className="mt-3 text-sm leading-relaxed text-slate">
                 If you hold an active Mentoria counsellor certification under the previous model, you don&apos;t
                 need to redo the full programme. The Bridge Programme is an 18-hour condensed pathway covering
-                only what&apos;s genuinely new — TMS 2.0 mastery, updated AI content, and the entirely new
-                Workshop Certification — for a reduced fee.
+                only what&apos;s genuinely new, TMS 2.0 mastery, updated AI content, and the entirely new
+                Workshop Certification, for a reduced fee.
               </p>
               <div className="mt-6">
                 <Button href="/bridge-programme" variant="secondary">
@@ -85,7 +85,7 @@ export default function WhoShouldJoinPage() {
           <div className="mx-auto max-w-2xl rounded-3xl border border-navy/10 bg-lavender p-10 text-center">
             <MessageCircle className="mx-auto h-8 w-8 text-royal" />
             <h3 className="mt-4 text-xl font-bold text-navy">Not sure if you&apos;re a fit?</h3>
-            <p className="mt-2 text-slate">Talk it through with us directly — no obligation, no pressure.</p>
+            <p className="mt-2 text-slate">Talk it through with us directly, no obligation, no pressure.</p>
             <div className="mt-6 flex flex-wrap justify-center gap-4">
               <Button
                 href={`https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(SITE.whatsappMessage)}`}

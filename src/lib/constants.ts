@@ -101,7 +101,7 @@ export const MODULES = [
     tag: "Foundation 1",
     title: "AI Literacy & AI Teaching Capability",
     outcome:
-      "Build real AI fluency, then teach it — explaining AI's career impact to students and anxious parents without jargon or fear.",
+      "Build real AI fluency, then teach it, explaining AI's career impact to students and anxious parents without jargon or fear.",
     hours: 8,
     live: 4,
     async: 4,
@@ -131,7 +131,7 @@ export const MODULES = [
     tag: "Navigator Architecture 2",
     title: "Career Discovery Architecture (IX–XII & UG)",
     outcome:
-      "Run the full career discovery journey — from first session to an accepted action plan — for school and undergraduate students.",
+      "Run the full career discovery journey, from first session to an accepted action plan, for school and undergraduate students.",
     hours: 8,
     live: 5,
     async: 3,
@@ -151,7 +151,7 @@ export const MODULES = [
     tag: "Navigator Architecture 4",
     title: "AI Career Navigator Workshop Certification",
     outcome:
-      "Design and deliver school workshops that convert 5–15 paying counselling clients per session — the practice's core revenue engine.",
+      "Design and deliver school workshops that convert 5–15 paying counselling clients per session: the practice's core revenue engine.",
     hours: 9,
     live: 5,
     async: 4,
@@ -159,7 +159,7 @@ export const MODULES = [
   {
     id: "foundation-3",
     tag: "Foundation 3",
-    title: "Sales Operating System — School Outreach",
+    title: "Sales Operating System: School Outreach",
     outcome:
       "Build a confident pricing and school-outreach pitch, then execute a mandatory 90-day practice-building sprint post-certification.",
     hours: 16,
@@ -181,7 +181,7 @@ export const MODULES = [
 export const CERTIFICATION_BADGES = [
   {
     title: "MANA Certificate",
-    description: "The core credential — proof of a completed, live-assessed AI-era career architecture practice.",
+    description: "The core credential: proof of a completed, live-assessed AI-era career architecture practice.",
   },
   {
     title: "Workshop Facilitation Badge",
@@ -222,7 +222,7 @@ export const FAQ_CATEGORIES = [
     items: [
       {
         q: "Who can enrol in MANA?",
-        a: "Graduates from any stream. A background in psychology or education is helpful but not mandatory, and no prior AI experience is required — Foundation 1 builds this from the ground up.",
+        a: "Graduates from any stream. A background in psychology or education is helpful but not mandatory, and no prior AI experience is required. Foundation 1 builds this from the ground up.",
       },
       {
         q: "Do I need to be a working counsellor already?",
@@ -248,11 +248,11 @@ export const FAQ_CATEGORIES = [
     items: [
       {
         q: "How is MANA assessed?",
-        a: "Entirely through live practice — never a written exam. The Capstone requires 4 human-evaluated TMS 2.0 counselling cases and 1 video-recorded AI Career Navigator Workshop, every case double-scored by senior Career Architects.",
+        a: "Entirely through live practice, never a written exam. The Capstone requires 4 human-evaluated TMS 2.0 counselling cases and 1 video-recorded AI Career Navigator Workshop, every case double-scored by senior Career Architects.",
       },
       {
         q: "What do I actually earn on completion?",
-        a: "The MANA Certificate, a Workshop Facilitation Badge, a TMS 2.0 Practitioner Endorsement, and — after your 90-day sprint — the Active Practice Badge, plus a listing in Mentoria's verifiable practitioner directory.",
+        a: "The MANA Certificate, a Workshop Facilitation Badge, a TMS 2.0 Practitioner Endorsement, and (after your 90-day sprint) the Active Practice Badge, plus a listing in Mentoria's verifiable practitioner directory.",
       },
       {
         q: "Can I resit if I don't pass a Capstone case?",
@@ -265,7 +265,7 @@ export const FAQ_CATEGORIES = [
     items: [
       {
         q: "Do I need to be technical to complete the AI modules?",
-        a: "No. Foundation 1 is built for complete beginners — you'll leave with working fluency in 5+ AI tools relevant to career architecture practice, taught in plain language.",
+        a: "No. Foundation 1 is built for complete beginners. You'll leave with working fluency in 5+ AI tools relevant to career architecture practice, taught in plain language.",
       },
     ],
   },
@@ -278,7 +278,7 @@ export const FAQ_CATEGORIES = [
       },
       {
         q: "Is there an ongoing cost after certification?",
-        a: `Yes — an active TMS 2.0 subscription (${FEES.tms2Monthly}/month) is required to practise under the Mentoria brand post-certification.`,
+        a: `Yes. An active TMS 2.0 subscription (${FEES.tms2Monthly}/month) is required to practise under the Mentoria brand post-certification.`,
       },
     ],
   },
@@ -300,7 +300,7 @@ export const FAQ_CATEGORIES = [
     items: [
       {
         q: "What happens at the free Orientation session?",
-        a: "You'll see the MANA practice model explained live, meet faculty, get your questions answered, and have the fee and Founder's Offer walked through in detail — no obligation to enrol.",
+        a: "You'll see the MANA practice model explained live, meet faculty, get your questions answered, and have the fee and Founder's Offer walked through in detail, with no obligation to enrol.",
       },
       {
         q: "When are Orientation sessions held?",
@@ -312,8 +312,8 @@ export const FAQ_CATEGORIES = [
     category: "Bridge Route",
     items: [
       {
-        q: "I already hold an older Mentoria counsellor certification — do I redo everything?",
-        a: "No. The Bridge Programme is an 18-hour condensed pathway covering only what's genuinely new — TMS 2.0 mastery, updated AI content, and the entirely new Workshop Certification — for a reduced fee.",
+        q: "I already hold an older Mentoria counsellor certification. Do I redo everything?",
+        a: "No. The Bridge Programme is an 18-hour condensed pathway covering only what's genuinely new: TMS 2.0 mastery, updated AI content, and the entirely new Workshop Certification, for a reduced fee.",
       },
     ],
   },

@@ -10,7 +10,7 @@ import FinalCta from "@/components/sections/FinalCta";
 export const metadata: Metadata = {
   title: "Testimonials",
   description:
-    "What counsellors say about building their practice through MANA — feedback videos and testimonials from practising architects.",
+    "What counsellors say about building their practice through MANA: feedback videos and testimonials from practising architects.",
 };
 
 const quotes = [
@@ -21,17 +21,17 @@ const quotes = [
   },
   {
     quote:
-      "I came in with zero AI experience. Foundation 1 alone was worth the fee — I can now explain AI's career impact to a room of anxious parents without flinching.",
+      "I came in with zero AI experience. Foundation 1 alone was worth the fee, I can now explain AI's career impact to a room of anxious parents without flinching.",
     role: "School Counsellor, Bengaluru",
   },
   {
     quote:
-      "The Capstone is genuinely hard — and that's exactly why the certificate means something when I show it to a school principal.",
+      "The Capstone is genuinely hard, and that's exactly why the certificate means something when I show it to a school principal.",
     role: "Career Coach, Delhi NCR",
   },
   {
     quote:
-      "Parent counselling used to be my weakest area. Navigator Architecture 3 gave me an actual framework, not just theory — the 'our recommendation remains' close works.",
+      "Parent counselling used to be my weakest area. Navigator Architecture 3 gave me an actual framework, not just theory, the 'our recommendation remains' close works.",
     role: "Practising MANA Architect, Hyderabad",
   },
   {
@@ -52,7 +52,7 @@ export default function TestimonialsPage() {
       <PageHero
         eyebrow="Testimonials"
         title="From counsellors already building their practice"
-        description="Direct feedback from practising MANA architects — on the certification, the workshop model, and what changed in their day-to-day practice."
+        description="Direct feedback from practising MANA architects, on the certification, the workshop model, and what changed in their day-to-day practice."
       />
 
       <Section bg="white">

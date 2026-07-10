@@ -4,7 +4,7 @@ import { SITE } from "@/lib/constants";
 
 export default function FinalCta({
   title = "See the model. Meet the faculty. Ask anything.",
-  description = "Every question about MANA — the practice, the fee, the Founder's Offer — gets answered live at a free weekday orientation session.",
+  description = "Every question about MANA (the practice, the fee, and the Founder's Offer) gets answered live at a free weekday orientation session.",
 }: {
   title?: string;
   description?: string;

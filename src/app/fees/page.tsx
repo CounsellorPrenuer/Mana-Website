@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const included = [
   "All 8 modules: 60 hours of live + async training",
   "TMS 2.0 platform onboarding and assessment suite access during training",
-  "The full Capstone evaluation — 4 counselling cases + 1 workshop, double-scored",
+  "The full Capstone evaluation, 4 counselling cases + 1 workshop, double-scored",
   "MANA Certificate, Workshop Facilitation Badge, TMS 2.0 Practitioner Endorsement",
   "90-day post-certification sprint support toward the Active Practice Badge",
   "Listing in Mentoria's verifiable practitioner directory on completion",
@@ -30,7 +30,7 @@ export default function FeesPage() {
       <PageHero
         eyebrow="Fees & Founder's Offer"
         title="Transparent pricing, explained in full"
-        description="No hidden costs, no surprise add-ons — here's exactly what's included and what it costs."
+        description="No hidden costs, no surprise add-ons, here's exactly what's included and what it costs."
       />
 
       <Section bg="white">
@@ -41,7 +41,7 @@ export default function FeesPage() {
               <div className="relative">
                 <div className="mx-auto mb-5 flex w-fit items-center gap-2 rounded-full bg-gold/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold">
                   <Clock className="h-3.5 w-3.5" />
-                  Founder&apos;s Offer — Limited Time
+                  Founder&apos;s Offer · Limited Time
                 </div>
                 <div className="flex items-baseline justify-center gap-4">
                   <span className="text-2xl font-semibold text-white/40 line-through">
@@ -86,7 +86,7 @@ export default function FeesPage() {
               <Info className="h-6 w-6 text-royal" />
               <h3 className="mt-4 font-bold text-navy">TMS 2.0 Subscription (Ongoing)</h3>
               <p className="mt-2 text-sm leading-relaxed text-slate">
-                An active TMS 2.0 subscription — {FEES.tms2Monthly}/month — is required to practise under
+                An active TMS 2.0 subscription, {FEES.tms2Monthly}/month, is required to practise under
                 the Mentoria brand after certification. This is a separate, ongoing platform cost, not part
                 of the one-time certification fee.
               </p>
@@ -121,7 +121,7 @@ export default function FeesPage() {
 
       <FinalCta
         title="The fee and offer, explained in full"
-        description="Nothing is finalised without a live walkthrough — book your free Orientation slot."
+        description="Nothing is finalised without a live walkthrough, book your free Orientation slot."
       />
     </>
   );

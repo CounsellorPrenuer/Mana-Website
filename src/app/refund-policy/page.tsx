@@ -6,7 +6,7 @@ import { CONTACTS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Refund Policy",
-  description: "Refund terms for the MANA — Mentoria AI Navigation Architect Certification programme.",
+  description: "Refund terms for the MANA | Mentoria AI Navigation Architect Certification programme.",
 };
 
 export default function RefundPolicyPage() {

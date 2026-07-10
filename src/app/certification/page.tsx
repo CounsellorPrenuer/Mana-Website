@@ -10,19 +10,19 @@ import { CERTIFICATION_BADGES } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Certification",
   description:
-    "How the MANA credential is earned — a non-waivable Capstone of 4 human-evaluated counselling cases and 1 video-recorded workshop, double-scored by senior Career Architects.",
+    "How the MANA credential is earned, a non-waivable Capstone of 4 human-evaluated counselling cases and 1 video-recorded workshop, double-scored by senior Career Architects.",
 };
 
 const tiers = [
   {
     tier: "Tier 1",
     title: "Module Assessments",
-    description: "Each of the 8 modules carries its own scenario-based assessment — role-plays, case studies, and structured exercises, not written tests.",
+    description: "Each of the 8 modules carries its own scenario-based assessment, role-plays, case studies, and structured exercises, not written tests.",
   },
   {
     tier: "Tier 2",
     title: "Take-Home Evidence",
-    description: "Documented practicum work — toolkits, pathway maps, session plans — submitted as evidence of applied learning between live sessions.",
+    description: "Documented practicum work, toolkits, pathway maps, session plans, submitted as evidence of applied learning between live sessions.",
   },
   {
     tier: "Tier 3",
@@ -32,10 +32,10 @@ const tiers = [
 ];
 
 const caseRequirements = [
-  "Case 1 — Class 9 or 10 student: interest interpretation and stream/subject selection (60 min minimum).",
-  "Case 2 — Class 11 or 12 student: full psychometric session covering interest, personality and ability, with entrance exam planning (75–90 min).",
-  "Case 3 — UG or gap-year student: career discovery session with industry and pathway recommendations (90 min minimum).",
-  "Case 4 — Free choice: any client profile presenting a genuine challenge — contradictory scores, career fixation, or a three-way parent session.",
+  "Case 1: Class 9 or 10 student: interest interpretation and stream/subject selection (60 min minimum).",
+  "Case 2: Class 11 or 12 student: full psychometric session covering interest, personality and ability, with entrance exam planning (75–90 min).",
+  "Case 3: UG or gap-year student: career discovery session with industry and pathway recommendations (90 min minimum).",
+  "Case 4: Free choice: any client profile presenting a genuine challenge, contradictory scores, career fixation, or a three-way parent session.",
 ];
 
 export default function CertificationPage() {
@@ -44,7 +44,7 @@ export default function CertificationPage() {
       <PageHero
         eyebrow="Certification"
         title="Assessed through live practice. Never a written exam."
-        description="The standard of a Mentoria Career Architect is set at the Capstone — and no amount of strong coursework overrides a failed one."
+        description="The standard of a Mentoria Career Architect is set at the Capstone, and no amount of strong coursework overrides a failed one."
       />
 
       <Section bg="white">
@@ -69,7 +69,7 @@ export default function CertificationPage() {
               eyebrow="The Capstone"
               title="4 counselling cases. 1 workshop. Zero shortcuts."
               dark
-              description="Non-waivable — the certificate is not issued until every component passes."
+              description="Non-waivable, the certificate is not issued until every component passes."
             />
             <div className="mt-8 space-y-3">
               {caseRequirements.map((req) => (
@@ -95,7 +95,7 @@ export default function CertificationPage() {
                 <h3 className="mt-3 font-bold text-white">Human-Evaluated, Double-Scored</h3>
                 <p className="mt-2 text-sm text-white/70">
                   Every case is evaluated by calibrated senior Career Architects and independently
-                  double-scored — no single-evaluator subjectivity.
+                  double-scored, no single-evaluator subjectivity.
                 </p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/[0.05] p-6">
@@ -128,7 +128,7 @@ export default function CertificationPage() {
         <Reveal delay={0.2}>
           <p className="mx-auto mt-10 max-w-2xl text-center text-sm text-slate">
             Certified architects also receive a listing in Mentoria&apos;s verifiable practitioner
-            directory — a public, checkable credential for schools and clients.
+            directory, a public, checkable credential for schools and clients.
           </p>
         </Reveal>
       </Section>

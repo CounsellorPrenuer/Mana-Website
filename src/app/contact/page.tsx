@@ -10,7 +10,7 @@ import { CONTACTS, SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch with the MANA team — email, phone, WhatsApp, or send a message directly.",
+  description: "Get in touch with the MANA team, email, phone, WhatsApp, or send a message directly.",
 };
 
 export default function ContactPage() {
@@ -19,7 +19,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Talk to the MANA team"
-        description="Questions about eligibility, fees, or the programme itself — reach out directly, or register for a free Orientation for the full walkthrough."
+        description="Questions about eligibility, fees, or the programme itself, reach out directly, or register for a free Orientation for the full walkthrough."
       />
 
       <Section bg="white">

@@ -25,7 +25,7 @@ export default function DownloadRequestForm() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const subject = encodeURIComponent("MANA — Resource Request");
+    const subject = encodeURIComponent("MANA Resource Request");
     const body = encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\nWhatsApp: ${whatsapp}\n\nRequested resources:\n${selected
         .map((r) => `- ${r}`)

@@ -33,14 +33,14 @@ import { MODULES, PERSONAS, CERTIFICATION_BADGES, FAQ_CATEGORIES } from "@/lib/c
 const highlights = [
   { icon: Clock3, title: "60 Hours", description: "30 live facilitator-led hours + 30 structured async hours." },
   { icon: Layers, title: "2 Revenue Engines", description: "1:1 TMS 2.0 counselling sessions + AI Career Navigator Workshops." },
-  { icon: Video, title: "Live-Practice Assessed", description: "No written exam — every case human-evaluated, double-scored." },
+  { icon: Video, title: "Live-Practice Assessed", description: "No written exam. Every case is human-evaluated and double-scored." },
   { icon: Rocket, title: "90-Day Sprint", description: "A mandatory post-certification practice-building sprint to launch you." },
 ];
 
 const shiftStats = [
   { icon: Users, value: "199M+", label: "Students across India navigating career decisions right now." },
   { icon: AlertTriangle, value: "72%", label: "Lack structured awareness of the careers actually available to them." },
-  { icon: TrendingDown, value: "80%", label: "Of 2030's jobs don't exist yet — guidance built for 2015 no longer works." },
+  { icon: TrendingDown, value: "80%", label: "Of 2030's jobs don't exist yet. Guidance built for 2015 no longer works." },
 ];
 
 const outcomes = [
@@ -73,7 +73,7 @@ export default function Home() {
             <Reveal delay={0.16}>
               <p className="mt-6 max-w-xl text-balance text-lg leading-relaxed text-white/70 sm:text-xl">
                 MANA trains counsellors and educators to build a self-sufficient, AI-era career guidance
-                practice — through 1:1 TMS 2.0 counselling and school workshops — assessed entirely through
+                practice through 1:1 TMS 2.0 counselling and school workshops, assessed entirely through
                 live practice, never a written exam.
               </p>
             </Reveal>
@@ -137,7 +137,7 @@ export default function Home() {
         <SectionHeading
           eyebrow="Why Now"
           title="Career guidance built for a world that changed faster than the curriculum"
-          description="India's students are choosing careers in an economy being reshaped by AI in real time — and most guidance in the market hasn't caught up."
+          description="India's students are choosing careers in an economy being reshaped by AI in real time, and most guidance in the market hasn't caught up."
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-3">
           {shiftStats.map((s, i) => (
@@ -157,7 +157,7 @@ export default function Home() {
         <Reveal>
           <p className="mx-auto max-w-4xl text-balance text-center text-2xl font-semibold leading-snug tracking-tight text-white sm:text-3xl lg:text-4xl">
             MANA is building{" "}
-            <span className="text-gold">India&apos;s first generation of AI-era career facilitators</span> —
+            <span className="text-gold">India&apos;s first generation of AI-era career facilitators</span>:
             counsellors who combine psychometric rigour with practical AI fluency, and who can build a
             business, not just earn a badge.
           </p>
@@ -188,8 +188,8 @@ export default function Home() {
           <Reveal>
             <SectionHeading
               eyebrow="Why AI Coaching Matters"
-              title="Guidance plus practical AI literacy — not one or the other"
-              description="Every MANA architect learns to explain AI's real career impact honestly: what it replaces, what it augments, and what it cannot touch. That calibration — never alarmist, never dismissive — is the differentiator generic counselling courses don't teach."
+              title="Guidance plus practical AI literacy, not one or the other"
+              description="Every MANA architect learns to explain AI's real career impact honestly: what it replaces, what it augments, and what it cannot touch. That calibration, never alarmist and never dismissive, is the differentiator generic counselling courses don't teach."
             />
             <div className="mt-8">
               <Button href="/why-mana" variant="secondary">
@@ -219,7 +219,7 @@ export default function Home() {
         <SectionHeading
           eyebrow="Who Should Join"
           title="Built for people who already guide others"
-          description="Counsellors, educators, HR professionals, Army veterans, and second-career professionals — no AI background required."
+          description="Counsellors, educators, HR professionals, Army veterans, and second-career professionals. No AI background required."
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {PERSONAS.map((p, i) => (
@@ -263,7 +263,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Curriculum"
             title="8 modules. 60 hours. One certification."
-            description="A high-level overview — the complete session-by-session curriculum is shared after enrolment."
+            description="A high-level overview. The complete session-by-session curriculum is shared after enrolment."
           />
           <Button href="/curriculum" variant="secondary" className="flex-shrink-0">
             View full curriculum
@@ -291,7 +291,7 @@ export default function Home() {
         <SectionHeading
           eyebrow="Certification"
           title="Assessed through live practice. Never a written exam."
-          description="The Capstone is non-waivable: 4 human-evaluated TMS 2.0 counselling cases, plus one video-recorded AI Career Navigator Workshop — every case double-scored by senior Career Architects."
+          description="The Capstone is non-waivable: 4 human-evaluated TMS 2.0 counselling cases, plus one video-recorded AI Career Navigator Workshop. Every case is double-scored by senior Career Architects."
           dark
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -319,7 +319,7 @@ export default function Home() {
             <SectionHeading
               eyebrow="Faculty"
               title="Every case, double-scored by senior Career Architects"
-              description="MANA is taught and evaluated by Mentoria's own senior practitioners — the standard of a Mentoria Career Architect is set by the people who built the practice."
+              description="MANA is taught and evaluated by Mentoria's own senior practitioners. The standard of a Mentoria Career Architect is set by the people who built the practice."
             />
             <div className="mt-8">
               <Button href="/faculty" variant="secondary">
@@ -354,13 +354,13 @@ export default function Home() {
             },
             {
               quote:
-                "I came in with zero AI experience. Foundation 1 alone was worth the fee — I can now explain AI's career impact to a room of anxious parents without flinching.",
+                "I came in with zero AI experience. Foundation 1 alone was worth the fee. I can now explain AI's career impact to a room of anxious parents without flinching.",
               name: "Practising MANA Architect",
               role: "School Counsellor, Bengaluru",
             },
             {
               quote:
-                "The Capstone is genuinely hard — and that's exactly why the certificate means something when I show it to a school principal.",
+                "The Capstone is genuinely hard, and that's exactly why the certificate means something when I show it to a school principal.",
               name: "Practising MANA Architect",
               role: "Career Coach, Delhi NCR",
             },
@@ -399,7 +399,7 @@ export default function Home() {
               A second certification programme is on the way
             </h2>
             <p className="mx-auto mt-3 max-w-lg text-balance text-slate">
-              Be the first to know when it opens — join the waitlist and we&apos;ll notify you directly.
+              Be the first to know when it opens. Join the waitlist and we&apos;ll notify you directly.
             </p>
             <div className="mt-7">
               <Link

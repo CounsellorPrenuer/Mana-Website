@@ -9,7 +9,7 @@ import FinalCta from "@/components/sections/FinalCta";
 export const metadata: Metadata = {
   title: "Why MANA",
   description:
-    "Four differentiators that separate MANA from a generic counselling course — AI fluency, India-specific design, real business building, and proof through live practice.",
+    "Four differentiators that separate MANA from a generic counselling course, AI fluency, India-specific design, real business building, and proof through live practice.",
 };
 
 const differentiators = [
@@ -17,19 +17,19 @@ const differentiators = [
     icon: Sparkles,
     title: "AI Fluency That Actually Counsels",
     description:
-      "Most 'AI training' teaches tool usage. MANA teaches calibrated communication — explaining AI's real career impact to a frightened Class 11 student or a hostile parent audience, honestly, without alarmism or false reassurance.",
+      "Most 'AI training' teaches tool usage. MANA teaches calibrated communication, explaining AI's real career impact to a frightened Class 11 student or a hostile parent audience, honestly, without alarmism or false reassurance.",
   },
   {
     icon: MapPin,
     title: "Built for the Indian System, Specifically",
     description:
-      "CBSE, ICSE, IB, IGCSE and State Boards. NIOS routes. Entrance exam ecosystems. Foundation 2 is built around the education system your clients are actually navigating — not a generic global framework.",
+      "CBSE, ICSE, IB, IGCSE and State Boards. NIOS routes. Entrance exam ecosystems. Foundation 2 is built around the education system your clients are actually navigating, not a generic global framework.",
   },
   {
     icon: Briefcase,
     title: "A Business, Not Just a Badge",
     description:
-      "Foundation 3 is a full sales operating system — pricing, school outreach, positioning — followed by a mandatory 90-day sprint. MANA certifies practitioners, not just knowledge.",
+      "Foundation 3 is a full sales operating system, pricing, school outreach, positioning, followed by a mandatory 90-day sprint. MANA certifies practitioners, not just knowledge.",
   },
   {
     icon: Video,
@@ -45,7 +45,7 @@ export default function WhyManaPage() {
       <PageHero
         eyebrow="Why MANA"
         title="Not another counselling course with an AI module bolted on"
-        description="Four things MANA does differently — each one designed around what actually makes an independent career-guidance practice succeed in India, today."
+        description="Four things MANA does differently, each one designed around what actually makes an independent career-guidance practice succeed in India, today."
       />
 
       <Section bg="white">
@@ -80,7 +80,7 @@ export default function WhyManaPage() {
                 A single 2-hour AI Career Navigator Workshop, delivered at one school, typically converts{" "}
                 <span className="font-bold text-gold">5–15 paying counselling clients</span>. An architect
                 who can deliver workshops consistently is self-sufficient. One who cannot is dependent on
-                referrals — which is exactly why Navigator Architecture 4 and the Foundation 3 sales
+                referrals, which is exactly why Navigator Architecture 4 and the Foundation 3 sales
                 operating system exist as mandatory, assessed modules.
               </p>
             </div>

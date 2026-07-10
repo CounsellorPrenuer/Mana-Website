@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 const resources = [
-  { icon: FileText, title: "Programme Brochure", description: "The complete MANA overview — practice model, fees, and outcomes." },
+  { icon: FileText, title: "Programme Brochure", description: "The complete MANA overview, practice model, fees, and outcomes." },
   { icon: BookOpen, title: "Curriculum Overview", description: "A module-by-module summary of all 8 modules and the Capstone." },
   { icon: Users, title: "Faculty Profile", description: "Background on Mentoria's senior Career Architects and evaluation panel." },
   { icon: CalendarDays, title: "Programme Calendar", description: "Upcoming cohort dates, orientation schedule, and key deadlines." },
@@ -24,7 +24,7 @@ export default function DownloadsPage() {
       <PageHero
         eyebrow="Downloads"
         title="Resource hub"
-        description="Request any of the resources below — we'll email them across directly."
+        description="Request any of the resources below, we'll email them across directly."
       />
 
       <Section bg="white">

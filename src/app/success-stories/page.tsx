@@ -8,7 +8,7 @@ import FinalCta from "@/components/sections/FinalCta";
 export const metadata: Metadata = {
   title: "Success Stories",
   description:
-    "Long-form outcomes from the MANA practice model — what a two-engine career architecture practice looks like in its first year.",
+    "Long-form outcomes from the MANA practice model, what a two-engine career architecture practice looks like in its first year.",
 };
 
 const stories = [
@@ -16,13 +16,13 @@ const stories = [
     icon: Building2,
     metric: "8 clients from 1 workshop",
     title: "A single school session, a full week of bookings",
-    body: "The AI Career Navigator Workshop model is designed around exactly this outcome: a 2-hour session delivered to a Class 11 cohort, structured to surface genuine interest and close with a clear next step. Architects consistently report 5–15 counselling enquiries converting directly out of a single workshop — turning one school relationship into a recurring client base without a single rupee spent on advertising.",
+    body: "The AI Career Navigator Workshop model is designed around exactly this outcome: a 2-hour session delivered to a Class 11 cohort, structured to surface genuine interest and close with a clear next step. Architects consistently report 5–15 counselling enquiries converting directly out of a single workshop, turning one school relationship into a recurring client base without a single rupee spent on advertising.",
   },
   {
     icon: TrendingUp,
     metric: "From referral-dependent to self-sufficient",
     title: "Building a pipeline that doesn't rely on Mentoria referrals",
-    body: "Foundation 3's sales operating system and the mandatory 90-day post-certification sprint exist for one reason: dependency on referrals caps a practice's growth. Architects who complete the sprint — confident pricing, a rehearsed positioning statement, and a real school-outreach pitch — build a pipeline that keeps generating clients independent of any single referral source.",
+    body: "Foundation 3's sales operating system and the mandatory 90-day post-certification sprint exist for one reason: dependency on referrals caps a practice's growth. Architects who complete the sprint, confident pricing, a rehearsed positioning statement, and a real school-outreach pitch, build a pipeline that keeps generating clients independent of any single referral source.",
   },
   {
     icon: Users,
@@ -38,7 +38,7 @@ export default function SuccessStoriesPage() {
       <PageHero
         eyebrow="Success Stories"
         title="What a MANA practice looks like in its first year"
-        description="Long-form outcomes grounded in the two-engine practice model — how certified architects actually build a self-sufficient business."
+        description="Long-form outcomes grounded in the two-engine practice model, how certified architects actually build a self-sufficient business."
       />
 
       <Section bg="white">

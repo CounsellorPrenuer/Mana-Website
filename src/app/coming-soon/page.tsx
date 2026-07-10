@@ -5,7 +5,7 @@ import Reveal from "@/components/ui/Reveal";
 import WaitlistForm from "@/components/sections/WaitlistForm";
 
 export const metadata: Metadata = {
-  title: "Coming Soon — Second Certification Programme",
+  title: "Coming Soon: Second Certification Programme",
   description:
     "A second Mentoria Training & Certification programme is on the way. Join the waitlist to be the first to know.",
 };
@@ -31,7 +31,7 @@ export default function ComingSoonPage() {
           </Reveal>
           <Reveal delay={0.12}>
             <p className="mx-auto mt-6 max-w-xl text-balance text-lg text-white/70">
-              We&apos;re not sharing dates or curriculum yet — but if you want to be first in line, join the
+              We&apos;re not sharing dates or curriculum yet, but if you want to be first in line, join the
               waitlist below.
             </p>
           </Reveal>

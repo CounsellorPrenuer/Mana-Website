@@ -6,7 +6,7 @@ import { CONTACTS, FEES } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions",
-  description: "Terms governing enrolment in the MANA — Mentoria AI Navigation Architect Certification.",
+  description: "Terms governing enrolment in the MANA | Mentoria AI Navigation Architect Certification.",
 };
 
 export default function TermsPage() {
@@ -32,9 +32,9 @@ export default function TermsPage() {
               heading: "2. Certification Standard",
               body: (
                 <p>
-                  The MANA Certificate is awarded only on successful completion of the Capstone gate — 4
+                  The MANA Certificate is awarded only on successful completion of the Capstone gate, 4
                   human-evaluated TMS 2.0 counselling cases and 1 video-recorded AI Career Navigator
-                  Workshop — as detailed on the Certification page. This gate is non-waivable regardless of
+                  Workshop, as detailed on the Certification page. This gate is non-waivable regardless of
                   performance in earlier modules.
                 </p>
               ),

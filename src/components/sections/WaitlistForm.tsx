@@ -12,7 +12,7 @@ export default function WaitlistForm() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const subject = encodeURIComponent("MANA — Second Programme Waitlist");
+    const subject = encodeURIComponent("MANA Second Programme Waitlist");
     const body = encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\nWhatsApp: ${whatsapp}\n\nPlease notify me when the second MANA certification programme opens.`
     );

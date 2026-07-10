@@ -10,7 +10,7 @@ import FinalCta from "@/components/sections/FinalCta";
 export const metadata: Metadata = {
   title: "Faculty & Mentors",
   description:
-    "MANA is taught and evaluated by Mentoria's senior Career Architects — every live case double-scored, every workshop assessed to the same evaluator standard.",
+    "MANA is taught and evaluated by Mentoria's senior Career Architects, every live case double-scored, every workshop assessed to the same evaluator standard.",
 };
 
 const tiers = [
@@ -24,7 +24,7 @@ const tiers = [
     icon: Users,
     tier: "Guest Faculty",
     description:
-      "Subject-matter specialists brought in for focused sessions — AI tooling, entrance-exam ecosystems, and school-outreach practice — supplementing the core teaching team.",
+      "Subject-matter specialists brought in for focused sessions, AI tooling, entrance-exam ecosystems, and school-outreach practice, supplementing the core teaching team.",
   },
   {
     icon: GraduationCap,
@@ -40,7 +40,7 @@ export default function FacultyPage() {
       <PageHero
         eyebrow="Faculty & Mentors"
         title="Taught and evaluated by Mentoria's senior Career Architects"
-        description="Every live case in the MANA Capstone is double-scored by the same senior architects who built the curriculum — the standard of a Mentoria Career Architect is set by the people who defined it."
+        description="Every live case in the MANA Capstone is double-scored by the same senior architects who built the curriculum, the standard of a Mentoria Career Architect is set by the people who defined it."
       />
 
       <Section bg="white">
@@ -65,7 +65,7 @@ export default function FacultyPage() {
           <Reveal>
             <ShieldCheck className="mx-auto h-9 w-9 text-gold" />
             <p className="mt-6 text-balance text-2xl font-semibold leading-snug text-white sm:text-3xl">
-              &ldquo;Every live case is double-scored by calibrated senior Career Architects — the same
+              &ldquo;Every live case is double-scored by calibrated senior Career Architects, the same
               evaluators who built the programme, evaluating it.&rdquo;
             </p>
             <p className="mt-4 text-sm font-semibold uppercase tracking-wide text-white/50">
@@ -82,7 +82,7 @@ export default function FacultyPage() {
             <h3 className="mt-4 text-xl font-bold text-navy">Individual faculty profiles publish per cohort</h3>
             <p className="mt-2 text-slate">
               Named faculty, photos, and full bios are shared as each cohort is finalised. Meet the team
-              directly — and ask any question about who&apos;s teaching — at a free Orientation session.
+              directly, and ask any question about who&apos;s teaching, at a free Orientation session.
             </p>
             <div className="mt-6">
               <Button href="/orientation">Meet Faculty at Orientation</Button>
