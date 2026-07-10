@@ -8,6 +8,7 @@ export const SITE = {
   orientationFormUrl: "https://forms.gle/jE8fytyuam4viMpL7",
   whatsappNumber: "919152546558",
   whatsappMessage: "Hi, I'd like to know more about the MANA certification.",
+  orientationCta: "Join Orientation",
 };
 
 export const ORIENTATION = {
@@ -54,6 +55,7 @@ export const NAV_LINKS = [
   { label: "Home", href: "/" },
   {
     label: "About MANA",
+    navLabel: "About",
     href: "/about",
     children: [
       { label: "About MANA", href: "/about", description: "What MANA is and why Mentoria built it" },

@@ -13,7 +13,7 @@ export default function Logo({ dark = false, variant = "header", className }: Lo
       href="/"
       className={cn(
         "group flex shrink-0 items-center",
-        variant === "header" ? "gap-6 lg:gap-8" : "gap-6",
+        variant === "header" ? "gap-3 sm:gap-4" : "gap-6",
         className
       )}
       aria-label="MANA by Mentoria home"

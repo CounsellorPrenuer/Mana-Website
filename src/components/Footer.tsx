@@ -20,7 +20,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:underline"
             >
-              Visit mentoria.com <ExternalLink className="h-3.5 w-3.5" />
+              Visit Mentoria <ExternalLink className="h-3.5 w-3.5" />
             </a>
           </div>
 

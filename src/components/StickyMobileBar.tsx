@@ -10,7 +10,7 @@ export default function StickyMobileBar() {
         className="flex flex-1 items-center justify-center gap-2 bg-royal py-3.5 text-sm font-bold text-white"
       >
         <CalendarCheck className="h-4 w-4" />
-        Register for Orientation
+        {SITE.orientationCta}
       </Link>
       <a
         href={`https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(SITE.whatsappMessage)}`}

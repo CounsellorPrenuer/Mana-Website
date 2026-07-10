@@ -3,11 +3,17 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X, ExternalLink } from "lucide-react";
 import Logo from "./Logo";
 import Button from "./ui/Button";
-import { NAV_LINKS } from "@/lib/constants";
+import { NAV_LINKS, SITE } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+
+type NavLink = (typeof NAV_LINKS)[number];
+
+function navDisplayLabel(link: NavLink) {
+  return "navLabel" in link && link.navLabel ? link.navLabel : link.label;
+}
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -25,17 +31,15 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full border-b transition-all duration-300",
-        scrolled
-          ? "border-navy/10 bg-white/95 shadow-[0_1px_0_rgba(27,26,94,0.06)] backdrop-blur-lg"
-          : "border-transparent bg-white"
+        "sticky top-0 z-50 w-full border-b border-navy/[0.06] bg-white shadow-[0_4px_20px_rgba(0,0,0,0.06)] transition-all duration-300",
+        scrolled && "bg-white/95 backdrop-blur-lg"
       )}
     >
-      <div className="mx-auto flex min-h-[5.75rem] max-w-7xl items-center justify-between gap-6 px-5 py-4 sm:px-8 lg:gap-10 lg:px-10">
+      <div className="mx-auto flex min-h-[5.75rem] max-w-7xl items-center justify-between gap-6 px-5 py-4 sm:px-8 lg:gap-8 lg:px-10">
         <Logo />
 
-        <div className="hidden flex-1 items-center justify-end gap-8 lg:flex xl:gap-10">
-          <nav className="flex items-center gap-0.5 xl:gap-1">
+        <div className="hidden flex-1 items-center justify-end gap-6 lg:flex xl:gap-8">
+          <nav className="flex items-center gap-0.5 xl:gap-1.5">
             {NAV_LINKS.map((link) =>
               link.children ? (
                 <div
@@ -46,7 +50,7 @@ export default function Header() {
                 >
                   <button
                     className={cn(
-                      "flex items-center gap-1 rounded-full px-3.5 py-2.5 text-sm font-semibold text-navy/80 transition-colors hover:bg-lavender hover:text-navy xl:px-4",
+                      "flex items-center gap-1 whitespace-nowrap rounded-full px-3.5 py-2.5 text-sm font-semibold text-navy/80 transition-colors hover:bg-lavender hover:text-navy xl:px-4",
                       pathname.startsWith("/about") ||
                         pathname.startsWith("/why-mana") ||
                         pathname.startsWith("/who-should-join") ||
@@ -55,8 +59,8 @@ export default function Header() {
                         : ""
                     )}
                   >
-                    {link.label}
-                    <ChevronDown className="h-3.5 w-3.5" />
+                    {navDisplayLabel(link)}
+                    <ChevronDown className="h-3.5 w-3.5 shrink-0" />
                   </button>
                   <div
                     className={cn(
@@ -83,7 +87,7 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "rounded-full px-3.5 py-2.5 text-sm font-semibold transition-colors hover:bg-lavender hover:text-navy xl:px-4",
+                    "whitespace-nowrap rounded-full px-3.5 py-2.5 text-sm font-semibold transition-colors hover:bg-lavender hover:text-navy xl:px-4",
                     pathname === link.href ? "text-royal" : "text-navy/80"
                   )}
                 >
@@ -93,8 +97,18 @@ export default function Header() {
             )}
           </nav>
 
+          <a
+            href={SITE.parentUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden items-center gap-1 whitespace-nowrap text-sm font-medium text-slate/50 transition-colors hover:text-navy/80 xl:flex"
+          >
+            Visit Mentoria
+            <ExternalLink className="h-3.5 w-3.5" />
+          </a>
+
           <Button href="/orientation" size="md" showArrow={false} className="shrink-0 whitespace-nowrap">
-            Register for Orientation
+            {SITE.orientationCta}
           </Button>
         </div>
 
@@ -139,6 +153,14 @@ export default function Header() {
               )}
             </div>
           ))}
+          <a
+            href={SITE.parentUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-slate/60"
+          >
+            Visit Mentoria <ExternalLink className="h-3.5 w-3.5" />
+          </a>
           <Button
             href="/orientation"
             size="md"
@@ -146,7 +168,7 @@ export default function Header() {
             className="mt-3 justify-center"
             onClick={() => setMobileOpen(false)}
           >
-            Register for Orientation
+            {SITE.orientationCta}
           </Button>
         </div>
       </div>
