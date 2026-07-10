@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+:root {
+  --color-navy: #1b1a5e;
+  --color-navy-light: #2a2878;
+  --color-royal: #2f4fd6;
+  --color-royal-light: #5b74e0;
+  --color-magenta: #e6005a;
+  --color-gold: #f4c40e;
+  --color-lavender: #edeffa;
+  --color-ink: #171438;
+  --color-slate: #5b5a7a;
+
+  --background: #ffffff;
+  --foreground: var(--color-ink);
+}
+
+@theme inline {
+  --color-navy: var(--color-navy);
+  --color-navy-light: var(--color-navy-light);
+  --color-royal: var(--color-royal);
+  --color-royal-light: var(--color-royal-light);
+  --color-magenta: var(--color-magenta);
+  --color-gold: var(--color-gold);
+  --color-lavender: var(--color-lavender);
+  --color-ink: var(--color-ink);
+  --color-slate: var(--color-slate);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-heading: var(--font-outfit);
+  --font-body: var(--font-work-sans);
+
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-marquee: marquee 32s linear infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading), var(--font-body), sans-serif;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-navy);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.bg-speedlines {
+  background-image: repeating-linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.06) 0px,
+    rgba(255, 255, 255, 0.06) 1px,
+    transparent 1px,
+    transparent 42px
+  );
+}
+
+.bg-neural {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(230, 0, 90, 0.08) 0, transparent 40%),
+    radial-gradient(circle at 80% 0%, rgba(244, 196, 14, 0.1) 0, transparent 35%),
+    radial-gradient(circle at 90% 80%, rgba(47, 79, 214, 0.12) 0, transparent 40%);
+}
+
+.card-shadow {
+  box-shadow:
+    0 1px 2px rgba(27, 26, 94, 0.04),
+    0 12px 32px -12px rgba(27, 26, 94, 0.16);
+}
+
+.card-shadow-lg {
+  box-shadow:
+    0 4px 12px rgba(27, 26, 94, 0.06),
+    0 24px 60px -20px rgba(27, 26, 94, 0.28);
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  scrollbar-width: none;
+}
