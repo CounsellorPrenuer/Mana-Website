@@ -35,7 +35,7 @@ export default function Header() {
         scrolled && "bg-white/95 backdrop-blur-lg"
       )}
     >
-      <div className="mx-auto flex min-h-[5.75rem] max-w-7xl items-center justify-between gap-6 px-5 py-4 sm:px-8 lg:gap-8 lg:px-10">
+      <div className="mx-auto flex min-h-[6rem] max-w-7xl items-center justify-between gap-6 px-5 py-3.5 sm:px-8 lg:gap-8 lg:px-10">
         <Logo />
 
         <div className="hidden flex-1 items-center justify-end gap-6 lg:flex xl:gap-8">
@@ -124,7 +124,7 @@ export default function Header() {
       <div
         className={cn(
           "overflow-hidden border-t border-navy/10 bg-white transition-all duration-300 lg:hidden",
-          mobileOpen ? "max-h-[calc(100vh-5.75rem)] overflow-y-auto" : "max-h-0 border-t-0"
+          mobileOpen ? "max-h-[calc(100vh-6rem)] overflow-y-auto" : "max-h-0 border-t-0"
         )}
       >
         <div className="flex flex-col gap-1 px-5 py-4">
