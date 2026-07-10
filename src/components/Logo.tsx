@@ -1,43 +1,52 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-/** Full logo is 1080×321.7; wordmark ends ~72% down — clip tagline only, never crop sides. */
 const LOGO_W = 1080;
 const LOGO_H = 321.7;
-const WORDMARK_RATIO = 0.72;
-const HEADER_H = 42;
-const HEADER_IMG_H = Math.round(HEADER_H / WORDMARK_RATIO);
-const HEADER_IMG_W = Math.round((LOGO_W / LOGO_H) * HEADER_IMG_H);
+/** Tagline starts at y≈234 — crop above this for header wordmark only */
+const WORDMARK_RATIO = 0.58;
 
-export default function Logo({ dark = false, className }: { dark?: boolean; className?: string }) {
+type LogoProps = {
+  dark?: boolean;
+  variant?: "header" | "footer";
+  className?: string;
+};
+
+export default function Logo({ dark = false, variant = "header", className }: LogoProps) {
+  const showFull = variant === "footer";
+  const visibleH = showFull ? 56 : 36;
+  const ratio = showFull ? 1 : WORDMARK_RATIO;
+  const imgH = Math.round(visibleH / ratio);
+  const imgW = Math.round((LOGO_W / LOGO_H) * imgH);
+
   return (
     <Link
       href="/"
-      className={cn("group flex shrink-0 items-center gap-5 sm:gap-7", className)}
+      className={cn("group flex shrink-0 items-center gap-5 sm:gap-6", className)}
       aria-label="MANA by Mentoria home"
     >
       <span
         className="relative block shrink-0 overflow-hidden"
-        style={{ width: HEADER_IMG_W, height: HEADER_H }}
+        style={{ width: imgW, height: visibleH }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/mentoria-logo.svg"
           alt="Mentoria"
-          width={HEADER_IMG_W}
-          height={HEADER_IMG_H}
+          width={imgW}
+          height={imgH}
           draggable={false}
           className={cn(
             "absolute left-0 top-0 max-w-none",
             dark && "brightness-0 invert"
           )}
-          style={{ width: HEADER_IMG_W, height: HEADER_IMG_H }}
+          style={{ width: imgW, height: imgH }}
         />
       </span>
 
-      <span className={cn("h-9 w-px shrink-0", dark ? "bg-white/20" : "bg-navy/10")} aria-hidden />
+      <span className={cn("h-8 w-px shrink-0", dark ? "bg-white/20" : "bg-navy/10")} aria-hidden />
 
-      <span className="flex shrink-0 flex-col justify-center gap-1.5 leading-none">
+      <span className="flex shrink-0 flex-col justify-center gap-1 leading-none">
         <span
           className={cn(
             "font-heading text-base font-bold tracking-tight sm:text-lg",
@@ -48,7 +57,7 @@ export default function Logo({ dark = false, className }: { dark?: boolean; clas
         </span>
         <span
           className={cn(
-            "text-[9px] font-semibold uppercase tracking-[0.18em] sm:text-[10px]",
+            "text-[9px] font-semibold uppercase tracking-[0.16em] sm:text-[10px]",
             dark ? "text-white/50" : "text-slate"
           )}
         >

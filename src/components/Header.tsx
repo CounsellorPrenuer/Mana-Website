@@ -29,7 +29,7 @@ export default function Header() {
         scrolled ? "border-navy/10 bg-white/90 backdrop-blur-lg" : "border-transparent bg-white"
       )}
     >
-      <div className="mx-auto grid min-h-[4.5rem] max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-3 px-5 py-3 sm:px-8 lg:gap-4 lg:px-10">
+      <div className="mx-auto grid min-h-[5rem] max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-5 py-4 sm:px-8 lg:gap-5 lg:px-10">
         <Logo />
 
         <nav className="hidden items-center justify-center gap-0.5 lg:flex xl:gap-1">
@@ -117,7 +117,7 @@ export default function Header() {
       <div
         className={cn(
           "overflow-hidden border-t border-navy/10 bg-white transition-all duration-300 lg:hidden",
-          mobileOpen ? "max-h-[calc(100vh-4.5rem)] overflow-y-auto" : "max-h-0 border-t-0"
+          mobileOpen ? "max-h-[calc(100vh-5rem)] overflow-y-auto" : "max-h-0 border-t-0"
         )}
       >
         <div className="flex flex-col gap-1 px-5 py-4">

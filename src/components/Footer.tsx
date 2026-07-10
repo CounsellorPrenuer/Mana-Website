@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10 lg:py-20">
         <div className="grid grid-cols-2 gap-10 sm:grid-cols-2 lg:grid-cols-5">
           <div className="col-span-2 space-y-5 lg:col-span-2">
-            <Logo dark />
+            <Logo dark variant="footer" />
             <p className="max-w-sm text-sm leading-relaxed text-white/60">
               {SITE.tagline} MANA is the Training &amp; Certification vertical of {SITE.parentBrand}, India&apos;s
               holistic career discovery ecosystem.
