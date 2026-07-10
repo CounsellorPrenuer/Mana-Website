@@ -10,6 +10,12 @@ export const SITE = {
   whatsappMessage: "Hi, I'd like to know more about the MANA certification.",
 };
 
+export const ORIENTATION = {
+  eyebrow: "Free · Live · Weekdays",
+  schedule: "Every day except Tuesday, Saturday, and Sunday",
+  scheduleBadge: "Held every day except Tuesday, Saturday & Sunday",
+};
+
 export const CONTACTS = [
   {
     name: "Ketki Sarange",
@@ -105,7 +111,7 @@ export const MODULES = [
     tag: "Foundation 2",
     title: "Indian Education & Career Ecosystem",
     outcome:
-      "Master boards, entrance pathways, and lesser-known routes (NIOS, education hacks) for confident, specific advice.",
+      "Master boards, entrance pathways, and lesser-known routes (NIOS, open schooling, and alternative pathways) for confident, specific advice.",
     hours: 6,
     live: 3,
     async: 3,
@@ -220,7 +226,7 @@ export const FAQ_CATEGORIES = [
       },
       {
         q: "Do I need to be a working counsellor already?",
-        a: "No. MANA is built for counsellors, psychologists, educators, HR professionals, army veterans, and second-career professionals alike. If you already hold an active Mentoria certification under the previous model, see the Bridge Programme instead.",
+        a: "No. MANA is built for counsellors, psychologists, educators, HR professionals, Army veterans, and second-career professionals alike. If you already hold an active Mentoria certification under the previous model, see the Bridge Programme instead.",
       },
     ],
   },
@@ -298,7 +304,7 @@ export const FAQ_CATEGORIES = [
       },
       {
         q: "When are Orientation sessions held?",
-        a: "Every day except Tuesday, Saturday, and Sunday. Register once and we'll confirm your slot over WhatsApp.",
+        a: ORIENTATION.schedule + ". Register once and we'll confirm your slot over WhatsApp.",
       },
     ],
   },

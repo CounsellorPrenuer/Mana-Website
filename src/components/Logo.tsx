@@ -10,8 +10,8 @@ export default function Logo({ dark = false, className }: { dark?: boolean; clas
           dark ? "text-white" : "text-navy"
         )}
       >
-        mentor
-        <span className="text-magenta">?</span>a
+        Mentor
+        <span className="text-magenta">i</span>a
       </span>
       <span className={cn("h-6 w-px", dark ? "bg-white/25" : "bg-navy/15")} />
       <span className="flex flex-col leading-none">

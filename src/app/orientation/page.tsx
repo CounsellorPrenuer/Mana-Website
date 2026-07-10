@@ -4,7 +4,7 @@ import Section, { SectionHeading, Eyebrow } from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
 import Button from "@/components/ui/Button";
 import StatStrip from "@/components/ui/StatStrip";
-import { SITE } from "@/lib/constants";
+import { SITE, ORIENTATION } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Register for a Free Orientation",
@@ -25,7 +25,7 @@ export default function OrientationPage() {
       <section className="relative overflow-hidden bg-navy bg-neural bg-speedlines pb-16 pt-32 text-white sm:pb-20 sm:pt-40">
         <div className="mx-auto max-w-4xl px-5 text-center sm:px-8">
           <Reveal>
-            <Eyebrow dark>Free · Live · Daily</Eyebrow>
+            <Eyebrow dark>{ORIENTATION.eyebrow}</Eyebrow>
           </Reveal>
           <Reveal delay={0.06}>
             <h1 className="mt-6 text-balance text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
@@ -41,7 +41,7 @@ export default function OrientationPage() {
           <Reveal delay={0.18}>
             <div className="mt-8 inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold">
               <CalendarClock className="h-4 w-4 text-gold" />
-              Held every day except Tuesday, Saturday &amp; Sunday
+              {ORIENTATION.scheduleBadge}
             </div>
           </Reveal>
         </div>
@@ -81,7 +81,7 @@ export default function OrientationPage() {
                   <iframe
                     src={SITE.orientationFormUrl}
                     title="MANA Orientation Registration Form"
-                    className="h-[720px] w-full"
+                    className="h-[min(720px,80vh)] w-full sm:h-[720px]"
                     loading="lazy"
                   >
                     Loading registration form…

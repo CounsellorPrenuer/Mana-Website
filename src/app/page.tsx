@@ -64,8 +64,9 @@ export default function Home() {
             <Reveal delay={0.08}>
               <h1 className="mt-6 text-balance text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl">
                 Become India&apos;s next AI-era{" "}
-                <span className="bg-gradient-to-r from-gold to-magenta bg-clip-text text-transparent">
-                  career architect
+                <span className="text-gold">career</span>{" "}
+                <span className="bg-gradient-to-r from-magenta to-royal bg-clip-text text-transparent">
+                  architect
                 </span>
               </h1>
             </Reveal>
@@ -98,7 +99,7 @@ export default function Home() {
             </Reveal>
           </div>
 
-          <Reveal delay={0.2} className="relative hidden lg:block">
+          <Reveal delay={0.2} className="relative mx-auto w-full max-w-sm lg:max-w-none">
             <div className="relative mx-auto aspect-[4/5] max-w-sm rounded-[2rem] border border-white/10 bg-white/[0.04] p-2 card-shadow-lg backdrop-blur-sm">
               <div className="flex h-full flex-col justify-between rounded-[1.6rem] bg-gradient-to-br from-royal/25 via-navy to-magenta/10 p-7">
                 <div className="flex items-center justify-between">
@@ -171,7 +172,7 @@ export default function Home() {
             <Reveal key={h.title} delay={i * 0.07}>
               <Card className="h-full">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-royal/10 text-royal">
-                  <h.icon className="h-5.5 w-5.5" />
+                  <h.icon className="h-5 w-5" />
                 </div>
                 <h3 className="mt-5 text-lg font-bold text-navy">{h.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate">{h.description}</p>
@@ -218,7 +219,7 @@ export default function Home() {
         <SectionHeading
           eyebrow="Who Should Join"
           title="Built for people who already guide others"
-          description="Counsellors, educators, HR professionals, army veterans and second-career professionals — no AI background required."
+          description="Counsellors, educators, HR professionals, Army veterans, and second-career professionals — no AI background required."
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {PERSONAS.map((p, i) => (
@@ -246,7 +247,7 @@ export default function Home() {
             <Reveal key={o.title} delay={i * 0.08}>
               <Card className="h-full bg-white">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-navy text-gold">
-                  <o.icon className="h-5.5 w-5.5" />
+                  <o.icon className="h-5 w-5" />
                 </div>
                 <h3 className="mt-5 text-lg font-bold text-navy">{o.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate">{o.description}</p>

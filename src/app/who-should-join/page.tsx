@@ -11,7 +11,7 @@ import { PERSONAS, SITE } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Who Should Join",
   description:
-    "MANA is built for counsellors, psychologists, educators, HR professionals, army veterans and second-career professionals. Check eligibility and fit.",
+    "MANA is built for counsellors, psychologists, educators, HR professionals, Army veterans, and second-career professionals. Check eligibility and fit.",
 };
 
 const eligibility = [
@@ -85,7 +85,7 @@ export default function WhoShouldJoinPage() {
           <div className="mx-auto max-w-2xl rounded-3xl border border-navy/10 bg-lavender p-10 text-center">
             <MessageCircle className="mx-auto h-8 w-8 text-royal" />
             <h3 className="mt-4 text-xl font-bold text-navy">Not sure if you&apos;re a fit?</h3>
-            <p className="mt-2 text-slate">Talk it through with us directly — no forms, no pressure.</p>
+            <p className="mt-2 text-slate">Talk it through with us directly — no obligation, no pressure.</p>
             <div className="mt-6 flex flex-wrap justify-center gap-4">
               <Button
                 href={`https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(SITE.whatsappMessage)}`}

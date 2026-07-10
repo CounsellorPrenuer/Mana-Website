@@ -29,7 +29,7 @@ export default function Header() {
         scrolled ? "border-navy/10 bg-white/90 backdrop-blur-lg" : "border-transparent bg-white"
       )}
     >
-      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 py-3 sm:px-8 lg:px-10">
+      <div className="mx-auto flex min-h-[4.5rem] max-w-7xl items-center justify-between px-5 py-3 sm:px-8 lg:px-10">
         <Logo />
 
         <nav className="hidden items-center gap-1 lg:flex">

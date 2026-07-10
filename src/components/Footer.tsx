@@ -11,8 +11,8 @@ export default function Footer() {
           <div className="col-span-2 lg:col-span-2">
             <Logo dark />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/60">
-              {SITE.tagline} MANA is the Training &amp; Certification vertical of Mentoria — India&apos;s holistic
-              career discovery ecosystem.
+              {SITE.tagline} MANA is the Training &amp; Certification vertical of {SITE.parentBrand} — India&apos;s
+              holistic career discovery ecosystem.
             </p>
             <a
               href={SITE.parentUrl}
