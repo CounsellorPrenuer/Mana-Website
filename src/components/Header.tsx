@@ -29,10 +29,10 @@ export default function Header() {
         scrolled ? "border-navy/10 bg-white/90 backdrop-blur-lg" : "border-transparent bg-white"
       )}
     >
-      <div className="mx-auto flex min-h-[4.5rem] max-w-7xl items-center gap-4 px-5 py-3 sm:px-8 lg:gap-6 lg:px-10">
-        <Logo className="lg:mr-2" />
+      <div className="mx-auto grid min-h-[4.5rem] max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-3 px-5 py-3 sm:px-8 lg:gap-4 lg:px-10">
+        <Logo />
 
-        <nav className="hidden flex-1 items-center justify-center gap-0.5 lg:flex xl:gap-1">
+        <nav className="hidden items-center justify-center gap-0.5 lg:flex xl:gap-1">
           {NAV_LINKS.map((link) =>
             link.children ? (
               <div
@@ -90,24 +90,24 @@ export default function Header() {
           )}
         </nav>
 
-        <div className="hidden shrink-0 items-center gap-5 lg:flex">
+        <div className="hidden items-center justify-end gap-4 lg:flex xl:gap-5">
           <a
             href={SITE.parentUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1 whitespace-nowrap text-xs font-medium text-slate hover:text-navy"
+            className="hidden items-center gap-1 whitespace-nowrap text-xs font-medium text-slate hover:text-navy xl:flex"
           >
             mentoria.com
             <ExternalLink className="h-3 w-3" />
           </a>
-          <Button href="/orientation" size="md" showArrow={false} className="whitespace-nowrap">
+          <Button href="/orientation" size="md" showArrow={false} className="whitespace-nowrap px-4 text-sm xl:px-5">
             Register for Orientation
           </Button>
         </div>
 
         <button
           onClick={() => setMobileOpen((v) => !v)}
-          className="ml-auto flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-navy lg:hidden"
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-navy lg:hidden"
           aria-label="Toggle menu"
         >
           {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
