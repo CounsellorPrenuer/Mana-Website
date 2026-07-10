@@ -1,21 +1,38 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import MentoriaWordmark from "./MentoriaWordmark";
+
+/** Full logo is 1080×321.7; wordmark ends ~72% down — clip tagline only, never crop sides. */
+const LOGO_W = 1080;
+const LOGO_H = 321.7;
+const WORDMARK_RATIO = 0.72;
+const HEADER_H = 42;
+const HEADER_IMG_H = Math.round(HEADER_H / WORDMARK_RATIO);
+const HEADER_IMG_W = Math.round((LOGO_W / LOGO_H) * HEADER_IMG_H);
 
 export default function Logo({ dark = false, className }: { dark?: boolean; className?: string }) {
   return (
     <Link
       href="/"
-      className={cn("group flex shrink-0 items-center gap-5 sm:gap-6", className)}
+      className={cn("group flex shrink-0 items-center gap-5 sm:gap-7", className)}
       aria-label="MANA by Mentoria home"
     >
       <span
-        className={cn(
-          "relative block h-9 w-[148px] shrink-0 sm:h-10 sm:w-[162px]",
-          dark && "h-10 w-[158px] sm:h-11 sm:w-[172px]"
-        )}
+        className="relative block shrink-0 overflow-hidden"
+        style={{ width: HEADER_IMG_W, height: HEADER_H }}
       >
-        <MentoriaWordmark dark={dark} className="h-full w-full" />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/mentoria-logo.svg"
+          alt="Mentoria"
+          width={HEADER_IMG_W}
+          height={HEADER_IMG_H}
+          draggable={false}
+          className={cn(
+            "absolute left-0 top-0 max-w-none",
+            dark && "brightness-0 invert"
+          )}
+          style={{ width: HEADER_IMG_W, height: HEADER_IMG_H }}
+        />
       </span>
 
       <span className={cn("h-9 w-px shrink-0", dark ? "bg-white/20" : "bg-navy/10")} aria-hidden />
