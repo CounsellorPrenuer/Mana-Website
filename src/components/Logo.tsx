@@ -29,7 +29,11 @@ export default function Logo({ dark = false, variant = "header", className }: Lo
         draggable={false}
         className={cn(
           "w-auto shrink-0",
-          isHeader ? "block h-[3.5rem] sm:h-[3.75rem]" : "h-16 sm:h-[4.5rem]",
+          // The header crop keeps the "CLUTTER TO CLARITY" tagline below the
+          // wordmark, which pulls the image's own vertical center lower than
+          // the wordmark itself. Nudge it up so "MENTORIA" lines up with
+          // "MANA" instead of the whole image's bounding-box center.
+          isHeader ? "block h-[3.5rem] -translate-y-[14%] sm:h-[3.75rem]" : "h-16 sm:h-[4.5rem]",
           dark && "brightness-0 invert"
         )}
       />
