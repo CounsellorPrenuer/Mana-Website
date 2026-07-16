@@ -21,15 +21,27 @@ export default function Section({ children, className, id, bg = "white" }: Secti
   );
 }
 
-export function Eyebrow({ children, dark }: { children: React.ReactNode; dark?: boolean }) {
+export function Eyebrow({
+  children,
+  dark,
+  compact,
+}: {
+  children: React.ReactNode;
+  dark?: boolean;
+  /** Tighter hero-style pill: sentence case, less letter-spacing */
+  compact?: boolean;
+}) {
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.14em]",
+        "inline-flex items-center gap-1.5 rounded-full font-semibold",
+        compact
+          ? "px-3 py-1 text-xs tracking-normal"
+          : "gap-2 px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.14em]",
         dark ? "bg-white/10 text-gold" : "bg-royal/10 text-royal"
       )}
     >
-      <span className={cn("h-1.5 w-1.5 rounded-full", dark ? "bg-gold" : "bg-magenta")} />
+      <span className={cn("h-1.5 w-1.5 shrink-0 rounded-full", dark ? "bg-gold" : "bg-magenta")} />
       {children}
     </span>
   );

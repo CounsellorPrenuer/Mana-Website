@@ -109,7 +109,7 @@ export default function BridgeProgrammePage() {
 
       <FinalCta
         title="Ready to bridge to MANA?"
-        description="Talk to us at Orientation about which route, full programme or Bridge, fits your background."
+        description="Tell us about your background when you apply and we'll confirm which route, full programme or Bridge, fits you."
       />
     </>
   );

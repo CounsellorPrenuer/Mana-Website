@@ -22,7 +22,7 @@ export default function NotFound() {
             size="lg"
             className="border-white/25 text-white hover:bg-white/10"
           >
-            Register for Orientation
+            Apply Now
           </Button>
         </div>
       </div>

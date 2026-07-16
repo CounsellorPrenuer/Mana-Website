@@ -14,7 +14,7 @@ const resources = [
   { icon: FileText, title: "Programme Brochure", description: "The complete MANA overview, practice model, fees, and outcomes." },
   { icon: BookOpen, title: "Curriculum Overview", description: "A module-by-module summary of all 8 modules and the Capstone." },
   { icon: Users, title: "Faculty Profile", description: "Background on Mentoria's senior Career Architects and evaluation panel." },
-  { icon: CalendarDays, title: "Programme Calendar", description: "Upcoming cohort dates, orientation schedule, and key deadlines." },
+  { icon: CalendarDays, title: "Programme Calendar", description: "Upcoming cohort dates, application deadlines, and key milestones." },
   { icon: HelpCircle, title: "FAQs PDF", description: "The full FAQ list in a shareable, offline-friendly format." },
 ];
 

@@ -25,7 +25,7 @@ export default function FounderOfferBand() {
             </div>
             <p className="mx-auto mt-4 max-w-md text-balance text-white/70">
               Save {FEES.currency}{FEES.discount.toLocaleString("en-IN")} on the full MANA certification.
-              The fee and offer are explained in detail live at Orientation.
+              The fee and offer are explained in full once you apply.
             </p>
             <div className="mt-8">
               <Button href="/orientation" variant="gold" size="lg">

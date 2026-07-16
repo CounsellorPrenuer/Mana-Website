@@ -22,9 +22,9 @@ export default function TermsPage() {
               body: (
                 <p>
                   Enrolment in the MANA certification is confirmed only after fee payment and completion of
-                  any required enrolment formalities, which are discussed in full at your Orientation
-                  session. The certification fee, current Founder&apos;s Offer, and payment options are
-                  confirmed live and are subject to change until enrolment is finalised.
+                  any required enrolment formalities, which are discussed in full once you apply. The
+                  certification fee, current Founder&apos;s Offer, and payment options are confirmed
+                  directly with our team and are subject to change until enrolment is finalised.
                 </p>
               ),
             },

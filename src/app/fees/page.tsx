@@ -112,7 +112,7 @@ export default function FeesPage() {
           <div className="mx-auto max-w-2xl text-center">
             <h3 className="text-2xl font-bold text-navy">Payment options and EMI</h3>
             <p className="mt-3 text-slate">
-              Flexible payment options are discussed and confirmed live at Orientation, along with the
+              Flexible payment options are discussed and confirmed once you apply, along with the
               current Founder&apos;s Offer deadline for your cohort.
             </p>
           </div>
@@ -121,7 +121,7 @@ export default function FeesPage() {
 
       <FinalCta
         title="The fee and offer, explained in full"
-        description="Nothing is finalised without a live walkthrough, book your free Orientation slot."
+        description="Nothing is finalised without a real conversation with our team. Apply and we'll walk you through it."
       />
     </>
   );

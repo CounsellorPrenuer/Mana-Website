@@ -35,7 +35,7 @@ export default function Header() {
         scrolled && "bg-white/95 backdrop-blur-lg"
       )}
     >
-      <div className="mx-auto flex min-h-[6rem] max-w-7xl items-center justify-between gap-6 px-5 py-3.5 sm:px-8 lg:gap-8 lg:px-10">
+      <div className="mx-auto flex min-h-[5.25rem] max-w-7xl items-center justify-between gap-6 px-5 py-2 sm:px-8 lg:gap-8 lg:px-10">
         <Logo />
 
         <div className="hidden flex-1 items-center justify-end gap-6 lg:flex xl:gap-8">
@@ -50,12 +50,12 @@ export default function Header() {
                 >
                   <button
                     className={cn(
-                      "flex items-center gap-1 whitespace-nowrap rounded-full px-3.5 py-2.5 text-sm font-semibold text-navy/80 transition-colors hover:bg-lavender hover:text-navy xl:px-4",
+                      "flex items-center gap-1 whitespace-nowrap rounded-full px-3.5 py-2 text-sm font-semibold text-navy/70 transition-colors hover:bg-lavender hover:text-navy xl:px-4",
                       pathname.startsWith("/about") ||
                         pathname.startsWith("/why-mana") ||
                         pathname.startsWith("/who-should-join") ||
                         pathname.startsWith("/certification")
-                        ? "text-royal"
+                        ? "text-navy"
                         : ""
                     )}
                   >
@@ -87,8 +87,8 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "whitespace-nowrap rounded-full px-3.5 py-2.5 text-sm font-semibold transition-colors hover:bg-lavender hover:text-navy xl:px-4",
-                    pathname === link.href ? "text-royal" : "text-navy/80"
+                    "whitespace-nowrap rounded-full px-3.5 py-2 text-sm font-semibold transition-colors hover:bg-lavender hover:text-navy xl:px-4",
+                    pathname === link.href ? "text-navy" : "text-navy/70"
                   )}
                 >
                   {link.label}
@@ -101,7 +101,7 @@ export default function Header() {
             href={SITE.parentUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden items-center gap-1 whitespace-nowrap text-sm font-medium text-slate/50 transition-colors hover:text-navy/80 xl:flex"
+            className="hidden items-center gap-1 whitespace-nowrap text-sm font-medium text-[#34306f]/80 transition-colors hover:text-navy xl:flex"
           >
             Visit Mentoria
             <ExternalLink className="h-3.5 w-3.5" />
@@ -124,7 +124,7 @@ export default function Header() {
       <div
         className={cn(
           "overflow-hidden border-t border-navy/10 bg-white transition-all duration-300 lg:hidden",
-          mobileOpen ? "max-h-[calc(100vh-6rem)] overflow-y-auto" : "max-h-0 border-t-0"
+          mobileOpen ? "max-h-[calc(100vh-5.25rem)] overflow-y-auto" : "max-h-0 border-t-0"
         )}
       >
         <div className="flex flex-col gap-1 px-5 py-4">
@@ -157,7 +157,7 @@ export default function Header() {
             href={SITE.parentUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-slate/60"
+            className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-[#34306f]/80"
           >
             Visit Mentoria <ExternalLink className="h-3.5 w-3.5" />
           </a>

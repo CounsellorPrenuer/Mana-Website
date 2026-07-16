@@ -81,11 +81,11 @@ export default function FacultyPage() {
             <Bell className="mx-auto h-8 w-8 text-royal" />
             <h3 className="mt-4 text-xl font-bold text-navy">Individual faculty profiles publish per cohort</h3>
             <p className="mt-2 text-slate">
-              Named faculty, photos, and full bios are shared as each cohort is finalised. Meet the team
-              directly, and ask any question about who&apos;s teaching, at a free Orientation session.
+              Named faculty, photos, and full bios are shared as each cohort is finalised. Apply and you can
+              ask any question about who&apos;s teaching directly.
             </p>
             <div className="mt-6">
-              <Button href="/orientation">Meet Faculty at Orientation</Button>
+              <Button href="/orientation">Apply to Meet the Faculty</Button>
             </div>
           </div>
         </Reveal>

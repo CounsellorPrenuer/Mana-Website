@@ -19,7 +19,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Talk to the MANA team"
-        description="Questions about eligibility, fees, or the programme itself, reach out directly, or register for a free Orientation for the full walkthrough."
+        description="Questions about eligibility, fees, or the programme itself, reach out directly, or apply for the full walkthrough."
       />
 
       <Section bg="white">

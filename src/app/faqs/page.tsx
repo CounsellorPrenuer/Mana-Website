@@ -9,7 +9,7 @@ import { FAQ_CATEGORIES } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "FAQs",
   description:
-    "Answers on MANA eligibility, duration, certification, AI modules, income, payments, orientation, and the Bridge route.",
+    "Answers on MANA eligibility, duration, certification, AI modules, income, payments, applying, and the Bridge route.",
 };
 
 export default function FaqsPage() {
@@ -18,7 +18,7 @@ export default function FaqsPage() {
       <PageHero
         eyebrow="FAQs"
         title="Every question, answered"
-        description="Organised by category, if you can't find what you're looking for, ask us directly at Orientation."
+        description="Organised by category, if you can't find what you're looking for, ask us directly when you apply."
       />
 
       <Section bg="white">

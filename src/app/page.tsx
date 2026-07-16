@@ -55,11 +55,11 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-navy bg-neural bg-speedlines pb-20 pt-16 sm:pb-28 sm:pt-20 lg:pt-24">
+      <section className="relative overflow-hidden bg-navy bg-neural bg-speedlines pb-20 pt-12 sm:pb-28 sm:pt-14 lg:pt-16">
         <div className="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-10 lg:px-10">
           <div>
             <Reveal>
-              <Eyebrow dark>Mentoria Training &amp; Certification</Eyebrow>
+              <Eyebrow dark compact>Mentoria Training &amp; Certification</Eyebrow>
             </Reveal>
             <Reveal delay={0.08}>
               <h1 className="mt-6 text-balance text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl">
@@ -80,7 +80,7 @@ export default function Home() {
             <Reveal delay={0.24}>
               <div className="mt-9 flex flex-wrap items-center gap-4">
                 <Button href="/orientation" variant="gold" size="lg">
-                  Register for a Free Orientation
+                  Apply to Join the Cohort
                 </Button>
                 <Button
                   href="/downloads"
@@ -415,7 +415,7 @@ export default function Home() {
 
       {/* FAQ condensed */}
       <Section bg="lavender">
-        <SectionHeading eyebrow="FAQs" title="Quick answers before you register" align="center" />
+        <SectionHeading eyebrow="FAQs" title="Quick answers before you apply" align="center" />
         <div className="mx-auto mt-12 max-w-3xl">
           <Accordion items={condensedFaqs} />
           <div className="mt-8 text-center">

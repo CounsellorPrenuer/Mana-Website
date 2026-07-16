@@ -89,8 +89,8 @@ export default function WhyManaPage() {
       </Section>
 
       <FinalCta
-        title="See the differentiators explained live"
-        description="Orientation walks through exactly how the workshop-to-client pipeline works, with real numbers."
+        title="See the differentiators explained in detail"
+        description="Apply and our team will walk you through exactly how the workshop-to-client pipeline works, with real numbers."
       />
     </>
   );

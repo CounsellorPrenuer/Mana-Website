@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | MANA by Mentoria",
   },
   description:
-    "MANA trains counsellors, educators and career professionals to build a self-sufficient, AI-era career architecture practice. Register for a free live orientation session.",
+    "MANA trains counsellors, educators and career professionals to build a self-sufficient, AI-era career architecture practice. Apply to join the next cohort.",
   openGraph: {
     title: "MANA | Mentoria AI Navigation Architect Certification",
     description:

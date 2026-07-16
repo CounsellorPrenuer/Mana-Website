@@ -21,10 +21,10 @@ export default function PrivacyPolicyPage() {
               heading: "1. What We Collect",
               body: (
                 <p>
-                  When you register for an Orientation session, request a download, join a waitlist, or
-                  contact us, we collect the information you provide directly, typically your name, email
-                  address, and WhatsApp number. We do not collect payment information through this website;
-                  fees are discussed and processed separately.
+                  When you apply, request a download, join a waitlist, or contact us, we collect the
+                  information you provide directly, typically your name, email address, and WhatsApp
+                  number. We do not collect payment information through this website; fees are discussed
+                  and processed separately.
                 </p>
               ),
             },
@@ -32,8 +32,8 @@ export default function PrivacyPolicyPage() {
               heading: "2. How We Use It",
               body: (
                 <p>
-                  Your information is used to confirm Orientation registrations, send reminders and
-                  programme updates, respond to enquiries, deliver requested resources (brochures,
+                  Your information is used to review applications, send updates on your cohort, respond to
+                  enquiries, deliver requested resources (brochures,
                   curriculum overviews, and similar materials), and where you&apos;ve opted in, to keep
                   you informed about the MANA certification and future Mentoria Training &amp; Certification
                   programmes.
@@ -44,9 +44,9 @@ export default function PrivacyPolicyPage() {
               heading: "3. Third-Party Services",
               body: (
                 <p>
-                  Orientation registrations are collected via Google Forms; some communication happens over
-                  WhatsApp. These services process data under their own respective privacy policies. We do
-                  not sell your personal information to third parties.
+                  Applications and resource requests are sent to us by email, and some communication
+                  happens over WhatsApp. These services process data under their own respective privacy
+                  policies. We do not sell your personal information to third parties.
                 </p>
               ),
             },

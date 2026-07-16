@@ -4,7 +4,7 @@ import { SITE } from "@/lib/constants";
 
 export default function FinalCta({
   title = "See the model. Meet the faculty. Ask anything.",
-  description = "Every question about MANA (the practice, the fee, and the Founder's Offer) gets answered live at a free weekday orientation session.",
+  description = "Applying costs nothing and commits you to nothing. Tell us your story, and our team will walk you through the practice, the fee, and the Founder's Offer.",
 }: {
   title?: string;
   description?: string;
@@ -19,7 +19,7 @@ export default function FinalCta({
           <p className="mx-auto mt-5 max-w-xl text-balance text-lg text-white/70">{description}</p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <Button href="/orientation" variant="gold" size="lg">
-              Register for a Free Orientation
+              Apply to Join the Cohort
             </Button>
             <Button
               href={`https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(SITE.whatsappMessage)}`}

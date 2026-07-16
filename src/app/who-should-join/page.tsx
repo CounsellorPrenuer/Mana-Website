@@ -96,7 +96,7 @@ export default function WhoShouldJoinPage() {
                 Chat on WhatsApp
               </Button>
               <Button href="/orientation" variant="primary" showArrow={false}>
-                Register for Orientation
+                Apply Now
               </Button>
             </div>
           </div>

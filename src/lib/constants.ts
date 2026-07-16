@@ -5,16 +5,9 @@ export const SITE = {
   parentBrand: "Mentoria",
   parentUrl: "https://www.mentoria.com",
   url: "https://certifications.mentoria.com",
-  orientationFormUrl: "https://forms.gle/jE8fytyuam4viMpL7",
   whatsappNumber: "919152546558",
   whatsappMessage: "Hi, I'd like to know more about the MANA certification.",
-  orientationCta: "Join Orientation",
-};
-
-export const ORIENTATION = {
-  eyebrow: "Free · Live · Weekdays",
-  schedule: "Every day except Tuesday, Saturday, and Sunday",
-  scheduleBadge: "Held every day except Tuesday, Saturday & Sunday",
+  orientationCta: "Apply Now",
 };
 
 export const CONTACTS = [
@@ -43,8 +36,8 @@ export const TRUST_STATS = [
 
 export const FEES = {
   standard: 60000,
-  founder: 53000,
-  discount: 7000,
+  founder: 55000,
+  discount: 5000,
   currency: "₹",
   tms2Monthly: "₹1,500–2,500",
   bridgeMin: 8000,
@@ -82,7 +75,7 @@ export const FOOTER_LINKS = {
     { label: "Coming Soon Programme", href: "/coming-soon" },
   ],
   engage: [
-    { label: "Register for Orientation", href: "/orientation" },
+    { label: "Apply to Join", href: "/orientation" },
     { label: "Testimonials", href: "/testimonials" },
     { label: "Success Stories", href: "/success-stories" },
     { label: "Fees & Founder's Offer", href: "/fees" },
@@ -293,20 +286,20 @@ export const FAQ_CATEGORIES = [
           "en-IN"
         )}, with a limited-time Founder's Offer bringing it to ₹${FEES.founder.toLocaleString(
           "en-IN"
-        )}. Full details, including payment options, are explained live at Orientation.`,
+        )}. Full details, including payment options, are confirmed with our team once you apply.`,
       },
     ],
   },
   {
-    category: "Orientation",
+    category: "Applying",
     items: [
       {
-        q: "What happens at the free Orientation session?",
-        a: "You'll see the MANA practice model explained live, meet faculty, get your questions answered, and have the fee and Founder's Offer walked through in detail, with no obligation to enrol.",
+        q: "What happens after I apply?",
+        a: "We review your application and get in touch to talk through your goals, answer your questions, and confirm your fit and cohort. Applying is the first step, not a commitment to pay.",
       },
       {
-        q: "When are Orientation sessions held?",
-        a: ORIENTATION.schedule + ". Register once and we'll confirm your slot over WhatsApp.",
+        q: "Does applying commit me to anything?",
+        a: "No. Applying costs nothing and commits you to nothing. You only enrol once you're sure it's right for you, after a real conversation with our team.",
       },
     ],
   },

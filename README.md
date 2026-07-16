@@ -1,7 +1,7 @@
-# MANA — Mentoria AI Navigation Architect Certification
+# MANA: Mentoria AI Navigation Architect Certification
 
 The website for MANA, Mentoria's Training & Certification vertical. Built as an official
-extension of the Mentoria brand — same design language, its own conversion-focused platform.
+extension of the Mentoria brand, same design language, its own conversion-focused platform.
 
 ## Stack
 
@@ -21,10 +21,10 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Structure
 
-- `src/app/` — one route per page (Home, About, Curriculum, Orientation, FAQs, etc.)
-- `src/components/ui/` — design-system primitives (Button, Card, Section, Accordion, Reveal…)
-- `src/components/sections/` — reusable page sections (FinalCta, FounderOfferBand, forms)
-- `src/lib/constants.ts` — single source of truth for nav, contacts, fees, modules, FAQs
+- `src/app/`: one route per page (Home, About, Curriculum, Orientation, FAQs, etc.)
+- `src/components/ui/`: design-system primitives (Button, Card, Section, Accordion, Reveal, etc.)
+- `src/components/sections/`: reusable page sections (FinalCta, FounderOfferBand, forms)
+- `src/lib/constants.ts`: single source of truth for nav, contacts, fees, modules, FAQs
 
 ## Scripts
 
