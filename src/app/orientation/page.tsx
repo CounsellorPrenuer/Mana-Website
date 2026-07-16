@@ -10,11 +10,15 @@ import {
   BookOpen,
   ShieldCheck,
   Check,
+  X,
   Lock,
   PhoneCall,
   GraduationCap,
   Quote,
   CheckCircle2,
+  School,
+  Wallet,
+  Award,
 } from "lucide-react";
 import Section, { SectionHeading, Eyebrow } from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
@@ -24,8 +28,7 @@ import Accordion from "@/components/ui/Accordion";
 import FounderOfferBand from "@/components/sections/FounderOfferBand";
 import CountdownBar from "@/components/sections/apply/CountdownBar";
 import WhyYouSelector from "@/components/sections/apply/WhyYouSelector";
-import CityScopeEstimator from "@/components/sections/apply/CityScopeEstimator";
-import IncomeEstimator from "@/components/sections/apply/IncomeEstimator";
+import OpportunityEstimator from "@/components/sections/apply/OpportunityEstimator";
 import ApplyForm from "@/components/sections/apply/ApplyForm";
 
 export const metadata: Metadata = {
@@ -35,100 +38,100 @@ export const metadata: Metadata = {
 };
 
 const heroStats = [
-  { value: "9+ yrs", label: "Guiding India's students" },
-  { value: "3,00,000+", label: "Lives shaped" },
+  { value: "9+ yrs", label: "Guiding students" },
+  { value: "3L+", label: "Lives shaped" },
   { value: "200+", label: "School partners" },
-  { value: "Official", label: "AWES partner, 139 Army schools" },
+  { value: "Official", label: "AWES partner" },
 ];
 
 const whatIs = [
-  { k: "You learn", title: "A method that works", body: "A tested, AI-era, India-specific way to take any student from confused to clear." },
-  { k: "You become", title: "A guide people trust", body: "A recognised AI Career Navigation Architect, credible to schools and parents from day one." },
-  { k: "You build", title: "A business you keep", body: "Your own practice, with a full system for winning clients and the freedom to grow it your way." },
+  { k: "Learn", title: "A method that works", body: "AI-era, India-specific, field-tested." },
+  { k: "Become", title: "A guide people trust", body: "Credible to schools and parents from day one." },
+  { k: "Build", title: "A business you keep", body: "Your practice, your clients, your pace." },
 ];
 
-const whyNow = [
-  { big: "~1 in 5", title: "schools have a counsellor", body: "Most Indian schools offer no career guidance at all. That's millions of students, and paying parents, with a real need and nowhere to take it." },
-  { big: "AI-era", title: "careers won't sit still", body: "Parents can't map a future they don't understand. Guidance that makes sense of the AI age is what they want, and what they'll pay for." },
-  { big: "Wide open", title: "market, few real guides", body: "Demand is enormous and skilled, certified guides are scarce. Become one, and you're filling a gap, not fighting for scraps." },
+const whyNowStats = [
+  { value: "~1 in 5", label: "Indian schools have a counsellor" },
+  { value: "AI-era", label: "careers won't sit still" },
+  { value: "Wide open", label: "market, few real guides" },
 ];
 
 const businessPoints = [
-  { title: "Win your own clients.", body: "A complete system for reaching schools and filling rooms with families who need exactly what you offer." },
-  { title: "Deliver without the grind.", body: "Mentoria carries the assessments, the tech, the reports and the scheduling. You do the part only a human can." },
-  { title: "Grow at your own pace.", body: "Begin with one school or one family. Build towards a full practice as your name gets around." },
-  { title: "Get leads as you rise.", body: "Active practitioners have warm enquiries sent straight to them. Your reputation starts working for you." },
+  { title: "Win your own clients", body: "A system for reaching schools and filling rooms." },
+  { title: "Deliver without the grind", body: "Mentoria carries the assessments, tech and scheduling." },
+  { title: "Grow at your own pace", body: "One school or one family. Then more, as your name spreads." },
+  { title: "Get leads as you rise", body: "Active practitioners get warm enquiries sent to them." },
 ];
 
 const differentiators = [
-  { icon: Brain, title: "AI-era and India-specific", body: "Built for how careers are actually changing, and for Indian boards, colleges and entrances, not a borrowed overseas model." },
-  { icon: Target, title: "Demonstration-first", body: "You don't just hear the theory. You watch the move, run it yourself, and get coached until it's second nature." },
-  { icon: Briefcase, title: "A business system, not a badge", body: "A full playbook for reaching schools and families, so your certificate turns into a living, earning practice." },
-  { icon: Handshake, title: "The hard parts, handled", body: "Assessments, reports, scheduling and tech, all carried by Mentoria. One person with the muscle of a whole team." },
-  { icon: BookOpen, title: "A credential that means something", body: "A three-tier assessment and a real-case capstone. You earn it. You don't just sit through it." },
-  { icon: ShieldCheck, title: "Child-first, always", body: "Every method serves the student first. That's how you earn the trust that turns families into referrals." },
+  { icon: Brain, title: "AI-era, India-specific", body: "Built for how careers change here, not a borrowed model." },
+  { icon: Target, title: "Demonstration-first", body: "Watch it, run it, get coached until it's second nature." },
+  { icon: Briefcase, title: "A business system", body: "A playbook for reaching schools, not just a certificate." },
+  { icon: Handshake, title: "The hard parts, handled", body: "Assessments and admin carried by Mentoria." },
+  { icon: BookOpen, title: "A credential you earn", body: "A three-tier assessment and a real-case capstone." },
+  { icon: ShieldCheck, title: "Child-first, always", body: "The trust that turns families into referrals." },
 ];
 
 const comparison = [
-  { feature: "What you walk away with", old: "A certificate to frame.", mana: "A certificate, a proven method, and a business you own." },
-  { feature: "Finding your clients", old: "You're on your own once the course ends.", mana: "A step-by-step system for winning schools, plus warm leads sent to you." },
-  { feature: "Delivery & admin", old: "You handle the assessments, reports and logistics yourself.", mana: "Assessments, reports, technology and scheduling, carried by Mentoria." },
-  { feature: "The method", old: "A legacy psychometric test.", mana: "An AI-era, India-specific method built for the careers of today." },
-  { feature: "How you're trained", old: "Watch the videos, pass the quiz.", mana: "Practice-first, a live practicum, and a real-case capstone." },
-  { feature: "After you certify", old: "Good luck.", mana: "A guided 90-day launch sprint and ongoing growth support." },
-  { feature: "The name behind you", old: "Only your own, from day one.", mana: "Trusted by 200+ schools, the Army Welfare Education Society and government partners." },
+  { feature: "What you walk away with", old: "A certificate to frame", mana: "A certificate, a method, and a business" },
+  { feature: "Finding clients", old: "You're on your own", mana: "A system, plus warm leads sent to you" },
+  { feature: "Delivery & admin", old: "You handle it yourself", mana: "Carried by Mentoria" },
+  { feature: "The method", old: "A legacy psychometric test", mana: "AI-era, India-specific" },
+  { feature: "How you train", old: "Videos, then a quiz", mana: "Practice, practicum, real-case capstone" },
+  { feature: "After you certify", old: "Good luck", mana: "A guided 90-day launch sprint" },
+  { feature: "The name behind you", old: "Only your own", mana: "200+ schools, AWES, govt partners" },
 ];
 
 const journey = [
-  { n: 1, title: "Apply", body: "Tell us your story. We pick people ready to build, not just browse." },
-  { n: 2, title: "Learn", body: "60 hours of live and self-paced training in the full method." },
-  { n: 3, title: "Certify", body: "Pass the three-tier assessment and a real-case capstone." },
-  { n: 4, title: "Launch", body: "A guided 90-day sprint to land your first schools and clients." },
-  { n: 5, title: "Scale", body: "Earn the Active Practice Badge, and have leads routed to you." },
+  { n: 1, title: "Apply", body: "Tell us your story." },
+  { n: 2, title: "Learn", body: "60 hours, live + self-paced." },
+  { n: 3, title: "Certify", body: "Assessment + real-case capstone." },
+  { n: 4, title: "Launch", body: "A guided 90-day sprint." },
+  { n: 5, title: "Scale", body: "Leads routed to you." },
 ];
 
 const curriculumSnapshot = [
-  { tag: "AI", title: "AI Literacy for Career Guidance", body: "Make modern AI your back office and your edge, used responsibly." },
-  { tag: "ECOSYSTEM", title: "The Indian Education & Career Ecosystem", body: "Boards, streams, entrances, colleges and pathways, known cold." },
-  { tag: "DISCOVERY", title: "Career Discovery Architecture", body: "Read a student's interests, personality and aptitude, and turn them into a clear plan." },
-  { tag: "FAMILIES", title: "Parent & Family Counselling", body: "Handle the emotional, high-stakes conversations where careers are really decided." },
-  { tag: "WORKSHOPS", title: "The AI Career Navigator Workshop", body: "Run a session that gives a room clarity, and turns that clarity into clients." },
-  { tag: "BUSINESS", title: "The Sales & Growth System", body: "Reach schools, structure deals, answer objections, and build a pipeline that compounds." },
+  { tag: "AI", title: "AI Literacy for Career Guidance" },
+  { tag: "ECOSYSTEM", title: "The Indian Education & Career Ecosystem" },
+  { tag: "DISCOVERY", title: "Career Discovery Architecture" },
+  { tag: "FAMILIES", title: "Parent & Family Counselling" },
+  { tag: "WORKSHOPS", title: "The AI Career Navigator Workshop" },
+  { tag: "BUSINESS", title: "The Sales & Growth System" },
 ];
 
 const support = [
-  { icon: Sparkles, title: "Delivery engine", body: "Assessments, reports, tech and scheduling, all handled for you." },
-  { icon: Users, title: "Warm leads", body: "Overflow student enquiries routed to active, badge-holding guides." },
-  { icon: GraduationCap, title: "Senior mentors", body: "A 90-day launch sprint led by people who've built practices themselves." },
-  { icon: ShieldCheck, title: "The Mentoria brand", body: "Borrow the trust of a platform used by 200+ schools from day one." },
+  { icon: Sparkles, title: "Delivery engine", body: "Assessments, reports and scheduling, handled." },
+  { icon: Users, title: "Warm leads", body: "Overflow enquiries routed to active guides." },
+  { icon: GraduationCap, title: "Senior mentors", body: "A 90-day sprint led by people who've done it." },
+  { icon: ShieldCheck, title: "The Mentoria brand", body: "Trust from 200+ schools, from day one." },
 ];
 
 const whoItsFor = [
-  { title: "Career-changers", body: "Done with work that pays the bills but empties the tank. Ready to build something that gives back." },
-  { title: "Parents returning to work", body: "Looking for a credible, flexible profession you can shape around your family and grow at your own pace." },
-  { title: "Teachers & educators", body: "Already the person students turn to. Ready to do it independently, and be paid what it's worth." },
-  { title: "Coaches, mentors & psychologists", body: "Wanting AI-era credentials, a proven method, and a real system to grow your own practice." },
+  { title: "Career-changers", body: "Ready to build something that gives back." },
+  { title: "Parents returning to work", body: "A credible profession that fits around family." },
+  { title: "Teachers & educators", body: "Do it independently, paid what it's worth." },
+  { title: "Coaches & psychologists", body: "A proven system to grow your own practice." },
 ];
 
 const testimonials = [
   {
-    quote: "The workshop-to-client pipeline is what changed everything for my practice. One school session and I had eight new counselling clients within the week.",
+    quote: "One school session and I had eight new counselling clients within the week.",
     role: "Practising MANA Architect, Pune",
   },
   {
-    quote: "I came in with no counselling background and a lot of doubt. The method gave me the skill, the 90-day sprint gave me my first clients, and now I have a practice I'm proud of.",
+    quote: "I came in with no counselling background. The method gave me the skill; the sprint gave me my first clients.",
     role: "Practising MANA Architect, Bengaluru",
   },
   {
-    quote: "What sold me was the support. I look after the families; Mentoria handles the rest. My first school partnership paid back the fee several times over.",
+    quote: "I look after the families; Mentoria handles the rest. My first partnership paid back the fee several times over.",
     role: "Practising MANA Architect, Delhi NCR",
   },
 ];
 
 const risks = [
-  { icon: Lock, title: "Apply free, decide later", body: "Applying costs nothing and commits you to nothing. You only enrol once you're sure it's right for you." },
-  { icon: PhoneCall, title: "A real conversation first", body: "Before you pay, you speak with our team about your goals, your fit, and your questions. No pressure, no bots." },
-  { icon: GraduationCap, title: "Never left on your own", body: "The 90-day launch sprint means support after you certify. No first client by week seven, and you get a one-to-one plan, not a shrug." },
+  { icon: Lock, title: "Apply free, decide later", body: "Costs nothing, commits you to nothing." },
+  { icon: PhoneCall, title: "A real conversation first", body: "You talk to our team before you pay. No bots." },
+  { icon: GraduationCap, title: "Never left on your own", body: "The 90-day sprint means support after you certify." },
 ];
 
 const faqs = [
@@ -147,53 +150,87 @@ export default function ApplyPage() {
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-navy bg-neural bg-speedlines py-16 sm:py-20">
-        <div className="mx-auto max-w-4xl px-5 text-center sm:px-8">
-          <Reveal>
-            <Eyebrow dark>MANA by Mentoria · The AI Career Navigation Architect Certification</Eyebrow>
-          </Reveal>
-          <Reveal delay={0.06}>
-            <h1 className="mt-6 text-balance text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Help students find their future.{" "}
-              <span className="bg-gradient-to-r from-gold to-magenta bg-clip-text text-transparent">
-                Build your own
-              </span>{" "}
-              in the process.
-            </h1>
-          </Reveal>
-          <Reveal delay={0.12}>
-            <p className="mx-auto mt-6 max-w-2xl text-balance text-lg leading-relaxed text-white/70 sm:text-xl">
-              MANA is Mentoria&apos;s certification for people who love guiding young people, and want to
-              turn that gift into a business they own. Learn to navigate careers in the age of AI. Earn a
-              credential schools and families trust. Keep the practice you build. No counselling background
-              needed.
-            </p>
-          </Reveal>
-          <Reveal delay={0.18}>
-            <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-              <Button href="#apply" variant="gold" size="lg">
-                Apply to join the cohort
-              </Button>
-              <Button
-                href="#whatis"
-                variant="ghost"
-                size="lg"
-                className="border-white/25 text-white hover:bg-white/10"
-              >
-                What is MANA?
-              </Button>
-            </div>
-            <p className="mt-4 text-sm text-white/50">
-              No prior experience required · Built for working adults · Limited seats per cohort
-            </p>
-          </Reveal>
-          <Reveal delay={0.24}>
-            <div className="mt-12 grid grid-cols-2 gap-6 border-t border-white/10 pt-8 sm:grid-cols-4">
-              {heroStats.map((s) => (
-                <div key={s.label}>
-                  <div className="text-2xl font-bold text-white sm:text-3xl">{s.value}</div>
-                  <div className="mt-1 text-xs font-medium text-white/60 sm:text-sm">{s.label}</div>
+        <div className="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-10 lg:px-10">
+          <div>
+            <Reveal>
+              <Eyebrow dark>MANA by Mentoria</Eyebrow>
+            </Reveal>
+            <Reveal delay={0.06}>
+              <h1 className="mt-6 text-balance text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
+                Help students find their future.{" "}
+                <span className="bg-gradient-to-r from-gold to-magenta bg-clip-text text-transparent">
+                  Build your own
+                </span>{" "}
+                in the process.
+              </h1>
+            </Reveal>
+            <Reveal delay={0.12}>
+              <p className="mt-6 max-w-xl text-balance text-lg leading-relaxed text-white/70 sm:text-xl">
+                Turn your gift for guiding young people into a business you own. No counselling background
+                needed.
+              </p>
+            </Reveal>
+            <Reveal delay={0.18}>
+              <div className="mt-9 flex flex-wrap items-center gap-4">
+                <Button href="#apply" variant="gold" size="lg">
+                  Apply to join the cohort
+                </Button>
+                <Button
+                  href="#whatis"
+                  variant="ghost"
+                  size="lg"
+                  className="border-white/25 text-white hover:bg-white/10"
+                >
+                  What is MANA?
+                </Button>
+              </div>
+              <p className="mt-4 text-sm text-white/50">
+                No prior experience · Built for working adults · Limited seats
+              </p>
+            </Reveal>
+            <Reveal delay={0.24}>
+              <div className="mt-12 grid grid-cols-2 gap-6 border-t border-white/10 pt-8 sm:grid-cols-4">
+                {heroStats.map((s) => (
+                  <div key={s.label}>
+                    <div className="text-2xl font-bold text-white sm:text-3xl">{s.value}</div>
+                    <div className="mt-1 text-xs font-medium text-white/60 sm:text-sm">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+
+          <Reveal delay={0.2} className="relative hidden lg:block">
+            <div className="relative mx-auto aspect-[4/5] max-w-sm rounded-[2rem] border border-white/10 bg-white/[0.04] p-2 card-shadow-lg backdrop-blur-sm">
+              <div className="flex h-full flex-col justify-between rounded-[1.6rem] bg-gradient-to-br from-royal/25 via-navy to-magenta/10 p-7">
+                <div className="flex items-center justify-between">
+                  <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/80">
+                    Year One, One Architect
+                  </span>
+                  <Rocket className="h-5 w-5 text-gold" />
                 </div>
-              ))}
+                <div className="space-y-4">
+                  {[
+                    { icon: School, label: "Workshops Delivered", value: "5 schools" },
+                    { icon: Users, label: "Families Guided", value: "40+" },
+                    { icon: Wallet, label: "Practice Income", value: "₹18L+" },
+                  ].map((row) => (
+                    <div key={row.label} className="flex items-center gap-3 rounded-xl bg-white/[0.06] p-4">
+                      <row.icon className="h-5 w-5 flex-shrink-0 text-gold" />
+                      <div>
+                        <div className="text-xs font-medium uppercase tracking-wide text-white/50">
+                          {row.label}
+                        </div>
+                        <div className="text-lg font-bold text-white">{row.value}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex items-center gap-2 rounded-xl bg-gold/15 p-4">
+                  <Award className="h-6 w-6 flex-shrink-0 text-gold" />
+                  <span className="text-sm font-semibold text-white">Independent Practice, Built</span>
+                </div>
+              </div>
             </div>
           </Reveal>
         </div>
@@ -206,11 +243,9 @@ export default function ApplyPage() {
             <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-magenta via-royal to-lavender" />
             <Eyebrow>New here? Start with this</Eyebrow>
             <h2 className="mt-4 text-3xl font-bold text-navy sm:text-4xl">What is MANA?</h2>
-            <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-navy/80">
-              MANA is Mentoria&apos;s <b className="text-navy">AI Career Navigation Architect certification</b>.
-              In plain terms: we train you to guide students towards careers that fit in the age of AI, we
-              certify you so schools and families trust you on sight, and we hand you a complete system to
-              build a practice of your own. A skill, a credential, and a business. All yours.
+            <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-navy/80">
+              Mentoria&apos;s <b className="text-navy">AI Career Navigation Architect certification</b>: a
+              skill, a credential, and a business. All yours.
             </p>
             <div className="mx-auto mt-10 grid max-w-3xl gap-4 text-left sm:grid-cols-3">
               {whatIs.map((w) => (
@@ -229,8 +264,8 @@ export default function ApplyPage() {
       <Section bg="lavender">
         <SectionHeading
           eyebrow="What's In It For You"
-          title="A business, a calling, and an income, on your own terms."
-          description="Tell us your background and see why it's exactly what this work needs."
+          title="A business, a calling, an income, on your own terms."
+          description="Tell us your background and see why it fits."
           align="center"
         />
         <div className="mt-12">
@@ -238,37 +273,36 @@ export default function ApplyPage() {
         </div>
       </Section>
 
-      {/* Why now */}
-      <Section bg="white">
-        <SectionHeading
-          eyebrow="Why This, Why Now"
-          title="Every family needs this. Almost no one is trained to give it."
-          description="AI is turning the job market upside down. Parents are worried, students are guessing, and India has nowhere near enough people who can help them think clearly."
-          align="center"
-        />
-        <div className="mt-12 grid gap-6 sm:grid-cols-3">
-          {whyNow.map((item, i) => (
-            <Reveal key={item.title} delay={i * 0.08}>
-              <Card className="h-full">
-                <div className="text-3xl font-bold text-magenta">{item.big}</div>
-                <h3 className="mt-2 font-bold text-navy">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate">{item.body}</p>
-              </Card>
-            </Reveal>
-          ))}
-        </div>
+      {/* Why now — condensed stat band */}
+      <Section bg="white" className="!py-14">
+        <Reveal>
+          <div className="mx-auto max-w-4xl">
+            <p className="text-center text-lg font-semibold text-navy sm:text-xl">
+              Every family needs this. Almost no one is trained to give it.
+            </p>
+            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+              {whyNowStats.map((s) => (
+                <div key={s.label} className="rounded-2xl bg-lavender px-6 py-5 text-center">
+                  <div className="text-2xl font-bold text-magenta">{s.value}</div>
+                  <div className="mt-1 text-sm text-slate">{s.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Reveal>
       </Section>
 
-      {/* City scope estimator */}
-      <Section bg="lavender">
+      {/* Opportunity estimator (tabbed: city scope + income) */}
+      <Section bg="navy" className="bg-neural">
         <SectionHeading
-          eyebrow="Find The Scope In Your City"
-          title="How big is the opportunity where you live?"
-          description="Get an illustrative sense of the schools and students in your market."
+          eyebrow="Picture The Opportunity"
+          title="What could this look like for you?"
+          description="Two quick pictures, not a promise: the market where you live, and the income a practice could build."
+          dark
           align="center"
         />
         <div className="mx-auto mt-12 max-w-3xl">
-          <CityScopeEstimator />
+          <OpportunityEstimator />
         </div>
       </Section>
 
@@ -281,18 +315,18 @@ export default function ApplyPage() {
               A certificate sits in a drawer. A business changes your life.
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-slate">
-              Most courses teach you to counsel, then leave you alone with the hardest part: finding people
-              who will actually pay. MANA flips that. You leave knowing how to reach schools, fill a room,
-              and turn a single workshop into a steady stream of families.
+              Most courses teach you to counsel, then leave you to find people who&apos;ll pay. MANA hands
+              you the system to actually do that.
             </p>
-            <ul className="mt-8 space-y-4">
+            <ul className="mt-8 grid gap-4 sm:grid-cols-2">
               {businessPoints.map((p, i) => (
-                <li key={p.title} className="flex items-start gap-4">
+                <li key={p.title} className="flex items-start gap-3">
                   <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-royal text-sm font-bold text-white">
                     {i + 1}
                   </span>
                   <span className="text-sm text-navy">
-                    <b className="font-bold">{p.title}</b> {p.body}
+                    <b className="block font-bold">{p.title}</b>
+                    {p.body}
                   </span>
                 </li>
               ))}
@@ -303,9 +337,9 @@ export default function ApplyPage() {
               <h3 className="text-lg font-bold">What a practice can build</h3>
               <div className="mt-6 space-y-1">
                 {[
-                  ["One school partnership (~200 students)", "₹3–6L"],
+                  ["One school (~200 students)", "₹3–6L"],
                   ["Five schools in a year", "₹20–35L"],
-                  ["Per family guided (independent)", "₹850–2,625"],
+                  ["Per family, independent", "₹850–2,625"],
                 ].map(([k, v]) => (
                   <div key={k} className="flex items-baseline justify-between gap-4 border-b border-white/10 py-4 last:border-0">
                     <span className="max-w-[60%] text-sm text-white/80">{k}</span>
@@ -313,31 +347,14 @@ export default function ApplyPage() {
                   </div>
                 ))}
               </div>
-              <p className="mt-5 text-xs text-white/50">
-                Illustrative of the opportunity, not a guarantee. What you earn depends on your effort, your
-                market, and how you build your business.
-              </p>
+              <p className="mt-5 text-xs text-white/50">Illustrative, not a guarantee. Depends on your effort and market.</p>
             </div>
           </Reveal>
         </div>
       </Section>
 
-      {/* Income estimator */}
-      <Section bg="navy" className="bg-neural">
-        <SectionHeading
-          eyebrow="Picture The Numbers"
-          title="What could your practice earn?"
-          description="Move the sliders to see the shape of the opportunity. Every practice is different, and this is a picture, not a promise."
-          dark
-          align="center"
-        />
-        <div className="mx-auto mt-12 max-w-3xl">
-          <IncomeEstimator />
-        </div>
-      </Section>
-
       {/* Differentiators */}
-      <Section bg="white">
+      <Section bg="lavender">
         <SectionHeading
           eyebrow="Why MANA"
           title="Built to make you business-ready, not just certified."
@@ -346,7 +363,7 @@ export default function ApplyPage() {
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {differentiators.map((d, i) => (
             <Reveal key={d.title} delay={(i % 3) * 0.08}>
-              <Card className="h-full">
+              <Card className="h-full bg-white">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-lavender text-royal">
                   <d.icon className="h-5.5 w-5.5" />
                 </div>
@@ -358,36 +375,40 @@ export default function ApplyPage() {
         </div>
       </Section>
 
-      {/* Comparison */}
-      <Section bg="lavender">
+      {/* Comparison — scannable, not prose */}
+      <Section bg="white">
         <SectionHeading
           eyebrow="The Difference"
           title="Most certifications end at a certificate. MANA is where your business begins."
           align="center"
         />
-        <div className="mt-12 space-y-3">
-          {comparison.map((row, i) => (
-            <Reveal key={row.feature} delay={Math.min(i * 0.04, 0.3)}>
-              <div className="grid overflow-hidden rounded-2xl border border-navy/10 bg-white sm:grid-cols-[1.1fr_1fr_1.15fr]">
-                <div className="flex items-center bg-lavender px-5 py-4 text-sm font-bold text-navy">
-                  {row.feature}
-                </div>
-                <div className="border-t border-navy/8 px-5 py-4 sm:border-l sm:border-t-0">
-                  <span className="mb-1 block text-[10px] font-bold uppercase tracking-wide text-slate/60">
-                    A typical certification
-                  </span>
-                  <span className="text-sm text-slate">{row.old}</span>
-                </div>
-                <div className="border-t border-navy/8 bg-magenta/5 px-5 py-4 sm:border-l sm:border-t-0">
-                  <span className="mb-1 block text-[10px] font-bold uppercase tracking-wide text-magenta">
-                    ✓ With MANA
-                  </span>
-                  <span className="text-sm font-semibold text-navy">{row.mana}</span>
-                </div>
+        <Reveal delay={0.1}>
+          <div className="mx-auto mt-12 max-w-4xl overflow-hidden rounded-3xl border border-navy/10 card-shadow">
+            <div className="grid grid-cols-[1.3fr_1fr_1fr] bg-navy px-5 py-3 text-xs font-bold uppercase tracking-wide text-white sm:px-7">
+              <span></span>
+              <span className="text-center text-white/50">Typical Certification</span>
+              <span className="text-center text-gold">With MANA</span>
+            </div>
+            {comparison.map((row, i) => (
+              <div
+                key={row.feature}
+                className={`grid grid-cols-[1.3fr_1fr_1fr] items-center gap-2 px-5 py-4 text-sm sm:px-7 ${
+                  i % 2 === 0 ? "bg-white" : "bg-lavender/40"
+                }`}
+              >
+                <span className="font-semibold text-navy">{row.feature}</span>
+                <span className="flex items-start justify-center gap-1.5 text-center text-slate">
+                  <X className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-slate/40" />
+                  <span>{row.old}</span>
+                </span>
+                <span className="flex items-start justify-center gap-1.5 text-center font-semibold text-navy">
+                  <Check className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-royal" />
+                  <span>{row.mana}</span>
+                </span>
               </div>
-            </Reveal>
-          ))}
-        </div>
+            ))}
+          </div>
+        </Reveal>
       </Section>
 
       {/* Journey */}
@@ -398,18 +419,21 @@ export default function ApplyPage() {
           dark
           align="center"
         />
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {journey.map((step, i) => (
-            <Reveal key={step.title} delay={i * 0.06}>
-              <div className="h-full rounded-2xl border border-white/10 bg-white/[0.05] p-6">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-magenta text-sm font-bold text-white">
-                  {step.n}
-                </span>
-                <h4 className="mt-4 font-bold text-white">{step.title}</h4>
-                <p className="mt-1.5 text-sm text-white/65">{step.body}</p>
-              </div>
-            </Reveal>
-          ))}
+        <div className="relative mt-12">
+          <div className="absolute left-0 right-0 top-[18px] hidden h-px bg-white/10 lg:block" />
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {journey.map((step, i) => (
+              <Reveal key={step.title} delay={i * 0.06}>
+                <div className="relative h-full rounded-2xl border border-white/10 bg-white/[0.05] p-6">
+                  <span className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full bg-magenta text-sm font-bold text-white ring-4 ring-navy">
+                    {step.n}
+                  </span>
+                  <h4 className="mt-4 font-bold text-white">{step.title}</h4>
+                  <p className="mt-1.5 text-sm text-white/65">{step.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </Section>
 
@@ -420,17 +444,14 @@ export default function ApplyPage() {
           title="Everything it takes to guide a student, and win a school."
           align="center"
         />
-        <div className="mt-12 grid gap-4 sm:grid-cols-2">
+        <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {curriculumSnapshot.map((m, i) => (
-            <Reveal key={m.title} delay={(i % 2) * 0.06}>
-              <div className="flex gap-4 rounded-2xl border border-navy/8 bg-white p-6 card-shadow">
+            <Reveal key={m.title} delay={(i % 3) * 0.05}>
+              <div className="flex items-center gap-3 rounded-xl border border-navy/8 bg-white px-5 py-4 card-shadow">
                 <span className="h-fit flex-shrink-0 rounded-md bg-royal px-2.5 py-1 text-[10px] font-bold tracking-wide text-white">
                   {m.tag}
                 </span>
-                <div>
-                  <h4 className="font-bold text-navy">{m.title}</h4>
-                  <p className="mt-1 text-sm text-slate">{m.body}</p>
-                </div>
+                <h4 className="text-sm font-bold text-navy">{m.title}</h4>
               </div>
             </Reveal>
           ))}
@@ -485,26 +506,22 @@ export default function ApplyPage() {
         <SectionHeading
           eyebrow="Who It's For"
           title="You don't need a counselling degree. You need this."
-          description="MANA is for capable adults who want work of their own that means something."
           align="center"
         />
-        <div className="mt-12 grid gap-4 sm:grid-cols-2">
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {whoItsFor.map((w, i) => (
-            <Reveal key={w.title} delay={(i % 2) * 0.06}>
-              <div className="flex items-start gap-4 rounded-2xl border border-navy/8 bg-white p-6 card-shadow">
-                <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-royal" />
-                <div>
-                  <b className="font-bold text-navy">{w.title}</b>
-                  <p className="mt-1 text-sm text-slate">{w.body}</p>
-                </div>
+            <Reveal key={w.title} delay={(i % 4) * 0.06}>
+              <div className="h-full rounded-2xl border border-navy/8 bg-white p-6 card-shadow">
+                <Check className="h-5 w-5 flex-shrink-0 text-royal" />
+                <b className="mt-3 block font-bold text-navy">{w.title}</b>
+                <p className="mt-1 text-sm text-slate">{w.body}</p>
               </div>
             </Reveal>
           ))}
         </div>
         <Reveal delay={0.2}>
           <p className="mt-8 text-center text-lg font-semibold text-navy">
-            What you actually need: a heart for young people, the will to learn a method, and the drive to
-            build something that&apos;s yours.
+            What you need: a heart for young people, and the drive to build something that&apos;s yours.
           </p>
         </Reveal>
       </Section>
@@ -566,8 +583,7 @@ export default function ApplyPage() {
               Apply to join the next cohort.
             </h2>
             <p className="mt-4 max-w-md text-lg leading-relaxed text-white/70">
-              This is the first step towards a business of your own, doing work that matters. It takes two
-              minutes and commits you to nothing. We&apos;ll take it from there.
+              Two minutes, no commitment. We&apos;ll take it from there.
             </p>
             <ul className="mt-8 space-y-3">
               {[
