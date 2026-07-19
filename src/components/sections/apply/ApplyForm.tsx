@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { Send, CheckCircle2 } from "lucide-react";
+import { Send, CheckCircle2, Loader2 } from "lucide-react";
 import { CONTACTS } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 
 const BACKGROUNDS = [
   "Career-changer",
@@ -16,23 +17,27 @@ const BACKGROUNDS = [
 ];
 
 export default function ApplyForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "submitting" | "submitted">("idle");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [background, setBackground] = useState("");
 
+  const isValid = name.trim() !== "" && email.trim() !== "" && phone.trim() !== "" && background !== "";
+
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (status === "submitting" || !isValid) return;
+    setStatus("submitting");
     const subject = encodeURIComponent(`MANA Application: ${name}`);
     const body = encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\nPhone / WhatsApp: ${phone}\nBackground: ${background}\n\nPlease get in touch about the next MANA cohort.`
     );
     window.location.href = `mailto:${CONTACTS[0].email}?subject=${subject}&body=${body}`;
-    setSubmitted(true);
+    window.setTimeout(() => setStatus("submitted"), 550);
   }
 
-  if (submitted) {
+  if (status === "submitted") {
     return (
       <div className="flex flex-col items-center gap-3 rounded-2xl bg-lavender p-8 text-center">
         <CheckCircle2 className="h-8 w-8 text-royal" />
@@ -106,10 +111,26 @@ export default function ApplyForm() {
       </div>
       <button
         type="submit"
-        className="flex w-full items-center justify-center gap-2 rounded-full bg-magenta px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-navy"
+        disabled={!isValid || status === "submitting"}
+        aria-busy={status === "submitting"}
+        className={cn(
+          "flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-white transition",
+          !isValid || status === "submitting"
+            ? "cursor-not-allowed bg-navy/30"
+            : "bg-magenta hover:bg-navy"
+        )}
       >
-        Submit application
-        <Send className="h-4 w-4" />
+        {status === "submitting" ? (
+          <>
+            <Loader2 className="h-4 w-4 animate-spin" />
+            Opening your email…
+          </>
+        ) : (
+          <>
+            Submit application
+            <Send className="h-4 w-4" />
+          </>
+        )}
       </button>
     </form>
   );

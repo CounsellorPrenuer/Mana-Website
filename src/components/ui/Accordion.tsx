@@ -11,12 +11,16 @@ export default function Accordion({ items }: { items: { q: string; a: string }[]
     <div className="divide-y divide-navy/10 rounded-2xl border border-navy/10 bg-white shadow-soft">
       {items.map((item, i) => {
         const isOpen = open === i;
+        const panelId = `faq-panel-${i}`;
+        const buttonId = `faq-trigger-${i}`;
         return (
           <div key={item.q}>
             <button
+              id={buttonId}
               onClick={() => setOpen(isOpen ? null : i)}
               className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left sm:px-7"
               aria-expanded={isOpen}
+              aria-controls={panelId}
             >
               <span className="font-semibold text-navy">{item.q}</span>
               <ChevronDown
@@ -27,6 +31,9 @@ export default function Accordion({ items }: { items: { q: string; a: string }[]
               />
             </button>
             <div
+              id={panelId}
+              role="region"
+              aria-labelledby={buttonId}
               className={cn(
                 "grid transition-all duration-300 ease-out",
                 isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"

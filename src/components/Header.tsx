@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X, ExternalLink } from "lucide-react";
@@ -15,11 +15,36 @@ function navDisplayLabel(link: NavLink) {
   return "navLabel" in link && link.navLabel ? link.navLabel : link.label;
 }
 
+function isLinkActive(link: NavLink, pathname: string) {
+  if (link.children) {
+    return link.children.some((c) => c.href === pathname);
+  }
+  return pathname === link.href;
+}
+
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
   const pathname = usePathname();
+
+  const navRef = useRef<HTMLElement>(null);
+  const linkRefs = useRef<Map<string, HTMLElement>>(new Map());
+  const [underline, setUnderline] = useState({ left: 0, width: 0, opacity: 0 });
+
+  const activeLink = NAV_LINKS.find((link) => isLinkActive(link, pathname));
+
+  const positionUnderline = useCallback((key: string | undefined) => {
+    const nav = navRef.current;
+    const el = key ? linkRefs.current.get(key) : undefined;
+    if (!nav || !el) {
+      setUnderline((u) => ({ ...u, opacity: 0 }));
+      return;
+    }
+    const navRect = nav.getBoundingClientRect();
+    const elRect = el.getBoundingClientRect();
+    setUnderline({ left: elRect.left - navRect.left, width: elRect.width, opacity: 1 });
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -27,6 +52,14 @@ export default function Header() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    positionUnderline(activeLink?.label);
+    const onResize = () => positionUnderline(activeLink?.label);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname, positionUnderline]);
 
   return (
     <header
@@ -46,24 +79,31 @@ export default function Header() {
         <Logo />
 
         <div className="hidden flex-1 items-center justify-end gap-6 lg:flex xl:gap-8">
-          <nav className="flex items-center gap-0.5 xl:gap-1.5">
+          <nav
+            ref={navRef}
+            className="relative flex items-center gap-0.5 xl:gap-1.5"
+            onMouseLeave={() => positionUnderline(activeLink?.label)}
+          >
             {NAV_LINKS.map((link) =>
               link.children ? (
                 <div
                   key={link.label}
                   className="relative"
-                  onMouseEnter={() => setOpenDropdown(true)}
+                  onMouseEnter={() => {
+                    setOpenDropdown(true);
+                    positionUnderline(link.label);
+                  }}
                   onMouseLeave={() => setOpenDropdown(false)}
                 >
                   <button
+                    ref={(el) => {
+                      if (el) linkRefs.current.set(link.label, el);
+                      else linkRefs.current.delete(link.label);
+                    }}
+                    onFocus={() => positionUnderline(link.label)}
                     className={cn(
                       "flex items-center gap-1 whitespace-nowrap rounded-full px-3.5 py-2 text-sm font-semibold transition-colors duration-200 hover:bg-lavender hover:text-navy xl:px-4",
-                      pathname.startsWith("/about") ||
-                        pathname.startsWith("/why-mana") ||
-                        pathname.startsWith("/who-should-join") ||
-                        pathname.startsWith("/certification")
-                        ? "bg-lavender text-navy"
-                        : "text-slate"
+                      isLinkActive(link, pathname) ? "bg-lavender text-navy" : "text-slate"
                     )}
                   >
                     {navDisplayLabel(link)}
@@ -93,6 +133,12 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  ref={(el) => {
+                    if (el) linkRefs.current.set(link.label, el);
+                    else linkRefs.current.delete(link.label);
+                  }}
+                  onMouseEnter={() => positionUnderline(link.label)}
+                  onFocus={() => positionUnderline(link.label)}
                   className={cn(
                     "whitespace-nowrap rounded-full px-3.5 py-2 text-sm font-semibold transition-colors duration-200 hover:bg-lavender hover:text-navy xl:px-4",
                     pathname === link.href ? "bg-lavender text-navy" : "text-slate"
@@ -102,6 +148,11 @@ export default function Header() {
                 </Link>
               )
             )}
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute -bottom-1 h-0.5 rounded-full bg-royal transition-all duration-300 ease-out"
+              style={{ left: underline.left, width: underline.width, opacity: underline.opacity }}
+            />
           </nav>
 
           <a
