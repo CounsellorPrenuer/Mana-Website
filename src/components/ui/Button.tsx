@@ -1,9 +1,10 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { prefersReducedMotion } from "@/lib/motion";
 
 type ButtonProps = {
   href: string;
@@ -42,7 +43,6 @@ export default function Button({
   onClick,
 }: ButtonProps) {
   const ref = useRef<HTMLAnchorElement>(null);
-  const [pull, setPull] = useState({ x: 0, y: 0 });
 
   const classes = cn(
     "group inline-flex items-center justify-center gap-2 rounded-full font-semibold tracking-tight transition-colors duration-200 ease-out active:scale-[0.97]",
@@ -51,20 +51,23 @@ export default function Button({
     className
   );
 
+  // Direct DOM writes, not React state — a magnetic hover shouldn't cost a re-render per pixel of mouse movement.
   function handleMouseMove(e: React.MouseEvent<HTMLAnchorElement>) {
     const el = ref.current;
-    if (!el) return;
+    if (!el || prefersReducedMotion()) return;
     const rect = el.getBoundingClientRect();
     const relX = (e.clientX - rect.left) / rect.width - 0.5;
     const relY = (e.clientY - rect.top) / rect.height - 0.5;
-    setPull({ x: relX * MAX_PULL * 2, y: relY * MAX_PULL * 2 });
+    el.style.transform = `translate(${relX * MAX_PULL * 2}px, ${relY * MAX_PULL * 2}px)`;
   }
 
   function handleMouseLeave() {
-    setPull({ x: 0, y: 0 });
+    const el = ref.current;
+    if (!el) return;
+    el.style.transform = "translate(0, 0)";
   }
 
-  const style = { transform: `translate(${pull.x}px, ${pull.y}px)`, transition: "transform 0.25s cubic-bezier(0.16,1,0.3,1)" };
+  const style = { transition: "transform 0.25s cubic-bezier(0.16,1,0.3,1)" };
 
   if (external) {
     return (

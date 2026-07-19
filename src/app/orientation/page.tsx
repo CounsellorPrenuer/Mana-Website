@@ -15,19 +15,19 @@ import {
   GraduationCap,
   Quote,
   CheckCircle2,
-  School,
-  Wallet,
-  Award,
   ArrowRight,
 } from "lucide-react";
 import Section, { SectionHeading, Eyebrow } from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
 import Reveal from "@/components/ui/Reveal";
+import StaggerReveal from "@/components/ui/StaggerReveal";
+import TiltCard from "@/components/ui/TiltCard";
 import Button from "@/components/ui/Button";
 import Accordion from "@/components/ui/Accordion";
-import CountUp from "@/components/ui/CountUp";
 import FounderOfferBand from "@/components/sections/FounderOfferBand";
 import CountdownBar from "@/components/sections/apply/CountdownBar";
+import ApplyHero from "@/components/sections/apply/ApplyHero";
+import JourneyTimeline from "@/components/sections/apply/JourneyTimeline";
 import WhyYouSelector from "@/components/sections/apply/WhyYouSelector";
 import OpportunityEstimator from "@/components/sections/apply/OpportunityEstimator";
 import ApplyForm from "@/components/sections/apply/ApplyForm";
@@ -37,12 +37,6 @@ export const metadata: Metadata = {
   description:
     "MANA is Mentoria's certification for people who love guiding young people and want to turn that gift into a business they own. No counselling background needed. Apply to join the cohort.",
 };
-
-const heroStats = [
-  { value: "9+", suffix: " yrs", label: "Guiding students" },
-  { value: "3,00,000+", suffix: "", label: "Lives shaped" },
-  { value: "200+", suffix: "", label: "School partners" },
-];
 
 const whatIs = [
   { k: "Learn", title: "A method that works", body: "AI-era, India-specific, field-tested." },
@@ -80,14 +74,6 @@ const comparison = [
   { feature: "How you train", old: "Videos, then a quiz", mana: "Practice, practicum, real-case capstone" },
   { feature: "After you certify", old: "Good luck", mana: "A guided 90-day launch sprint" },
   { feature: "The name behind you", old: "Only your own", mana: "200+ schools, AWES, govt partners" },
-];
-
-const journey = [
-  { n: 1, title: "Apply", body: "Tell us your story." },
-  { n: 2, title: "Learn", body: "60 hours, live + self-paced." },
-  { n: 3, title: "Certify", body: "Assessment + real-case capstone." },
-  { n: 4, title: "Launch", body: "A guided 90-day sprint." },
-  { n: 5, title: "Scale", body: "Leads routed to you." },
 ];
 
 const curriculumSnapshot = [
@@ -148,94 +134,7 @@ export default function ApplyPage() {
     <>
       <CountdownBar />
 
-      {/* Hero — light, confident, one clean visual */}
-      <section className="relative overflow-hidden bg-white">
-        <div className="pointer-events-none absolute inset-0 bg-dotgrid opacity-[0.4] [mask-image:radial-gradient(ellipse_60%_60%_at_70%_20%,black,transparent)]" />
-        <div className="relative mx-auto grid max-w-7xl gap-16 px-5 py-20 sm:px-8 sm:py-28 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-10 lg:px-10 lg:py-32">
-          <div>
-            <Reveal>
-              <Eyebrow>MANA by Mentoria</Eyebrow>
-            </Reveal>
-            <Reveal delay={0.06}>
-              <h1 className="mt-7 text-balance text-[2.75rem] font-bold leading-[1.06] tracking-tight text-navy sm:text-6xl lg:text-[4rem]">
-                Help students find their future. Build your own in the process.
-              </h1>
-            </Reveal>
-            <Reveal delay={0.12}>
-              <p className="mt-7 max-w-lg text-balance text-lg leading-relaxed text-slate sm:text-xl">
-                Turn your gift for guiding young people into a business you own. No counselling background
-                needed.
-              </p>
-            </Reveal>
-            <Reveal delay={0.18}>
-              <div className="mt-10 flex flex-wrap items-center gap-4">
-                <Button href="#apply" variant="primary" size="lg">
-                  Apply to join the cohort
-                </Button>
-                <Button href="#whatis" variant="secondary" size="lg" showArrow={false}>
-                  What is MANA?
-                </Button>
-              </div>
-              <p className="mt-5 text-sm text-mist">
-                No prior experience · Built for working adults · Limited seats
-              </p>
-            </Reveal>
-            <Reveal delay={0.24}>
-              <div className="mt-14 grid grid-cols-3 gap-6 border-t border-border pt-8">
-                {heroStats.map((s) => (
-                  <div key={s.label}>
-                    <div className="text-2xl font-bold tabular-nums text-navy sm:text-3xl">
-                      <CountUp value={s.value} />
-                      {s.suffix}
-                    </div>
-                    <div className="mt-1 text-xs font-medium text-slate sm:text-sm">{s.label}</div>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-          </div>
-
-          <Reveal delay={0.2} className="relative hidden lg:block">
-            <div className="relative mx-auto max-w-sm">
-              <div className="absolute -top-5 -left-5 z-10 flex items-center gap-2 rounded-full border border-border bg-white px-4 py-2 shadow-soft">
-                <CheckCircle2 className="h-4 w-4 text-royal" />
-                <span className="text-xs font-semibold text-navy">Application takes 2 min</span>
-              </div>
-              <div className="rounded-[2rem] border border-border bg-white p-2 shadow-soft-lg">
-                <div className="flex flex-col justify-between gap-6 rounded-[1.6rem] bg-lavender p-7">
-                  <div className="flex items-center justify-between">
-                    <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate shadow-xs">
-                      Year One, One Architect
-                    </span>
-                    <Rocket className="h-5 w-5 text-royal" />
-                  </div>
-                  <div className="space-y-3">
-                    {[
-                      { icon: School, label: "Workshops Delivered", value: "5 schools" },
-                      { icon: Users, label: "Families Guided", value: "40+" },
-                      { icon: Wallet, label: "Practice Income", value: "₹18L+" },
-                    ].map((row) => (
-                      <div key={row.label} className="flex items-center gap-3 rounded-xl bg-white p-4 shadow-xs">
-                        <row.icon className="h-5 w-5 flex-shrink-0 text-royal" />
-                        <div>
-                          <div className="text-xs font-medium uppercase tracking-wide text-mist">
-                            {row.label}
-                          </div>
-                          <div className="text-lg font-bold text-navy">{row.value}</div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="flex items-center gap-2 rounded-xl bg-navy p-4">
-                    <Award className="h-6 w-6 flex-shrink-0 text-white" />
-                    <span className="text-sm font-semibold text-white">Independent Practice, Built</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <ApplyHero />
 
       {/* What is MANA */}
       <Section bg="lavender" id="whatis">
@@ -359,19 +258,19 @@ export default function ApplyPage() {
           title="Built to make you business-ready, not just certified."
           align="center"
         />
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {differentiators.map((d, i) => (
-            <Reveal key={d.title} delay={(i % 3) * 0.08}>
-              <Card className="h-full">
+        <StaggerReveal className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {differentiators.map((d) => (
+            <TiltCard key={d.title}>
+              <Card className="h-full" hover={false}>
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-lavender text-royal">
                   <d.icon className="h-5.5 w-5.5" />
                 </div>
                 <h3 className="mt-4 font-bold text-navy">{d.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate">{d.body}</p>
               </Card>
-            </Reveal>
+            </TiltCard>
           ))}
-        </div>
+        </StaggerReveal>
       </Section>
 
       {/* Comparison — scannable, not prose */}
@@ -410,29 +309,14 @@ export default function ApplyPage() {
         </Reveal>
       </Section>
 
-      {/* Journey — light timeline */}
+      {/* Journey — interactive timeline */}
       <Section bg="white">
         <SectionHeading
           eyebrow="How It Works"
           title="From application to a business of your own."
           align="center"
         />
-        <div className="relative mt-16">
-          <div className="absolute left-0 right-0 top-5 hidden h-px bg-border lg:block" />
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
-            {journey.map((step, i) => (
-              <Reveal key={step.title} delay={i * 0.06}>
-                <div className="relative">
-                  <span className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full bg-navy text-sm font-bold text-white ring-8 ring-white">
-                    {step.n}
-                  </span>
-                  <h4 className="mt-4 font-bold text-navy">{step.title}</h4>
-                  <p className="mt-1.5 text-sm text-slate">{step.body}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
+        <JourneyTimeline />
       </Section>
 
       {/* Curriculum snapshot */}
@@ -442,18 +326,16 @@ export default function ApplyPage() {
           title="Everything it takes to guide a student, and win a school."
           align="center"
         />
-        <div className="mt-14 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {curriculumSnapshot.map((m, i) => (
-            <Reveal key={m.title} delay={(i % 3) * 0.05}>
-              <div className="flex items-center gap-3 rounded-xl border border-border bg-white px-5 py-4 shadow-xs">
-                <span className="h-fit flex-shrink-0 rounded-md bg-navy px-2.5 py-1 text-[10px] font-bold tracking-wide text-white">
-                  {m.tag}
-                </span>
-                <h4 className="text-sm font-bold text-navy">{m.title}</h4>
-              </div>
-            </Reveal>
+        <StaggerReveal className="mt-14 grid gap-3 sm:grid-cols-2 lg:grid-cols-3" stagger={0.05}>
+          {curriculumSnapshot.map((m) => (
+            <div key={m.title} className="flex items-center gap-3 rounded-xl border border-border bg-white px-5 py-4 shadow-xs">
+              <span className="h-fit flex-shrink-0 rounded-md bg-navy px-2.5 py-1 text-[10px] font-bold tracking-wide text-white">
+                {m.tag}
+              </span>
+              <h4 className="text-sm font-bold text-navy">{m.title}</h4>
+            </div>
           ))}
-        </div>
+        </StaggerReveal>
         <Reveal delay={0.2}>
           <div className="mt-8 flex flex-wrap justify-center gap-x-10 gap-y-5 rounded-2xl border border-border bg-white px-8 py-7 text-center">
             {[
@@ -484,17 +366,15 @@ export default function ApplyPage() {
           title="A founder's support, not a freelancer's guesswork."
           align="center"
         />
-        <div className="mx-auto mt-14 grid max-w-5xl divide-y divide-border overflow-hidden rounded-3xl border border-border sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
-          {support.map((s, i) => (
-            <Reveal key={s.title} delay={i * 0.07}>
-              <div className="flex h-full flex-col items-center gap-3 p-8 text-center">
-                <s.icon className="h-6 w-6 text-royal" />
-                <h4 className="font-bold text-navy">{s.title}</h4>
-                <p className="text-sm leading-relaxed text-slate">{s.body}</p>
-              </div>
-            </Reveal>
+        <StaggerReveal className="mx-auto mt-14 grid max-w-5xl divide-y divide-border overflow-hidden rounded-3xl border border-border sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
+          {support.map((s) => (
+            <div key={s.title} className="flex h-full flex-col items-center gap-3 p-8 text-center">
+              <s.icon className="h-6 w-6 text-royal" />
+              <h4 className="font-bold text-navy">{s.title}</h4>
+              <p className="text-sm leading-relaxed text-slate">{s.body}</p>
+            </div>
           ))}
-        </div>
+        </StaggerReveal>
       </Section>
 
       {/* Who it's for — spacious editorial list, distinct treatment */}
@@ -504,21 +384,19 @@ export default function ApplyPage() {
           title="You don't need a counselling degree. You need this."
           align="center"
         />
-        <div className="mx-auto mt-14 grid max-w-4xl gap-x-12 gap-y-8 sm:grid-cols-2">
-          {whoItsFor.map((w, i) => (
-            <Reveal key={w.title} delay={(i % 2) * 0.06}>
-              <div className="flex items-start gap-4 border-b border-border pb-8">
-                <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-white text-royal shadow-xs">
-                  <Check className="h-4 w-4" />
-                </span>
-                <div>
-                  <b className="font-bold text-navy">{w.title}</b>
-                  <p className="mt-1 text-sm text-slate">{w.body}</p>
-                </div>
+        <StaggerReveal className="mx-auto mt-14 grid max-w-4xl gap-x-12 gap-y-8 sm:grid-cols-2">
+          {whoItsFor.map((w) => (
+            <div key={w.title} className="flex items-start gap-4 border-b border-border pb-8">
+              <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-white text-royal shadow-xs">
+                <Check className="h-4 w-4" />
+              </span>
+              <div>
+                <b className="font-bold text-navy">{w.title}</b>
+                <p className="mt-1 text-sm text-slate">{w.body}</p>
               </div>
-            </Reveal>
+            </div>
           ))}
-        </div>
+        </StaggerReveal>
         <Reveal delay={0.2}>
           <p className="mt-10 text-center text-lg font-semibold text-navy">
             What you need: a heart for young people, and the drive to build something that&apos;s yours.
@@ -529,19 +407,19 @@ export default function ApplyPage() {
       {/* Testimonials */}
       <Section bg="white">
         <SectionHeading eyebrow="Graduate Stories" title="Talent, turned into a business." align="center" />
-        <div className="mt-14 grid gap-6 lg:grid-cols-3">
-          {testimonials.map((t, i) => (
-            <Reveal key={t.role} delay={i * 0.08}>
-              <Card className="h-full">
+        <StaggerReveal className="mt-14 grid gap-6 lg:grid-cols-3">
+          {testimonials.map((t) => (
+            <TiltCard key={t.role}>
+              <Card className="h-full" hover={false}>
                 <Quote className="h-6 w-6 text-royal/40" />
                 <p className="mt-4 text-sm leading-relaxed text-navy">{t.quote}</p>
                 <div className="mt-6 border-t border-border pt-4">
                   <div className="text-xs font-semibold text-slate">{t.role}</div>
                 </div>
               </Card>
-            </Reveal>
+            </TiltCard>
           ))}
-        </div>
+        </StaggerReveal>
       </Section>
 
       {/* Pricing */}
@@ -550,21 +428,19 @@ export default function ApplyPage() {
       {/* Risk reversal — checklist strip, distinct from earlier grids */}
       <Section bg="white">
         <SectionHeading eyebrow="Your Safety Net" title="Big step. Small risk." align="center" />
-        <div className="mx-auto mt-14 max-w-3xl space-y-3">
+        <StaggerReveal className="mx-auto mt-14 max-w-3xl space-y-3" stagger={0.1}>
           {risks.map((r, i) => (
-            <Reveal key={r.title} delay={i * 0.08}>
-              <div className="flex items-center gap-5 rounded-2xl border border-border bg-lavender px-6 py-5">
-                <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-navy text-sm font-bold text-white">
-                  {i + 1}
-                </span>
-                <div>
-                  <b className="font-bold text-navy">{r.title}</b>
-                  <span className="ml-2 text-sm text-slate">{r.body}</span>
-                </div>
+            <div key={r.title} className="flex items-center gap-5 rounded-2xl border border-border bg-lavender px-6 py-5">
+              <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-navy text-sm font-bold text-white">
+                {i + 1}
+              </span>
+              <div>
+                <b className="font-bold text-navy">{r.title}</b>
+                <span className="ml-2 text-sm text-slate">{r.body}</span>
               </div>
-            </Reveal>
+            </div>
           ))}
-        </div>
+        </StaggerReveal>
       </Section>
 
       {/* FAQ */}
