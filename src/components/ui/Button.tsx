@@ -1,3 +1,6 @@
+"use client";
+
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -14,18 +17,19 @@ type ButtonProps = {
 };
 
 const variants = {
-  primary:
-    "bg-royal text-white hover:bg-navy shadow-[0_8px_24px_-8px_rgba(47,79,214,0.55)] hover:shadow-[0_10px_28px_-8px_rgba(27,26,94,0.6)]",
-  secondary:
-    "bg-white text-navy border border-navy/15 hover:border-navy/30 hover:bg-lavender",
-  ghost: "bg-transparent text-navy hover:bg-navy/5 border border-transparent",
-  gold: "bg-gold text-navy hover:brightness-95 shadow-[0_8px_24px_-8px_rgba(244,196,14,0.6)]",
+  primary: "bg-navy text-white hover:bg-royal shadow-soft",
+  secondary: "bg-white text-navy border border-border hover:border-navy/25 hover:bg-lavender",
+  ghost: "bg-transparent text-navy border border-transparent hover:bg-navy/5",
+  // Used as the primary CTA on dark sections — solid white, high contrast, no gold fill.
+  gold: "bg-white text-navy shadow-soft hover:bg-lavender",
 };
 
 const sizes = {
   md: "px-5 py-2.5 text-sm",
   lg: "px-7 py-3.5 text-base",
 };
+
+const MAX_PULL = 7;
 
 export default function Button({
   href,
@@ -37,16 +41,44 @@ export default function Button({
   external = false,
   onClick,
 }: ButtonProps) {
+  const ref = useRef<HTMLAnchorElement>(null);
+  const [pull, setPull] = useState({ x: 0, y: 0 });
+
   const classes = cn(
-    "group inline-flex items-center justify-center gap-2 rounded-full font-semibold tracking-tight transition-all duration-200 ease-out active:scale-[0.98]",
+    "group inline-flex items-center justify-center gap-2 rounded-full font-semibold tracking-tight transition-colors duration-200 ease-out active:scale-[0.97]",
     variants[variant],
     sizes[size],
     className
   );
 
+  function handleMouseMove(e: React.MouseEvent<HTMLAnchorElement>) {
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const relX = (e.clientX - rect.left) / rect.width - 0.5;
+    const relY = (e.clientY - rect.top) / rect.height - 0.5;
+    setPull({ x: relX * MAX_PULL * 2, y: relY * MAX_PULL * 2 });
+  }
+
+  function handleMouseLeave() {
+    setPull({ x: 0, y: 0 });
+  }
+
+  const style = { transform: `translate(${pull.x}px, ${pull.y}px)`, transition: "transform 0.25s cubic-bezier(0.16,1,0.3,1)" };
+
   if (external) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={classes} onClick={onClick}>
+      <a
+        ref={ref}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={classes}
+        onClick={onClick}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={style}
+      >
         {children}
         {showArrow && (
           <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
@@ -56,7 +88,15 @@ export default function Button({
   }
 
   return (
-    <Link href={href} className={classes} onClick={onClick}>
+    <Link
+      ref={ref}
+      href={href}
+      className={classes}
+      onClick={onClick}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={style}
+    >
       {children}
       {showArrow && (
         <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />

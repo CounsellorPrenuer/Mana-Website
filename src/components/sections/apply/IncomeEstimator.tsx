@@ -17,12 +17,12 @@ export default function IncomeEstimator() {
   }, [schools, families]);
 
   return (
-    <div className="grid gap-8 rounded-3xl border border-white/10 bg-white/[0.06] p-6 sm:grid-cols-2 sm:p-10">
+    <div className="grid gap-8 rounded-3xl border border-border bg-white p-6 shadow-soft sm:grid-cols-2 sm:p-8">
       <div className="flex flex-col justify-center gap-8">
         <div>
-          <div className="mb-3 flex items-baseline justify-between gap-3 text-sm font-semibold text-white">
+          <div className="mb-3 flex items-baseline justify-between gap-3 text-sm font-semibold text-navy">
             <span>School partnerships a year</span>
-            <span className="text-lg font-bold text-gold tabular-nums">{schools}</span>
+            <span className="text-lg font-bold text-royal tabular-nums">{schools}</span>
           </div>
           <input
             type="range"
@@ -30,13 +30,14 @@ export default function IncomeEstimator() {
             max={10}
             value={schools}
             onChange={(e) => setSchools(Number(e.target.value))}
-            className="w-full accent-magenta"
+            className="w-full accent-royal"
+            aria-label="School partnerships a year"
           />
         </div>
         <div>
-          <div className="mb-3 flex items-baseline justify-between gap-3 text-sm font-semibold text-white">
+          <div className="mb-3 flex items-baseline justify-between gap-3 text-sm font-semibold text-navy">
             <span>Families you guide a month</span>
-            <span className="text-lg font-bold text-gold tabular-nums">{families}</span>
+            <span className="text-lg font-bold text-royal tabular-nums">{families}</span>
           </div>
           <input
             type="range"
@@ -44,24 +45,25 @@ export default function IncomeEstimator() {
             max={20}
             value={families}
             onChange={(e) => setFamilies(Number(e.target.value))}
-            className="w-full accent-magenta"
+            className="w-full accent-royal"
+            aria-label="Families you guide a month"
           />
         </div>
-        <p className="text-xs leading-relaxed text-white/50">
+        <p className="text-xs leading-relaxed text-slate">
           Assumes an illustrative ₹3–6L per school partnership and ₹850–2,625 per family guided
           independently. Adjust to your own market.
         </p>
       </div>
 
-      <div className="flex flex-col items-center justify-center rounded-2xl bg-gradient-to-br from-royal/60 to-magenta/40 p-8 text-center">
-        <div className="text-xs font-bold uppercase tracking-wider text-white/85">Illustrative annual range</div>
+      <div className="flex flex-col items-center justify-center rounded-2xl bg-navy p-8 text-center">
+        <div className="text-xs font-bold uppercase tracking-wider text-white/60">Illustrative annual range</div>
         <div className="mt-3 text-3xl font-bold tabular-nums text-white sm:text-4xl">
           {lakh(low)} – {lakh(high)}
         </div>
-        <div className="mt-2 text-sm text-white/80">per year, as your practice grows</div>
+        <div className="mt-2 text-sm text-white/70">per year, as your practice grows</div>
       </div>
 
-      <p className="text-center text-xs text-white/40 sm:col-span-2">
+      <p className="text-center text-xs text-mist sm:col-span-2">
         Illustrative only, not a guarantee of earnings. What you actually earn depends on your effort, your
         market, and how you build your business.
       </p>

@@ -15,7 +15,7 @@ const backgrounds = {
 
 export default function Section({ children, className, id, bg = "white" }: SectionProps) {
   return (
-    <section id={id} className={cn(backgrounds[bg], "py-16 sm:py-20 lg:py-28", className)}>
+    <section id={id} className={cn(backgrounds[bg], "py-20 sm:py-28 lg:py-32", className)}>
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">{children}</div>
     </section>
   );
@@ -69,14 +69,14 @@ export function SectionHeading({
       )}
       <h2
         className={cn(
-          "text-balance text-3xl font-bold leading-[1.12] tracking-tight sm:text-4xl lg:text-[2.75rem]",
+          "text-balance text-3xl font-bold leading-[1.1] tracking-tight sm:text-4xl lg:text-5xl",
           dark ? "text-white" : "text-navy"
         )}
       >
         {title}
       </h2>
       {description && (
-        <p className={cn("mt-4 text-lg leading-relaxed", dark ? "text-white/70" : "text-slate")}>
+        <p className={cn("mt-5 text-lg leading-relaxed", dark ? "text-white/65" : "text-slate")}>
           {description}
         </p>
       )}

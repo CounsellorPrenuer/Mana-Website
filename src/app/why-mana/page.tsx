@@ -64,7 +64,7 @@ export default function WhyManaPage() {
         </div>
       </Section>
 
-      <Section bg="navy" className="bg-neural">
+      <Section bg="navy" className="bg-dotgrid">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
           <Reveal>
             <SectionHeading

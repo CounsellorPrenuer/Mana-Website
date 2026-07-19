@@ -8,10 +8,9 @@ export default function FounderOfferBand() {
   return (
     <Section>
       <Reveal>
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-navy via-navy to-royal-light/20 px-6 py-12 text-center sm:px-16 sm:py-16">
-          <div className="absolute inset-0 bg-neural" />
+        <div className="relative overflow-hidden rounded-3xl bg-navy bg-dotgrid px-6 py-12 text-center sm:px-16 sm:py-16">
           <div className="relative">
-            <div className="mx-auto mb-5 flex w-fit items-center gap-2 rounded-full bg-gold/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold">
+            <div className="mx-auto mb-5 flex w-fit items-center gap-2 rounded-full border border-white/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white/80">
               <Clock className="h-3.5 w-3.5" />
               Founder&apos;s Offer · Limited Time
             </div>

@@ -60,7 +60,7 @@ export default function FacultyPage() {
         </div>
       </Section>
 
-      <Section bg="navy" className="bg-neural">
+      <Section bg="navy" className="bg-dotgrid">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
             <ShieldCheck className="mx-auto h-9 w-9 text-gold" />
@@ -77,7 +77,7 @@ export default function FacultyPage() {
 
       <Section bg="lavender">
         <Reveal>
-          <div className="mx-auto max-w-2xl rounded-3xl bg-white p-10 text-center card-shadow">
+          <div className="mx-auto max-w-2xl rounded-3xl bg-white p-10 text-center shadow-soft">
             <Bell className="mx-auto h-8 w-8 text-royal" />
             <h3 className="mt-4 text-xl font-bold text-navy">Individual faculty profiles publish per cohort</h3>
             <p className="mt-2 text-slate">

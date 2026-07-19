@@ -68,7 +68,7 @@ export default function BridgeProgrammePage() {
       <Section bg="lavender">
         <SectionHeading eyebrow="Eligibility" title="Who this is for" />
         <Reveal delay={0.05}>
-          <div className="mt-8 flex items-start gap-4 rounded-2xl bg-white p-6 card-shadow">
+          <div className="mt-8 flex items-start gap-4 rounded-2xl bg-white p-6 shadow-soft">
             <ArrowRightLeft className="mt-0.5 h-6 w-6 flex-shrink-0 text-royal" />
             <p className="text-navy">
               Counsellors holding an active Mentoria certification under the previous model. Certification
@@ -84,7 +84,7 @@ export default function BridgeProgrammePage() {
         <div className="mt-10 space-y-4">
           {modules.map((m, i) => (
             <Reveal key={m.title} delay={i * 0.06}>
-              <div className="rounded-2xl border border-navy/8 bg-white p-6 card-shadow">
+              <div className="rounded-2xl border border-navy/8 bg-white p-6 shadow-soft">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <h3 className="font-bold text-navy">{m.title}</h3>
                   <span className="rounded-full bg-lavender px-3 py-1 text-xs font-semibold text-royal">

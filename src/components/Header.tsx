@@ -31,11 +31,18 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full border-b border-navy/[0.06] bg-white shadow-[0_4px_20px_rgba(0,0,0,0.06)] transition-all duration-300",
-        scrolled && "bg-white/95 backdrop-blur-lg"
+        "sticky top-0 z-50 w-full border-b transition-all duration-300",
+        scrolled
+          ? "border-border bg-white/90 shadow-xs backdrop-blur-lg"
+          : "border-transparent bg-white"
       )}
     >
-      <div className="mx-auto flex min-h-[5.25rem] max-w-7xl items-center justify-between gap-6 px-5 py-2 sm:px-8 lg:gap-8 lg:px-10">
+      <div
+        className={cn(
+          "mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 transition-all duration-300 sm:px-8 lg:gap-8 lg:px-10",
+          scrolled ? "min-h-[4rem] py-1.5" : "min-h-[5.25rem] py-2"
+        )}
+      >
         <Logo />
 
         <div className="hidden flex-1 items-center justify-end gap-6 lg:flex xl:gap-8">
@@ -50,13 +57,13 @@ export default function Header() {
                 >
                   <button
                     className={cn(
-                      "flex items-center gap-1 whitespace-nowrap rounded-full px-3.5 py-2 text-sm font-semibold text-navy/70 transition-colors hover:bg-lavender hover:text-navy xl:px-4",
+                      "flex items-center gap-1 whitespace-nowrap rounded-full px-3.5 py-2 text-sm font-semibold transition-colors duration-200 hover:bg-lavender hover:text-navy xl:px-4",
                       pathname.startsWith("/about") ||
                         pathname.startsWith("/why-mana") ||
                         pathname.startsWith("/who-should-join") ||
                         pathname.startsWith("/certification")
-                        ? "text-navy"
-                        : ""
+                        ? "bg-lavender text-navy"
+                        : "text-slate"
                     )}
                   >
                     {navDisplayLabel(link)}
@@ -68,7 +75,7 @@ export default function Header() {
                       openDropdown ? "visible translate-y-0 opacity-100" : "invisible -translate-y-1 opacity-0"
                     )}
                   >
-                    <div className="overflow-hidden rounded-2xl border border-navy/10 bg-white p-2 card-shadow-lg">
+                    <div className="overflow-hidden rounded-2xl border border-navy/10 bg-white p-2 shadow-soft-lg">
                       {link.children.map((child) => (
                         <Link
                           key={child.href}
@@ -87,8 +94,8 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "whitespace-nowrap rounded-full px-3.5 py-2 text-sm font-semibold transition-colors hover:bg-lavender hover:text-navy xl:px-4",
-                    pathname === link.href ? "text-navy" : "text-navy/70"
+                    "whitespace-nowrap rounded-full px-3.5 py-2 text-sm font-semibold transition-colors duration-200 hover:bg-lavender hover:text-navy xl:px-4",
+                    pathname === link.href ? "bg-lavender text-navy" : "text-slate"
                   )}
                 >
                   {link.label}

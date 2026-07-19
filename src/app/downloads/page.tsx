@@ -34,7 +34,7 @@ export default function DownloadsPage() {
             <div className="mt-8 space-y-4">
               {resources.map((r, i) => (
                 <Reveal key={r.title} delay={i * 0.06}>
-                  <div className="flex items-start gap-4 rounded-2xl border border-navy/8 bg-white p-5 card-shadow">
+                  <div className="flex items-start gap-4 rounded-2xl border border-navy/8 bg-white p-5 shadow-soft">
                     <r.icon className="mt-0.5 h-5 w-5 flex-shrink-0 text-royal" />
                     <div>
                       <h3 className="font-bold text-navy">{r.title}</h3>

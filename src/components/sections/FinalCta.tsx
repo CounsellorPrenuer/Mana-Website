@@ -10,7 +10,7 @@ export default function FinalCta({
   description?: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-navy bg-neural bg-speedlines py-20 sm:py-24">
+    <section className="relative overflow-hidden bg-navy bg-dotgrid py-20 sm:py-24">
       <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
         <Reveal>
           <h2 className="text-balance text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">

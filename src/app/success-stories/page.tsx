@@ -45,7 +45,7 @@ export default function SuccessStoriesPage() {
         <div className="space-y-10">
           {stories.map((s, i) => (
             <Reveal key={s.title} delay={i * 0.08}>
-              <div className="grid gap-6 rounded-3xl border border-navy/8 bg-white p-8 card-shadow sm:grid-cols-[auto_1fr] sm:p-10">
+              <div className="grid gap-6 rounded-3xl border border-navy/8 bg-white p-8 shadow-soft sm:grid-cols-[auto_1fr] sm:p-10">
                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-navy text-gold">
                   <s.icon className="h-7 w-7" />
                 </div>

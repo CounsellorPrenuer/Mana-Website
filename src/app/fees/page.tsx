@@ -36,10 +36,10 @@ export default function FeesPage() {
       <Section bg="white">
         <div className="mx-auto max-w-2xl">
           <Reveal>
-            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-navy via-navy to-royal-light/20 p-10 text-center sm:p-14">
-              <div className="absolute inset-0 bg-neural" />
+            <div className="relative overflow-hidden rounded-3xl bg-navy p-10 text-center sm:p-14">
+              <div className="absolute inset-0 bg-dotgrid" />
               <div className="relative">
-                <div className="mx-auto mb-5 flex w-fit items-center gap-2 rounded-full bg-gold/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold">
+                <div className="mx-auto mb-5 flex w-fit items-center gap-2 rounded-full border border-white/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white/80">
                   <Clock className="h-3.5 w-3.5" />
                   Founder&apos;s Offer · Limited Time
                 </div>
@@ -70,7 +70,7 @@ export default function FeesPage() {
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
           {included.map((item, i) => (
             <Reveal key={item} delay={(i % 2) * 0.06}>
-              <div className="flex items-start gap-3 rounded-2xl bg-white p-5 card-shadow">
+              <div className="flex items-start gap-3 rounded-2xl bg-white p-5 shadow-soft">
                 <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-royal" />
                 <span className="text-sm font-medium text-navy">{item}</span>
               </div>

@@ -31,14 +31,14 @@ export default function CountdownBar() {
   }, []);
 
   return (
-    <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 bg-gradient-to-r from-magenta to-[#c50a4a] px-4 py-2.5 text-center text-sm font-semibold text-white">
+    <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 bg-navy px-4 py-2.5 text-center text-sm font-medium text-white/90">
       <span>
         Applications for the next cohort close in{" "}
-        <span className="font-extrabold tabular-nums">
+        <span className="font-bold tabular-nums text-white">
           {!mounted ? "..." : timeLeft ? `${timeLeft.d}d ${timeLeft.h}h ${timeLeft.m}m` : "applications are open now"}
         </span>
       </span>
-      <Link href="#apply" className="font-extrabold underline underline-offset-2">
+      <Link href="#apply" className="font-bold underline underline-offset-2 hover:text-white">
         Apply now →
       </Link>
     </div>

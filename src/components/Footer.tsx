@@ -5,7 +5,7 @@ import { CONTACTS, FOOTER_LINKS, SITE } from "@/lib/constants";
 
 export default function Footer() {
   return (
-    <footer className="bg-navy bg-speedlines text-white">
+    <footer className="bg-navy text-white">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10 lg:py-20">
         <div className="grid grid-cols-2 gap-10 sm:grid-cols-2 lg:grid-cols-5">
           <div className="col-span-2 space-y-5 lg:col-span-2">

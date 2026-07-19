@@ -62,7 +62,7 @@ export default function CertificationPage() {
         </div>
       </Section>
 
-      <Section bg="navy" className="bg-neural">
+      <Section bg="navy" className="bg-dotgrid">
         <div className="grid gap-12 lg:grid-cols-2">
           <Reveal>
             <SectionHeading

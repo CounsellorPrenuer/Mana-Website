@@ -47,7 +47,7 @@ export default function CurriculumPage() {
                       i % 2 === 0 ? "lg:left-auto lg:-right-1.5" : "lg:-left-1.5"
                     }`}
                   />
-                  <div className="rounded-2xl border border-navy/8 bg-white p-6 card-shadow">
+                  <div className="rounded-2xl border border-navy/8 bg-white p-6 shadow-soft">
                     <div className="flex flex-wrap items-center justify-between gap-3">
                       <span className="text-xs font-bold uppercase tracking-wider text-magenta">{m.tag}</span>
                       {m.hours && (
@@ -66,7 +66,7 @@ export default function CurriculumPage() {
         </div>
       </Section>
 
-      <Section bg="navy" className="bg-neural">
+      <Section bg="navy" className="bg-dotgrid">
         <div className="grid gap-8 sm:grid-cols-2">
           <Reveal>
             <div className="h-full rounded-2xl border border-white/10 bg-white/[0.05] p-8">

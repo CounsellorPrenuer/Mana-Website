@@ -1,15 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --color-navy: #1b1a5e;
-  --color-navy-light: #2a2878;
-  --color-royal: #2f4fd6;
-  --color-royal-light: #5b74e0;
-  --color-magenta: #e6005a;
-  --color-gold: #f4c40e;
-  --color-lavender: #edeffa;
-  --color-ink: #171438;
-  --color-slate: #5b5a7a;
+  /* Brand — a quiet variant of Mentoria's blue, not a copy of it */
+  --color-navy: #10143a;
+  --color-navy-light: #1b2050;
+  --color-royal: #3355e0;
+  --color-royal-light: #5b78ea;
+
+  /* Rare accents — used sparingly, never as fills */
+  --color-magenta: #d6265f;
+  --color-gold: #c9932c;
+
+  /* Neutrals */
+  --color-ink: #0b0e14;
+  --color-slate: #5b6472;
+  --color-mist: #6b7280; /* kept ≥4.5:1 on white for WCAG AA at small text sizes */
+  --color-border: #e6e8ec;
+  --color-lavender: #f6f7fa;
 
   --background: #ffffff;
   --foreground: var(--color-ink);
@@ -25,22 +32,44 @@
   --color-lavender: var(--color-lavender);
   --color-ink: var(--color-ink);
   --color-slate: var(--color-slate);
+  --color-mist: var(--color-mist);
+  --color-border: var(--color-border);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-heading: var(--font-outfit);
   --font-body: var(--font-work-sans);
 
   --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-fade-in: fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-scale-in: scale-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-marquee: marquee 32s linear infinite;
 
   @keyframes fade-up {
     from {
       opacity: 0;
-      transform: translateY(24px);
+      transform: translateY(20px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
     }
   }
   @keyframes marquee {
@@ -57,6 +86,8 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-body), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 h1,
@@ -66,44 +97,44 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading), var(--font-body), sans-serif;
+  letter-spacing: -0.02em;
 }
 
 ::selection {
-  background: var(--color-gold);
-  color: var(--color-navy);
+  background: var(--color-royal);
+  color: white;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-royal);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .text-balance {
   text-wrap: balance;
 }
 
-.bg-speedlines {
-  background-image: repeating-linear-gradient(
-    115deg,
-    rgba(255, 255, 255, 0.06) 0px,
-    rgba(255, 255, 255, 0.06) 1px,
-    transparent 1px,
-    transparent 42px
-  );
+/* Quiet dot-grid texture for dark sections — no colour, no gradient soup */
+.bg-dotgrid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
-.bg-neural {
-  background-image:
-    radial-gradient(circle at 20% 20%, rgba(230, 0, 90, 0.08) 0, transparent 40%),
-    radial-gradient(circle at 80% 0%, rgba(244, 196, 14, 0.1) 0, transparent 35%),
-    radial-gradient(circle at 90% 80%, rgba(47, 79, 214, 0.12) 0, transparent 40%);
+.shadow-xs {
+  box-shadow: 0 1px 2px rgba(16, 20, 58, 0.04);
 }
 
-.card-shadow {
+.shadow-soft {
   box-shadow:
-    0 1px 2px rgba(27, 26, 94, 0.04),
-    0 12px 32px -12px rgba(27, 26, 94, 0.16);
+    0 1px 2px rgba(16, 20, 58, 0.03),
+    0 8px 24px -12px rgba(16, 20, 58, 0.1);
 }
 
-.card-shadow-lg {
+.shadow-soft-lg {
   box-shadow:
-    0 4px 12px rgba(27, 26, 94, 0.06),
-    0 24px 60px -20px rgba(27, 26, 94, 0.28);
+    0 2px 6px rgba(16, 20, 58, 0.05),
+    0 20px 48px -20px rgba(16, 20, 58, 0.18);
 }
 
 .scrollbar-none::-webkit-scrollbar {
@@ -111,4 +142,15 @@ h6 {
 }
 .scrollbar-none {
   scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

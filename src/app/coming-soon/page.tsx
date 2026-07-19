@@ -19,7 +19,7 @@ const teasers = [
 export default function ComingSoonPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-navy bg-neural bg-speedlines pb-16 pt-32 text-white sm:pb-20 sm:pt-40">
+      <section className="relative overflow-hidden bg-navy bg-dotgrid pb-16 pt-32 text-white sm:pb-20 sm:pt-40">
         <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
           <Reveal>
             <Eyebrow dark>Coming Soon</Eyebrow>
@@ -45,7 +45,7 @@ export default function ComingSoonPage() {
             <div className="mt-8 space-y-4">
               {teasers.map((t, i) => (
                 <Reveal key={t.text} delay={i * 0.08}>
-                  <div className="flex items-start gap-4 rounded-2xl border border-navy/8 bg-white p-5 card-shadow">
+                  <div className="flex items-start gap-4 rounded-2xl border border-navy/8 bg-white p-5 shadow-soft">
                     <t.icon className="mt-0.5 h-5 w-5 flex-shrink-0 text-royal" />
                     <span className="text-sm font-medium text-navy">{t.text}</span>
                   </div>

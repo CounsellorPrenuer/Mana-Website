@@ -55,7 +55,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-navy bg-neural bg-speedlines pb-20 pt-12 sm:pb-28 sm:pt-14 lg:pt-16">
+      <section className="relative overflow-hidden bg-navy bg-dotgrid pb-20 pt-12 sm:pb-28 sm:pt-14 lg:pt-16">
         <div className="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-10 lg:px-10">
           <div>
             <Reveal>
@@ -64,10 +64,7 @@ export default function Home() {
             <Reveal delay={0.08}>
               <h1 className="mt-6 text-balance text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl">
                 Become India&apos;s next AI-era{" "}
-                <span className="text-gold">career</span>{" "}
-                <span className="bg-gradient-to-r from-magenta to-royal bg-clip-text text-transparent">
-                  architect
-                </span>
+                <span className="text-royal-light">career architect</span>
               </h1>
             </Reveal>
             <Reveal delay={0.16}>
@@ -100,8 +97,8 @@ export default function Home() {
           </div>
 
           <Reveal delay={0.2} className="relative mx-auto w-full max-w-sm lg:max-w-none">
-            <div className="relative mx-auto aspect-[4/5] max-w-sm rounded-[2rem] border border-white/10 bg-white/[0.04] p-2 card-shadow-lg backdrop-blur-sm">
-              <div className="flex h-full flex-col justify-between rounded-[1.6rem] bg-gradient-to-br from-royal/25 via-navy to-magenta/10 p-7">
+            <div className="relative mx-auto aspect-[4/5] max-w-sm rounded-[2rem] border border-white/10 bg-white/[0.04] p-2 shadow-soft-lg backdrop-blur-sm">
+              <div className="flex h-full flex-col justify-between rounded-[1.6rem] bg-navy-light p-7">
                 <div className="flex items-center justify-between">
                   <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/80">
                     Capstone: Case 4
@@ -153,7 +150,7 @@ export default function Home() {
       </Section>
 
       {/* Value proposition */}
-      <Section bg="navy" className="bg-neural">
+      <Section bg="navy" className="bg-dotgrid">
         <Reveal>
           <p className="mx-auto max-w-4xl text-balance text-center text-2xl font-semibold leading-snug tracking-tight text-white sm:text-3xl lg:text-4xl">
             MANA is building{" "}
@@ -204,7 +201,7 @@ export default function Home() {
                 { icon: ShieldCheck, text: "Every factual AI claim verified before it reaches a client" },
                 { icon: Sparkles, text: "Working fluency in 5+ AI tools mapped to real counselling tasks" },
               ].map((item) => (
-                <div key={item.text} className="flex items-start gap-4 rounded-2xl bg-white p-5 card-shadow">
+                <div key={item.text} className="flex items-start gap-4 rounded-2xl bg-white p-5 shadow-soft">
                   <item.icon className="mt-0.5 h-5 w-5 flex-shrink-0 text-magenta" />
                   <span className="text-sm font-medium text-navy">{item.text}</span>
                 </div>
@@ -287,7 +284,7 @@ export default function Home() {
       </Section>
 
       {/* Certification & credibility */}
-      <Section bg="navy" className="bg-neural">
+      <Section bg="navy" className="bg-dotgrid">
         <SectionHeading
           eyebrow="Certification"
           title="Assessed through live practice. Never a written exam."

@@ -45,8 +45,11 @@ export default function ApplyForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-navy/70">Full name</label>
+        <label htmlFor="apply-name" className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-navy/70">
+          Full name
+        </label>
         <input
+          id="apply-name"
           required
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -55,8 +58,11 @@ export default function ApplyForm() {
         />
       </div>
       <div>
-        <label className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-navy/70">Email</label>
+        <label htmlFor="apply-email" className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-navy/70">
+          Email
+        </label>
         <input
+          id="apply-email"
           required
           type="email"
           value={email}
@@ -66,10 +72,11 @@ export default function ApplyForm() {
         />
       </div>
       <div>
-        <label className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-navy/70">
+        <label htmlFor="apply-phone" className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-navy/70">
           Phone / WhatsApp
         </label>
         <input
+          id="apply-phone"
           required
           type="tel"
           value={phone}
@@ -79,10 +86,11 @@ export default function ApplyForm() {
         />
       </div>
       <div>
-        <label className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-navy/70">
+        <label htmlFor="apply-background" className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-navy/70">
           What best describes you?
         </label>
         <select
+          id="apply-background"
           required
           value={background}
           onChange={(e) => setBackground(e.target.value)}

@@ -15,7 +15,7 @@ export default function PageHero({
   secondaryCta?: { label: string; href: string };
 }) {
   return (
-    <div className="relative overflow-hidden bg-navy bg-neural bg-speedlines pb-16 pt-32 text-white sm:pb-20 sm:pt-40">
+    <div className="relative overflow-hidden bg-navy bg-dotgrid pb-16 pt-32 text-white sm:pb-20 sm:pt-40">
       <div className="mx-auto max-w-4xl px-5 text-center sm:px-8">
         <div className="mb-5 flex justify-center">
           <Eyebrow dark>{eyebrow}</Eyebrow>

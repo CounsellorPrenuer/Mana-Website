@@ -35,13 +35,14 @@ export default function CityScopeEstimator() {
   const data = TIERS[tier];
 
   return (
-    <div className="rounded-3xl border border-navy/10 bg-white p-6 card-shadow sm:p-8">
+    <div className="rounded-3xl border border-navy/10 bg-white p-6 shadow-soft sm:p-8">
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-navy/70">
+          <label htmlFor="city-input" className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-navy/70">
             Your city (optional)
           </label>
           <input
+            id="city-input"
             value={city}
             onChange={(e) => setCity(e.target.value)}
             placeholder="e.g. Nashik"
@@ -49,8 +50,11 @@ export default function CityScopeEstimator() {
           />
         </div>
         <div>
-          <label className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-navy/70">City tier</label>
+          <label htmlFor="city-tier" className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-navy/70">
+            City tier
+          </label>
           <select
+            id="city-tier"
             value={tier}
             onChange={(e) => setTier(e.target.value as TierKey)}
             className="w-full rounded-xl border border-navy/15 bg-white px-4 py-3 text-sm text-navy outline-none focus:border-royal"

@@ -3,7 +3,7 @@ import Button from "@/components/ui/Button";
 
 export default function NotFound() {
   return (
-    <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden bg-navy bg-neural bg-speedlines px-5 py-24 text-center text-white">
+    <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden bg-navy bg-dotgrid px-5 py-24 text-center text-white">
       <div className="max-w-lg">
         <div className="flex justify-center">
           <Eyebrow dark>404</Eyebrow>
