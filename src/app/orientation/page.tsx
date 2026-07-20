@@ -1,504 +1,493 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import {
-  Rocket,
-  Brain,
-  Sparkles,
-  Target,
+  MessageCircle,
   Users,
-  Briefcase,
-  Handshake,
-  BookOpen,
   ShieldCheck,
   Check,
-  X,
-  GraduationCap,
   Quote,
-  CheckCircle2,
-  ArrowRight,
+  HelpCircle,
+  Laptop,
+  Ticket,
+  UserCheck,
+  Compass,
+  MessagesSquare,
+  CalendarDays,
+  ExternalLink,
 } from "lucide-react";
 import Section, { SectionHeading, Eyebrow } from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
-import MotionReveal from "@/components/sections/apply/MotionReveal";
-import MotionStagger from "@/components/sections/apply/MotionStagger";
-import TiltCard from "@/components/ui/TiltCard";
+import Reveal from "@/components/ui/Reveal";
 import Button from "@/components/ui/Button";
 import Accordion from "@/components/ui/Accordion";
-import FounderOfferBand from "@/components/sections/FounderOfferBand";
-import CountdownBar from "@/components/sections/apply/CountdownBar";
-import ApplyHero from "@/components/sections/apply/ApplyHero";
-import JourneyTimeline from "@/components/sections/apply/JourneyTimeline";
-import WhyYouSelector from "@/components/sections/apply/WhyYouSelector";
-import OpportunityEstimator from "@/components/sections/apply/OpportunityEstimator";
-import ApplyForm from "@/components/sections/apply/ApplyForm";
-import SchoolRatioViz from "@/components/sections/apply/SchoolRatioViz";
-import SectionWave from "@/components/sections/apply/SectionWave";
-import NetworkGrowth from "@/components/sections/apply/NetworkGrowth";
-import PageAtmosphere from "@/components/sections/apply/PageAtmosphere";
+import FinalCta from "@/components/sections/FinalCta";
+import { SITE, TRUST_STATS } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Apply to MANA — Certification Program",
+  title: "Free Orientation",
   description:
-    "MANA is Mentoria's certification program (not a job listing) for people who love guiding young people and want to turn that gift into a business they own. No counselling background needed. Apply to join the cohort.",
+    "A free, live 90-minute orientation for professionals exploring the MANA certification. Get your questions answered live, hosted by Mentoria's CEO. No pressure, no obligation.",
 };
 
-const whatIs = [
-  { k: "Learn", title: "A method that works", body: "AI-era, India-specific, field-tested." },
-  { k: "Become", title: "A guide people trust", body: "Credible to schools and parents from day one." },
-  { k: "Build", title: "A business you keep", body: "Your practice, your clients, your pace." },
+const whyAttend = [
+  {
+    icon: MessagesSquare,
+    title: "Get real answers, live",
+    body: "Ask anything — eligibility, time commitment, income potential, fees — and get a straight answer on the spot.",
+  },
+  {
+    icon: Compass,
+    title: "See how it actually works",
+    body: "Understand the two-engine practice model and how graduates build something of their own.",
+  },
+  {
+    icon: Users,
+    title: "Meet the team",
+    body: "Get a feel for the people who'll train and mentor you before you commit a rupee.",
+  },
+  {
+    icon: UserCheck,
+    title: "Decide with clarity",
+    body: "Leave knowing whether MANA is right for you — that's a win either way.",
+  },
 ];
 
-const whyNowStats = [
-  { value: "AI-era", label: "careers won't sit still" },
-  { value: "Wide open", label: "market, few real guides" },
+const takeaways = [
+  "A clear picture of what MANA is — and who it's really for",
+  "How the certification translates into an actual practice and income",
+  "The fees, the Founder's offer, and what's included — explained transparently",
+  "Answers to your specific questions, live",
+  "A clear view of your next steps — if you choose to take them",
 ];
 
-const businessPoints = [
-  { title: "Win your own clients", body: "A system for reaching schools and filling rooms." },
-  { title: "Deliver without the grind", body: "Mentoria carries the assessments, tech and scheduling." },
-  { title: "Grow at your own pace", body: "One school or one family. Then more, as your name spreads." },
-  { title: "Get leads as you rise", body: "Active practitioners get warm enquiries sent to them." },
+const afterSteps = [
+  {
+    n: 1,
+    title: "Attend",
+    body: "Join the live 90-minute session on Zoom and get every question answered. You'll receive a WhatsApp confirmation with your joining link as soon as you register.",
+  },
+  {
+    n: 2,
+    title: "Reflect",
+    body: "Take your time. We'll share a brochure and stay available on WhatsApp for anything else.",
+  },
+  {
+    n: 3,
+    title: "Decide",
+    body: "If MANA feels right, we'll guide you through enrolment. If not, no hard feelings.",
+  },
 ];
 
-const differentiators = [
-  { icon: Brain, title: "AI-era, India-specific", body: "Built for how careers change here, not a borrowed model." },
-  { icon: Target, title: "Demonstration-first", body: "Watch it, run it, get coached until it's second nature." },
-  { icon: Briefcase, title: "A business system", body: "A playbook for reaching schools, not just a certificate." },
-  { icon: Handshake, title: "The hard parts, handled", body: "Assessments and admin carried by Mentoria." },
-  { icon: BookOpen, title: "A credential you earn", body: "A three-tier assessment and a real-case capstone." },
-  { icon: ShieldCheck, title: "Child-first, always", body: "The trust that turns families into referrals." },
-];
-
-const comparison = [
-  { feature: "What you walk away with", old: "A certificate to frame", mana: "A certificate, a method, and a business" },
-  { feature: "Finding clients", old: "You're on your own", mana: "A system, plus warm leads sent to you" },
-  { feature: "Delivery & admin", old: "You handle it yourself", mana: "Carried by Mentoria" },
-  { feature: "The method", old: "A legacy psychometric test", mana: "AI-era, India-specific" },
-  { feature: "How you train", old: "Videos, then a quiz", mana: "Practice, practicum, real-case capstone" },
-  { feature: "After you certify", old: "Good luck", mana: "A guided 90-day launch sprint" },
-  { feature: "The name behind you", old: "Only your own", mana: "200+ schools, AWES, govt partners" },
-];
-
-const curriculumSnapshot = [
-  { tag: "AI", title: "AI Literacy for Career Guidance" },
-  { tag: "ECOSYSTEM", title: "The Indian Education & Career Ecosystem" },
-  { tag: "DISCOVERY", title: "Career Discovery Architecture" },
-  { tag: "FAMILIES", title: "Parent & Family Counselling" },
-  { tag: "WORKSHOPS", title: "The AI Career Navigator Workshop" },
-  { tag: "BUSINESS", title: "The Sales & Growth System" },
-];
-
-const support = [
-  { icon: Sparkles, title: "Delivery engine", body: "Assessments, reports and scheduling, handled." },
-  { icon: Users, title: "Warm leads", body: "Overflow enquiries routed to active guides." },
-  { icon: GraduationCap, title: "Senior mentors", body: "A 90-day sprint led by people who've done it." },
-  { icon: ShieldCheck, title: "The Mentoria brand", body: "Trust from 200+ schools, from day one." },
-];
-
-const whoItsFor = [
-  { title: "Career-changers", body: "Ready to build something that gives back." },
-  { title: "Parents returning to work", body: "A credible profession that fits around family." },
-  { title: "Teachers & educators", body: "Do it independently, paid what it's worth." },
-  { title: "Coaches & psychologists", body: "A proven system to grow your own practice." },
+const scheduleChips = [
+  { icon: CalendarDays, label: "Mon · Wed · Thu · Fri" },
+  { icon: Laptop, label: "Live on Zoom" },
+  { icon: ShieldCheck, label: "90 minutes" },
+  { icon: Ticket, label: "Free" },
+  { icon: MessageCircle, label: "WhatsApp confirmation" },
 ];
 
 const testimonials = [
   {
-    quote: "One school session and I had eight new counselling clients within the week.",
-    role: "Practising MANA Architect, Pune",
+    quote:
+      "I walked in with a lot of doubt and a long list of questions. I left with a clear next step and none of the sales-pitch feeling I expected.",
+    role: "Attendee → School teacher, now a practising Career Architect",
   },
   {
-    quote: "I came in with no counselling background. The method gave me the skill; the sprint gave me my first clients.",
-    role: "Practising MANA Architect, Bengaluru",
+    quote:
+      "Ninety minutes, direct answers, no pressure to decide on the call. That's exactly what made me trust the programme enough to apply.",
+    role: "Attendee → HR professional, now building an independent practice",
   },
-  {
-    quote: "I look after the families; Mentoria handles the rest. My first partnership paid back the fee several times over.",
-    role: "Practising MANA Architect, Delhi NCR",
-  },
-];
-
-const risks = [
-  { title: "Apply free, decide later", body: "Costs nothing, commits you to nothing." },
-  { title: "A real conversation first", body: "You talk to our team before you pay. No bots." },
-  { title: "Never left on your own", body: "The 90-day sprint means support after you certify." },
 ];
 
 const faqs = [
-  { q: "So what exactly is MANA?", a: "MANA is Mentoria's AI Career Navigation Architect certification. We train you to guide students through career decisions in the age of AI, certify you as a guide schools and families trust, and give you a full system to build your own practice." },
-  { q: "Do I need a psychology or counselling background?", a: "No. MANA is built to take capable, motivated adults from any background and make them business-ready. Bring your care for young people and the will to learn. We teach the rest." },
-  { q: "Can I really build a business and earn from this?", a: "Career guidance is a real and growing field in India, and MANA is built to make you not just qualified but able to win work. What you earn depends on your effort and your market, so any figures we show are illustrative, not promises." },
-  { q: "How much time does it take?", a: "The certification is 60 hours across live sessions and self-paced learning, designed to fit around a working life. After you certify, the 90-day launch sprint is a weekly commitment while you get your practice off the ground." },
-  { q: "Do I have to find schools and clients on my own?", a: "No. You get a complete system for reaching schools and families, Mentoria's credibility from day one, and a team that carries delivery, assessments, reports, scheduling and tech." },
-  { q: "What happens after I apply?", a: "We review your application and get in touch to talk through your goals, answer your questions, and confirm your fit and cohort. Applying is the first step, not a commitment to pay." },
+  { q: "Is the orientation really free?", a: "Yes — completely free, with no obligation to enrol." },
+  { q: "How long is it?", a: "90 minutes, including live Q&A." },
+  {
+    q: "Where is it held?",
+    a: "Live on Zoom. You'll receive the joining link by WhatsApp as soon as you register.",
+  },
+  { q: "When are sessions held?", a: "Every day except Tuesday, Saturday and Sunday." },
+  { q: "Do I need to prepare anything?", a: "No — just bring your questions." },
+  {
+    q: "Will I be pressured to enrol?",
+    a: "No. The orientation is to help you decide. Enrolment is entirely your choice, in your own time.",
+  },
+  {
+    q: "Can I ask about fees and payment?",
+    a: "Absolutely — we explain the fee, the Founder's offer, and what's included, transparently.",
+  },
+  {
+    q: "Will I get a confirmation?",
+    a: "Yes — a WhatsApp confirmation with your Zoom link lands right after you register, plus a reminder before the session.",
+  },
+  {
+    q: "What if I can't attend after registering?",
+    a: "Let us know on WhatsApp and we'll help you pick another day.",
+  },
+  {
+    q: "I still have questions about the programme itself.",
+    a: "Explore the Curriculum, Certification, and FAQ pages — or ask us live at the orientation.",
+  },
 ];
 
-export default function ApplyPage() {
+const whatsappHref = `https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(SITE.whatsappMessage)}`;
+
+export default function OrientationPage() {
   return (
     <>
-      <CountdownBar />
-
-      <ApplyHero />
-
-      <PageAtmosphere>
-        <SectionWave fromBg="#ffffff" toFill="var(--color-lavender)" light="royal" />
-
-        {/* What is MANA */}
-        <section id="whatis" className="py-20 sm:py-28 lg:py-32">
-          <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-            <MotionReveal>
-              <div className="rounded-3xl border border-border bg-white p-8 text-center shadow-soft sm:p-14">
-                <Eyebrow>New here? Start with this</Eyebrow>
-                <h2 className="mt-5 text-3xl font-bold text-navy sm:text-4xl">What is MANA?</h2>
-                <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-slate">
-                  Mentoria&apos;s <b className="font-semibold text-navy">AI Career Navigation Architect certification</b>:
-                  a skill, a credential, and a business. All yours.
-                </p>
-                <div className="mx-auto mt-10 grid max-w-3xl gap-4 text-left sm:grid-cols-3">
-                  {whatIs.map((w) => (
-                    <div key={w.k} className="rounded-2xl border border-border bg-lavender p-5">
-                      <div className="text-xs font-bold uppercase tracking-wide text-royal">{w.k}</div>
-                      <div className="mt-1.5 font-bold text-navy">{w.title}</div>
-                      <p className="mt-1.5 text-sm text-slate">{w.body}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </MotionReveal>
-          </div>
-        </section>
-      </PageAtmosphere>
-
-      {/* Why You */}
-      <Section bg="white">
-        <SectionHeading
-          eyebrow="What's In It For You"
-          title="A business, a calling, an income, on your own terms."
-          description="Tell us your background and see why it fits."
-          align="center"
-        />
-        <div className="mt-14">
-          <WhyYouSelector />
-        </div>
-      </Section>
-
-      {/* Why now — a picture, not a stat card grid */}
-      <Section bg="lavender" className="!py-16">
-        <MotionReveal>
-          <div className="mx-auto max-w-4xl">
-            <p className="text-center text-lg font-semibold text-navy sm:text-xl">
-              Every family needs this. Almost no one is trained to give it.
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-navy bg-dotgrid py-20 sm:py-28">
+        <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
+          <Reveal>
+            <Eyebrow dark>MANA Certification · Free Orientation</Eyebrow>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <h1 className="mt-6 text-balance text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
+              See MANA for yourself — before you decide anything.
+            </h1>
+          </Reveal>
+          <Reveal delay={0.16}>
+            <p className="mx-auto mt-6 max-w-2xl text-balance text-lg leading-relaxed text-white/70 sm:text-xl">
+              A free, live orientation for professionals exploring the MANA Professional Coaching
+              Certification. Get your questions answered, see how the programme actually works, and
+              decide if it&apos;s right for you — no pressure, no obligation.
             </p>
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              <div className="rounded-2xl border border-border bg-white px-6 py-6 text-center">
-                <SchoolRatioViz />
-                <p className="mt-4 text-sm font-semibold text-navy">
-                  Only <span className="text-royal">~1 in 5</span> schools has a counsellor
-                </p>
-              </div>
-              {whyNowStats.map((s) => (
-                <div key={s.label} className="flex flex-col justify-center rounded-2xl border border-border bg-white px-6 py-6 text-center">
-                  <div className="text-2xl font-bold text-royal">{s.value}</div>
-                  <div className="mt-1 text-sm text-slate">{s.label}</div>
-                </div>
-              ))}
+          </Reveal>
+          <Reveal delay={0.24}>
+            <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
+              <Button href="#register" variant="gold" size="lg">
+                Register for a Free Orientation
+              </Button>
+              <Button
+                href="#why-attend"
+                variant="ghost"
+                size="lg"
+                showArrow={false}
+                className="border-white/25 text-white hover:bg-white/10"
+              >
+                ↓ See what to expect
+              </Button>
             </div>
-          </div>
-        </MotionReveal>
-      </Section>
+          </Reveal>
+          <Reveal delay={0.32}>
+            <p className="mt-7 text-sm font-medium text-white/60">
+              Live on Zoom · 90 minutes · Free to attend · Hosted by Mentoria&apos;s CEO
+            </p>
+          </Reveal>
+        </div>
+      </section>
 
-      {/* Opportunity estimator (tabbed: city scope + income) */}
-      <Section bg="white">
+      {/* Why Attend */}
+      <Section bg="white" id="why-attend">
         <SectionHeading
-          eyebrow="Picture The Opportunity"
-          title="What could this look like for you?"
-          description="Two quick pictures, not a promise: the market where you live, and the income a practice could build."
+          eyebrow="Why Attend"
+          title="A certification is a big decision. Start with a conversation."
+          description="You've read about MANA. The orientation is where it becomes real — where you meet the people behind it, see how it works, and get the honest answers that a webpage can't give you."
           align="center"
         />
-        <div className="mx-auto mt-14 max-w-3xl">
-          <OpportunityEstimator />
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {whyAttend.map((w, i) => (
+            <Reveal key={w.title} delay={i * 0.07}>
+              <Card className="h-full">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-lavender text-royal">
+                  <w.icon className="h-5.5 w-5.5" />
+                </div>
+                <h3 className="mt-4 font-bold text-navy">{w.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate">{w.body}</p>
+              </Card>
+            </Reveal>
+          ))}
         </div>
       </Section>
 
-      {/* The business you build */}
+      {/* What You'll Take Away */}
       <Section bg="lavender">
-        <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
-          <MotionReveal>
-            <Eyebrow>The Business You Build</Eyebrow>
-            <h2 className="mt-5 text-3xl font-bold leading-tight tracking-tight text-navy sm:text-4xl">
-              A certificate sits in a drawer. A business changes your life.
-            </h2>
-            <p className="mt-4 text-lg leading-relaxed text-slate">
-              Most courses teach you to counsel, then leave you to find people who&apos;ll pay. MANA hands
-              you the system to actually do that.
-            </p>
-            <ul className="mt-9 grid gap-5 sm:grid-cols-2">
-              {businessPoints.map((p, i) => (
-                <li key={p.title} className="flex items-start gap-3">
-                  <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-navy text-sm font-bold text-white">
-                    {i + 1}
-                  </span>
-                  <span className="text-sm text-navy">
-                    <b className="block font-bold">{p.title}</b>
-                    <span className="text-slate">{p.body}</span>
-                  </span>
+        <div className="mx-auto max-w-2xl">
+          <Reveal>
+            <SectionHeading
+              eyebrow="What You'll Take Away"
+              title="Walk away with clarity — not a sales pitch."
+              description="In under an hour and a half, you'll have everything you need to make an informed decision."
+              align="center"
+            />
+            <ul className="mx-auto mt-10 max-w-xl space-y-4 text-left">
+              {takeaways.map((t) => (
+                <li key={t} className="flex items-start gap-3">
+                  <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-royal" />
+                  <span className="text-navy">{t}</span>
                 </li>
               ))}
             </ul>
-          </MotionReveal>
-          <MotionReveal delay={0.1}>
-            <NetworkGrowth />
-          </MotionReveal>
+          </Reveal>
         </div>
       </Section>
 
-      {/* Differentiators */}
+      {/* 90 Minutes */}
       <Section bg="white">
-        <SectionHeading
-          eyebrow="Why MANA"
-          title="Built to make you business-ready, not just certified."
-          align="center"
-        />
-        <MotionStagger className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {differentiators.map((d) => (
-            <TiltCard key={d.title}>
-              <Card className="h-full" hover={false}>
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-lavender text-royal">
-                  <d.icon className="h-5.5 w-5.5" />
-                </div>
-                <h3 className="mt-4 font-bold text-navy">{d.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate">{d.body}</p>
-              </Card>
-            </TiltCard>
-          ))}
-        </MotionStagger>
-      </Section>
-
-      {/* Comparison — scannable, not prose */}
-      <Section bg="lavender">
-        <SectionHeading
-          eyebrow="The Difference"
-          title="Most certifications end at a certificate. MANA is where your business begins."
-          align="center"
-        />
-        <MotionReveal delay={0.1}>
-          <div className="mx-auto mt-14 max-w-4xl overflow-hidden rounded-3xl border border-border bg-white shadow-soft">
-            <div className="hidden grid-cols-[1.3fr_1fr_1fr] bg-navy px-7 py-3 text-xs font-bold uppercase tracking-wide text-white sm:grid">
-              <span></span>
-              <span className="text-center text-white/50">Typical Certification</span>
-              <span className="text-center text-white">With MANA</span>
+        <div className="mx-auto max-w-2xl text-center">
+          <Reveal>
+            <Eyebrow>The Time Commitment</Eyebrow>
+            <h2 className="mt-5 text-3xl font-bold leading-tight text-navy sm:text-4xl">
+              90 minutes to complete clarity.
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-slate">
+              No 40-page brochure. No drawn-out sales calls. One focused, live session, with real depth
+              and time for every question, gives you the full picture: the model, the outcomes, the
+              investment, and the people behind it. Come with questions. Leave with answers, and a
+              decision you&apos;re confident in.
+            </p>
+            <div className="mx-auto mt-8 max-w-md rounded-2xl border border-border bg-lavender px-6 py-5">
+              <Quote className="mx-auto h-5 w-5 text-royal/50" />
+              <p className="mt-2 text-sm font-medium italic text-navy">
+                &ldquo;Most attendees say the orientation answered questions they didn&apos;t know they
+                had.&rdquo;
+              </p>
             </div>
-            {comparison.map((row, i) => (
-              <div
-                key={row.feature}
-                className={`grid gap-2 px-5 py-5 text-sm sm:grid-cols-[1.3fr_1fr_1fr] sm:items-center sm:py-4 sm:px-7 ${
-                  i % 2 === 0 ? "bg-white" : "bg-lavender/60"
-                } ${i > 0 ? "border-t border-border sm:border-t-0" : ""}`}
-              >
-                <span className="font-semibold text-navy">{row.feature}</span>
-                <span className="mt-2 flex items-start gap-1.5 text-slate sm:mt-0 sm:justify-center sm:text-center">
-                  <X className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-mist" />
-                  <span>{row.old}</span>
-                </span>
-                <span className="mt-1.5 flex items-start gap-1.5 font-semibold text-navy sm:mt-0 sm:justify-center sm:text-center">
-                  <Check className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-royal" />
-                  <span>{row.mana}</span>
-                </span>
-              </div>
-            ))}
-          </div>
-        </MotionReveal>
-      </Section>
-
-      {/* Journey — interactive timeline */}
-      <Section bg="white">
-        <SectionHeading
-          eyebrow="How It Works"
-          title="From application to a business of your own."
-          align="center"
-        />
-        <JourneyTimeline />
-      </Section>
-
-      {/* Curriculum snapshot */}
-      <Section bg="lavender">
-        <SectionHeading
-          eyebrow="What You'll Learn"
-          title="Everything it takes to guide a student, and win a school."
-          align="center"
-        />
-        <MotionStagger className="mt-14 grid gap-3 sm:grid-cols-2 lg:grid-cols-3" stagger={0.05}>
-          {curriculumSnapshot.map((m) => (
-            <div key={m.title} className="flex items-center gap-3 rounded-xl border border-border bg-white px-5 py-4 shadow-xs">
-              <span className="h-fit flex-shrink-0 rounded-md bg-navy px-2.5 py-1 text-[10px] font-bold tracking-wide text-white">
-                {m.tag}
-              </span>
-              <h4 className="text-sm font-bold text-navy">{m.title}</h4>
-            </div>
-          ))}
-        </MotionStagger>
-        <MotionReveal delay={0.2}>
-          <div className="mt-8 flex flex-wrap justify-center gap-x-10 gap-y-5 rounded-2xl border border-border bg-white px-8 py-7 text-center">
-            {[
-              ["60", "hours of training"],
-              ["30 + 30", "live + self-paced"],
-              ["3-tier", "assessment model"],
-              ["1", "real-case capstone"],
-              ["90-day", "launch sprint"],
-            ].map(([v, l]) => (
-              <div key={l}>
-                <div className="text-2xl font-bold text-navy">{v}</div>
-                <div className="text-xs text-slate">{l}</div>
-              </div>
-            ))}
-          </div>
-        </MotionReveal>
-        <div className="mt-8 text-center">
-          <Button href="/curriculum" variant="secondary">
-            See the full curriculum
-          </Button>
+          </Reveal>
         </div>
       </Section>
 
-      {/* Support — editorial strip, distinct from the icon-card grid above */}
-      <Section bg="white">
-        <SectionHeading
-          eyebrow="You Are Not Alone"
-          title="A founder's support, not a freelancer's guesswork."
-          align="center"
-        />
-        <MotionStagger className="mx-auto mt-14 grid max-w-5xl divide-y divide-border overflow-hidden rounded-3xl border border-border sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
-          {support.map((s) => (
-            <div key={s.title} className="flex h-full flex-col items-center gap-3 p-8 text-center">
-              <s.icon className="h-6 w-6 text-royal" />
-              <h4 className="font-bold text-navy">{s.title}</h4>
-              <p className="text-sm leading-relaxed text-slate">{s.body}</p>
+      {/* Who Should Attend */}
+      <Section bg="lavender">
+        <div className="mx-auto max-w-2xl text-center">
+          <Reveal>
+            <Eyebrow>Who Should Attend</Eyebrow>
+            <h2 className="mt-5 text-3xl font-bold leading-tight text-navy sm:text-4xl">
+              Come along if you&apos;re exploring a career in guidance or coaching.
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-slate">
+              Counsellors, coaches, educators, L&amp;D professionals, psychologists, and second-career
+              professionals all attend our orientations, whether you&apos;re seriously considering MANA
+              or simply curious.{" "}
+              <a href="/who-should-join" className="font-semibold text-royal hover:text-navy">
+                Want the detail on fit? See Who Should Join →
+              </a>
+            </p>
+            <div className="mt-8">
+              <Button href="#register" size="lg">
+                Register for a Free Orientation
+              </Button>
             </div>
-          ))}
-        </MotionStagger>
+          </Reveal>
+        </div>
       </Section>
 
-      {/* Who it's for — spacious editorial list, distinct treatment */}
-      <Section bg="lavender">
+      {/* What Happens After */}
+      <Section bg="white">
         <SectionHeading
-          eyebrow="Who It's For"
-          title="You don't need a counselling degree. You need this."
+          eyebrow="What Happens After"
+          title="No pressure. No obligation. Your pace."
           align="center"
         />
-        <MotionStagger className="mx-auto mt-14 grid max-w-4xl gap-x-12 gap-y-8 sm:grid-cols-2">
-          {whoItsFor.map((w) => (
-            <div key={w.title} className="flex items-start gap-4 border-b border-border pb-8">
-              <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-white text-royal shadow-xs">
-                <Check className="h-4 w-4" />
-              </span>
-              <div>
-                <b className="font-bold text-navy">{w.title}</b>
-                <p className="mt-1 text-sm text-slate">{w.body}</p>
+        <div className="mt-14 grid gap-6 sm:grid-cols-3">
+          {afterSteps.map((s, i) => (
+            <Reveal key={s.title} delay={i * 0.08}>
+              <div className="h-full rounded-2xl border border-border bg-lavender p-6">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-navy text-sm font-bold text-white">
+                  {s.n}
+                </span>
+                <h3 className="mt-4 font-bold text-navy">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate">{s.body}</p>
               </div>
-            </div>
+            </Reveal>
           ))}
-        </MotionStagger>
-        <MotionReveal delay={0.2}>
-          <p className="mt-10 text-center text-lg font-semibold text-navy">
-            What you need: a heart for young people, and the drive to build something that&apos;s yours.
+        </div>
+        <Reveal delay={0.2}>
+          <p className="mx-auto mt-10 max-w-xl text-center text-sm font-medium text-slate">
+            There&apos;s no obligation to enrol. Many attendees join simply to learn, and that&apos;s
+            completely welcome.
           </p>
-        </MotionReveal>
+        </Reveal>
+      </Section>
+
+      {/* Meet Your Host */}
+      <Section bg="lavender">
+        <div className="mx-auto max-w-2xl text-center">
+          <Reveal>
+            <Eyebrow>Meet Your Host</Eyebrow>
+            <h2 className="mt-5 text-3xl font-bold leading-tight text-navy sm:text-4xl">
+              Hosted by someone who&apos;s done the work.
+            </h2>
+            <Card className="mx-auto mt-8 text-left" hover={false}>
+              <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start">
+                <div className="flex h-20 w-20 flex-shrink-0 items-center justify-center rounded-2xl bg-navy text-xl font-bold text-white">
+                  NA
+                </div>
+                <div>
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <h3 className="text-lg font-bold text-navy">Nikhar Arora</h3>
+                    <a
+                      href="https://www.linkedin.com/in/nikhar-arora-9548b441/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-royal hover:text-navy"
+                    >
+                      Connect on LinkedIn
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
+                  </div>
+                  <p className="mt-1 font-semibold text-royal">CEO, Mentoria</p>
+                  <p className="mt-3 text-sm leading-relaxed text-slate">
+                    Your orientation is led personally by Nikhar Arora, CEO of Mentoria, the person
+                    driving Mentoria&apos;s mission to take India from career clutter to clarity. You
+                    won&apos;t get a scripted sales rep; you&apos;ll get a direct, honest walkthrough and
+                    answers straight from the person shaping the programme itself.
+                  </p>
+                </div>
+              </div>
+            </Card>
+            <div className="mt-8">
+              <Button href="#register" size="lg">
+                Register for a Free Orientation
+              </Button>
+            </div>
+          </Reveal>
+        </div>
+      </Section>
+
+      {/* Schedule & How It Works */}
+      <Section bg="white">
+        <div className="mx-auto max-w-2xl text-center">
+          <Reveal>
+            <Eyebrow>Schedule &amp; How It Works</Eyebrow>
+            <h2 className="mt-5 text-3xl font-bold leading-tight text-navy sm:text-4xl">
+              Pick a day. Save your seat.
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-slate">
+              Orientations run live on Zoom, every day except Tuesday, Saturday and Sunday. Choose a slot
+              that suits you and register, you&apos;ll get a WhatsApp confirmation with your Zoom joining
+              link right away.
+            </p>
+            <div className="mx-auto mt-8 flex max-w-xl flex-wrap justify-center gap-3">
+              {scheduleChips.map((c) => (
+                <span
+                  key={c.label}
+                  className="flex items-center gap-2 rounded-full border border-border bg-lavender px-4 py-2 text-sm font-semibold text-navy"
+                >
+                  <c.icon className="h-4 w-4 text-royal" />
+                  {c.label}
+                </span>
+              ))}
+            </div>
+            <div className="mt-9">
+              <Button href="#register" size="lg">
+                Register for a Free Orientation
+              </Button>
+            </div>
+          </Reveal>
+        </div>
+      </Section>
+
+      {/* Trust band */}
+      <Section bg="navy" className="bg-dotgrid">
+        <div className="mx-auto max-w-3xl text-center">
+          <Reveal>
+            <h2 className="text-balance text-2xl font-bold leading-snug text-white sm:text-3xl">
+              Backed by India&apos;s leading career discovery ecosystem.
+            </h2>
+            <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4">
+              {TRUST_STATS.map((s) => (
+                <div key={s.label}>
+                  <div className="text-2xl font-bold text-gold sm:text-3xl">{s.value}</div>
+                  <div className="mt-1 text-xs font-medium text-white/60 sm:text-sm">{s.label}</div>
+                </div>
+              ))}
+            </div>
+            <p className="mx-auto mt-8 max-w-lg text-sm text-white/60">
+              When you train with Mentoria, you&apos;re backed by a name schools, students, and parents
+              already trust.
+            </p>
+          </Reveal>
+        </div>
       </Section>
 
       {/* Testimonials */}
-      <Section bg="white">
-        <SectionHeading eyebrow="Graduate Stories" title="Talent, turned into a business." align="center" />
-        <MotionStagger className="mt-14 grid gap-6 lg:grid-cols-3">
-          {testimonials.map((t) => (
-            <TiltCard key={t.role}>
-              <Card className="h-full" hover={false}>
-                <Quote className="h-6 w-6 text-royal/40" />
+      <Section bg="lavender">
+        <SectionHeading
+          eyebrow="Hear From Attendees"
+          title="Hear from people who started exactly where you are."
+          description="Professionals who attended an orientation, enrolled, and built a practice."
+          align="center"
+        />
+        <div className="mt-14 grid gap-6 sm:grid-cols-2">
+          {testimonials.map((t, i) => (
+            <Reveal key={t.role} delay={i * 0.08}>
+              <Card className="h-full">
+                <Quote className="h-7 w-7 text-magenta/40" />
                 <p className="mt-4 text-sm leading-relaxed text-navy">{t.quote}</p>
-                <div className="mt-6 border-t border-border pt-4">
+                <div className="mt-6 border-t border-navy/8 pt-4">
                   <div className="text-xs font-semibold text-slate">{t.role}</div>
                 </div>
               </Card>
-            </TiltCard>
+            </Reveal>
           ))}
-        </MotionStagger>
-      </Section>
-
-      {/* Pricing */}
-      <FounderOfferBand />
-
-      {/* Risk reversal — checklist strip, distinct from earlier grids */}
-      <Section bg="white">
-        <SectionHeading eyebrow="Your Safety Net" title="Big step. Small risk." align="center" />
-        <MotionStagger className="mx-auto mt-14 max-w-3xl space-y-3" stagger={0.1}>
-          {risks.map((r, i) => (
-            <div key={r.title} className="flex items-center gap-5 rounded-2xl border border-border bg-lavender px-6 py-5">
-              <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-navy text-sm font-bold text-white">
-                {i + 1}
-              </span>
-              <div>
-                <b className="font-bold text-navy">{r.title}</b>
-                <span className="ml-2 text-sm text-slate">{r.body}</span>
-              </div>
-            </div>
-          ))}
-        </MotionStagger>
+        </div>
+        <Reveal delay={0.2}>
+          <div className="mt-10 text-center">
+            <Button href="#register" variant="secondary">
+              Register for a Free Orientation
+            </Button>
+          </div>
+        </Reveal>
       </Section>
 
       {/* FAQ */}
-      <Section bg="lavender">
-        <SectionHeading eyebrow="Questions, Answered" title="Everything you're wondering." align="center" />
+      <Section bg="white">
+        <SectionHeading eyebrow="Orientation FAQs" title="Everything about the session, answered." align="center" />
         <div className="mx-auto mt-14 max-w-3xl">
           <Accordion items={faqs} />
         </div>
       </Section>
 
-      <SectionWave fromBg="var(--color-lavender)" toFill="var(--color-navy)" light="gold" />
-
-      {/* Apply — the one deliberate dark closing moment */}
-      <section id="apply" className="relative overflow-hidden bg-navy bg-dotgrid py-20 sm:py-28">
-        <div className="mx-auto grid max-w-6xl gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:items-center lg:px-10">
-          <MotionReveal>
+      {/* Registration */}
+      <section id="register" className="relative overflow-hidden bg-navy bg-dotgrid py-20 sm:py-28">
+        <div className="mx-auto max-w-2xl px-5 text-center sm:px-8">
+          <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white/80">
-              <Rocket className="h-3.5 w-3.5" />
-              Next cohort forming now · Limited seats
+              <HelpCircle className="h-3.5 w-3.5" />
+              Takes less than a minute
             </span>
             <h2 className="mt-5 text-balance text-3xl font-bold leading-tight text-white sm:text-4xl">
-              Apply to join the next cohort.
+              Register for your free orientation.
             </h2>
-            <p className="mt-4 max-w-md text-lg leading-relaxed text-white/60">
-              Two minutes, no commitment. We&apos;ll take it from there.
+            <p className="mt-4 text-lg leading-relaxed text-white/70">
+              Pick a day that works for you. You&apos;ll get a WhatsApp confirmation with your Zoom link
+              right away. Sessions run live on Zoom every day except Tuesday, Saturday &amp; Sunday.
             </p>
-            <ul className="mt-8 space-y-3">
-              {[
-                "No prior experience required",
-                "Built for working adults, live plus self-paced",
-                "A method, a credential and a business, not just a course",
-              ].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-white/85">
-                  <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-white/70" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <div className="mt-9 hidden lg:block">
-              <Link
-                href="/curriculum"
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-white/70 hover:text-white"
+            <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
+              <Button href="https://forms.gle/jE8fytyuam4viMpL7" variant="gold" size="lg" external>
+                Save My Seat
+              </Button>
+              <Button
+                href={whatsappHref}
+                variant="ghost"
+                size="lg"
+                external
+                showArrow={false}
+                className="border-white/25 text-white hover:bg-white/10"
               >
-                Or explore the full curriculum first <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
+                Prefer to chat first? WhatsApp us
+              </Button>
             </div>
-          </MotionReveal>
-          <MotionReveal delay={0.1}>
-            <div className="rounded-3xl bg-white p-8 shadow-soft-lg sm:p-10">
-              <h3 className="text-xl font-bold text-navy">Start your application</h3>
-              <p className="mt-1 text-sm text-slate">We&apos;ll be in touch within a few working days.</p>
-              <div className="mt-6">
-                <ApplyForm />
-              </div>
+            <div className="mx-auto mt-10 overflow-hidden rounded-3xl bg-white shadow-soft-lg">
+              <iframe
+                src="https://forms.gle/jE8fytyuam4viMpL7"
+                title="MANA Free Orientation registration form"
+                className="h-[720px] w-full"
+                loading="lazy"
+              >
+                Loading registration form…
+              </iframe>
             </div>
-          </MotionReveal>
+          </Reveal>
         </div>
       </section>
+
+      <FinalCta
+        title="One free session could change your career direction."
+        description="No cost. No pressure. Just clarity."
+        primaryLabel="Register for a Free Orientation"
+        primaryHref="#register"
+      />
     </>
   );
 }

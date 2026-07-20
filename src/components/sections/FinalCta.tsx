@@ -5,9 +5,13 @@ import { SITE } from "@/lib/constants";
 export default function FinalCta({
   title = "See the model. Meet the faculty. Ask anything.",
   description = "Applying costs nothing and commits you to nothing. Tell us your story, and our team will walk you through the practice, the fee, and the Founder's Offer.",
+  primaryLabel = "Apply to Join the Cohort",
+  primaryHref = "/orientation",
 }: {
   title?: string;
   description?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
 }) {
   return (
     <section className="relative overflow-hidden bg-navy bg-dotgrid py-20 sm:py-24">
@@ -18,8 +22,8 @@ export default function FinalCta({
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-balance text-lg text-white/70">{description}</p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-            <Button href="/orientation" variant="gold" size="lg">
-              Apply to Join the Cohort
+            <Button href={primaryHref} variant="gold" size="lg">
+              {primaryLabel}
             </Button>
             <Button
               href={`https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(SITE.whatsappMessage)}`}

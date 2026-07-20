@@ -51,6 +51,22 @@ export default function Button({
     className
   );
 
+  // Next.js's <Link> can no-op on same-page hash hrefs in the static-export production
+  // build (no route change, so its hash-scroll effect doesn't reliably fire). Handle
+  // same-page anchors ourselves so "Apply now" always actually scrolls.
+  function handleClick(e: React.MouseEvent<HTMLAnchorElement>) {
+    if (href.startsWith("#")) {
+      const id = href.slice(1);
+      const target = document.getElementById(id);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: prefersReducedMotion() ? "auto" : "smooth", block: "start" });
+        if (history.pushState) history.pushState(null, "", href);
+      }
+    }
+    onClick?.();
+  }
+
   // Direct DOM writes, not React state — a magnetic hover shouldn't cost a re-render per pixel of mouse movement.
   function handleMouseMove(e: React.MouseEvent<HTMLAnchorElement>) {
     const el = ref.current;
@@ -95,7 +111,7 @@ export default function Button({
       ref={ref}
       href={href}
       className={classes}
-      onClick={onClick}
+      onClick={handleClick}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={style}

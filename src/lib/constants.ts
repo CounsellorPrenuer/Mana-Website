@@ -7,7 +7,7 @@ export const SITE = {
   url: "https://certifications.mentoria.com",
   whatsappNumber: "919152546558",
   whatsappMessage: "Hi, I'd like to know more about the MANA certification.",
-  orientationCta: "Apply Now",
+  orientationCta: "Register Now",
 };
 
 export const CONTACTS = [
