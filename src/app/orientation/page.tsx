@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   MessageCircle,
   Users,
@@ -278,8 +279,14 @@ export default function OrientationPage() {
           <OrientationReveal delay={0.1} y={28}>
             <Card className="mx-auto mt-8 text-left" hover={false}>
               <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start">
-                <div className="flex h-20 w-20 flex-shrink-0 items-center justify-center rounded-2xl bg-navy text-xl font-bold text-white">
-                  NA
+                <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-2xl bg-navy">
+                  <Image
+                    src="/orientation/nikhar-arora.jpg"
+                    alt="Nikhar Arora"
+                    fill
+                    sizes="80px"
+                    className="object-cover"
+                  />
                 </div>
                 <div>
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
