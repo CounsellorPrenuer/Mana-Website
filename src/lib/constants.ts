@@ -35,9 +35,7 @@ export const TRUST_STATS = [
 ];
 
 export const FEES = {
-  standard: 60000,
   founder: 55000,
-  discount: 5000,
   currency: "₹",
   tms2Monthly: "₹1,500–2,500",
   bridgeMin: 8000,
@@ -79,7 +77,7 @@ export const FOOTER_LINKS = {
     { label: "Apply to Join", href: "/orientation" },
     { label: "Testimonials", href: "/testimonials" },
     { label: "Success Stories", href: "/success-stories" },
-    { label: "Fees & Founder's Offer", href: "/fees" },
+    { label: "Fees", href: "/fees" },
     { label: "Downloads", href: "/downloads" },
     { label: "FAQs", href: "/faqs" },
     { label: "Contact", href: "/contact" },
@@ -282,10 +280,8 @@ export const FAQ_CATEGORIES = [
     category: "Payments & EMI",
     items: [
       {
-        q: "What does the Founder's Offer include?",
-        a: `The certification is priced at ₹${FEES.standard.toLocaleString(
-          "en-IN"
-        )}, with a limited-time Founder's Offer bringing it to ₹${FEES.founder.toLocaleString(
+        q: "What does the certification cost?",
+        a: `The certification is priced at ₹${FEES.founder.toLocaleString(
           "en-IN"
         )}. Full details, including payment options, are confirmed with our team once you apply.`,
       },

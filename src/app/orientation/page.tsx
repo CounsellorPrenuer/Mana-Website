@@ -58,7 +58,7 @@ const whyAttend = [
 const takeaways = [
   "A clear picture of what MANA is, and who it's really for",
   "How the certification translates into an actual practice and income",
-  "The fees, the Founder's offer, and what's included, explained transparently",
+  "The fees and what's included, explained transparently",
   "Answers to your specific questions, live",
   "A clear view of your next steps, if you choose to take them",
 ];
@@ -117,7 +117,7 @@ const faqs = [
   },
   {
     q: "Can I ask about fees and payment?",
-    a: "Absolutely. We explain the fee, the Founder's offer, and what's included, transparently.",
+    a: "Absolutely. We explain the fee and what's included, transparently.",
   },
   {
     q: "Will I get a confirmation?",

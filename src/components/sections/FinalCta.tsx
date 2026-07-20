@@ -4,7 +4,7 @@ import { SITE } from "@/lib/constants";
 
 export default function FinalCta({
   title = "See the model. Meet the faculty. Ask anything.",
-  description = "Applying costs nothing and commits you to nothing. Tell us your story, and our team will walk you through the practice, the fee, and the Founder's Offer.",
+  description = "Applying costs nothing and commits you to nothing. Tell us your story, and our team will walk you through the practice and the fee.",
   primaryLabel = "Apply to Join the Cohort",
   primaryHref = "/orientation",
 }: {

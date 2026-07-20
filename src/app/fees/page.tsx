@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Check, Clock, Info, RefreshCw } from "lucide-react";
+import { Check, Info, RefreshCw, Tag } from "lucide-react";
 import Section, { SectionHeading } from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
 import Reveal from "@/components/ui/Reveal";
@@ -9,10 +9,8 @@ import FinalCta from "@/components/sections/FinalCta";
 import { FEES } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Fees & Founder's Offer",
-  description: `MANA certification is priced at ₹${FEES.standard.toLocaleString(
-    "en-IN"
-  )}, with a limited-time Founder's Offer bringing it to ₹${FEES.founder.toLocaleString("en-IN")}.`,
+  title: "Fees",
+  description: `MANA certification is priced at ₹${FEES.founder.toLocaleString("en-IN")}.`,
 };
 
 const included = [
@@ -28,7 +26,7 @@ export default function FeesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Fees & Founder's Offer"
+        eyebrow="Fees"
         title="Transparent pricing, explained in full"
         description="No hidden costs, no surprise add-ons, here's exactly what's included and what it costs."
       />
@@ -40,14 +38,10 @@ export default function FeesPage() {
               <div className="absolute inset-0 bg-dotgrid" />
               <div className="relative">
                 <div className="mx-auto mb-5 flex w-fit items-center gap-2 rounded-full border border-white/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white/80">
-                  <Clock className="h-3.5 w-3.5" />
-                  Founder&apos;s Offer · Limited Time
+                  <Tag className="h-3.5 w-3.5" />
+                  Certification Fee
                 </div>
-                <div className="flex items-baseline justify-center gap-4">
-                  <span className="text-2xl font-semibold text-white/40 line-through">
-                    {FEES.currency}
-                    {FEES.standard.toLocaleString("en-IN")}
-                  </span>
+                <div className="flex items-baseline justify-center">
                   <span className="text-5xl font-bold tracking-tight text-white sm:text-6xl">
                     {FEES.currency}
                     {FEES.founder.toLocaleString("en-IN")}
@@ -56,7 +50,7 @@ export default function FeesPage() {
                 <p className="mt-4 text-white/70">One-time fee for the complete MANA certification.</p>
                 <div className="mt-8">
                   <Button href="/orientation" variant="gold" size="lg">
-                    Claim the Founder&apos;s Offer
+                    Apply to Join the Cohort
                   </Button>
                 </div>
               </div>
@@ -113,7 +107,7 @@ export default function FeesPage() {
             <h3 className="text-2xl font-bold text-navy">Payment options and EMI</h3>
             <p className="mt-3 text-slate">
               Flexible payment options are discussed and confirmed once you apply, along with the
-              current Founder&apos;s Offer deadline for your cohort.
+              current cohort schedule.
             </p>
           </div>
         </Reveal>
