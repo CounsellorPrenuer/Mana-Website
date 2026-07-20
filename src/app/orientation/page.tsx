@@ -33,6 +33,9 @@ import OpportunityEstimator from "@/components/sections/apply/OpportunityEstimat
 import ApplyForm from "@/components/sections/apply/ApplyForm";
 import SchoolRatioViz from "@/components/sections/apply/SchoolRatioViz";
 import SectionWave from "@/components/sections/apply/SectionWave";
+import NetworkGrowth from "@/components/sections/apply/NetworkGrowth";
+import PageAtmosphere from "@/components/sections/apply/PageAtmosphere";
+import ConnectorLine from "@/components/sections/apply/ConnectorLine";
 
 export const metadata: Metadata = {
   title: "Apply to MANA",
@@ -137,30 +140,34 @@ export default function ApplyPage() {
 
       <ApplyHero />
 
-      <SectionWave fromBg="#ffffff" toFill="var(--color-lavender)" light="royal" />
+      <PageAtmosphere>
+        <SectionWave fromBg="#ffffff" toFill="var(--color-lavender)" light="royal" />
 
-      {/* What is MANA */}
-      <Section bg="lavender" id="whatis">
-        <MotionReveal>
-          <div className="rounded-3xl border border-border bg-white p-8 text-center shadow-soft sm:p-14">
-            <Eyebrow>New here? Start with this</Eyebrow>
-            <h2 className="mt-5 text-3xl font-bold text-navy sm:text-4xl">What is MANA?</h2>
-            <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-slate">
-              Mentoria&apos;s <b className="font-semibold text-navy">AI Career Navigation Architect certification</b>:
-              a skill, a credential, and a business. All yours.
-            </p>
-            <div className="mx-auto mt-10 grid max-w-3xl gap-4 text-left sm:grid-cols-3">
-              {whatIs.map((w) => (
-                <div key={w.k} className="rounded-2xl border border-border bg-lavender p-5">
-                  <div className="text-xs font-bold uppercase tracking-wide text-royal">{w.k}</div>
-                  <div className="mt-1.5 font-bold text-navy">{w.title}</div>
-                  <p className="mt-1.5 text-sm text-slate">{w.body}</p>
+        {/* What is MANA */}
+        <section id="whatis" className="py-20 sm:py-28 lg:py-32">
+          <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+            <MotionReveal>
+              <div className="rounded-3xl border border-border bg-white p-8 text-center shadow-soft sm:p-14">
+                <Eyebrow>New here? Start with this</Eyebrow>
+                <h2 className="mt-5 text-3xl font-bold text-navy sm:text-4xl">What is MANA?</h2>
+                <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-slate">
+                  Mentoria&apos;s <b className="font-semibold text-navy">AI Career Navigation Architect certification</b>:
+                  a skill, a credential, and a business. All yours.
+                </p>
+                <div className="mx-auto mt-10 grid max-w-3xl gap-4 text-left sm:grid-cols-3">
+                  {whatIs.map((w) => (
+                    <div key={w.k} className="rounded-2xl border border-border bg-lavender p-5">
+                      <div className="text-xs font-bold uppercase tracking-wide text-royal">{w.k}</div>
+                      <div className="mt-1.5 font-bold text-navy">{w.title}</div>
+                      <p className="mt-1.5 text-sm text-slate">{w.body}</p>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            </MotionReveal>
           </div>
-        </MotionReveal>
-      </Section>
+        </section>
+      </PageAtmosphere>
 
       {/* Why You */}
       <Section bg="white">
@@ -245,22 +252,7 @@ export default function ApplyPage() {
             </ul>
           </MotionReveal>
           <MotionReveal delay={0.1}>
-            <div className="relative overflow-hidden rounded-3xl bg-navy p-8 text-white sm:p-10">
-              <h3 className="text-lg font-bold">What a practice can build</h3>
-              <div className="mt-6 space-y-1">
-                {[
-                  ["One school (~200 students)", "₹3–6L"],
-                  ["Five schools in a year", "₹20–35L"],
-                  ["Per family, independent", "₹850–2,625"],
-                ].map(([k, v]) => (
-                  <div key={k} className="flex items-baseline justify-between gap-4 border-b border-white/10 py-4 last:border-0">
-                    <span className="max-w-[60%] text-sm text-white/70">{k}</span>
-                    <span className="text-xl font-bold text-white">{v}</span>
-                  </div>
-                ))}
-              </div>
-              <p className="mt-5 text-xs text-white/45">Illustrative, not a guarantee. Depends on your effort and market.</p>
-            </div>
+            <NetworkGrowth />
           </MotionReveal>
         </div>
       </Section>
@@ -272,19 +264,21 @@ export default function ApplyPage() {
           title="Built to make you business-ready, not just certified."
           align="center"
         />
-        <MotionStagger className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {differentiators.map((d) => (
-            <TiltCard key={d.title}>
-              <Card className="h-full" hover={false}>
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-lavender text-royal">
-                  <d.icon className="h-5.5 w-5.5" />
-                </div>
-                <h3 className="mt-4 font-bold text-navy">{d.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate">{d.body}</p>
-              </Card>
-            </TiltCard>
-          ))}
-        </MotionStagger>
+        <ConnectorLine>
+          <MotionStagger className="mt-14 grid gap-6 pt-6 sm:grid-cols-2 lg:grid-cols-3 lg:pt-8">
+            {differentiators.map((d) => (
+              <TiltCard key={d.title}>
+                <Card className="h-full" hover={false}>
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-lavender text-royal">
+                    <d.icon className="h-5.5 w-5.5" />
+                  </div>
+                  <h3 className="mt-4 font-bold text-navy">{d.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate">{d.body}</p>
+                </Card>
+              </TiltCard>
+            ))}
+          </MotionStagger>
+        </ConnectorLine>
       </Section>
 
       {/* Comparison — scannable, not prose */}

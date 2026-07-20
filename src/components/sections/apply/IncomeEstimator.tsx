@@ -1,6 +1,10 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { motion } from "framer-motion";
+import { SPRING_SOFT } from "@/lib/motionConfig";
+
+const MAX_SCALE = 7000000;
 
 function lakh(v: number) {
   return `₹${(v / 100000).toFixed(1)}L`;
@@ -15,6 +19,9 @@ export default function IncomeEstimator() {
     const high = schools * 600000 + families * 12 * 2625;
     return { low, high };
   }, [schools, families]);
+
+  const lowPct = Math.min((low / MAX_SCALE) * 100, 100);
+  const highPct = Math.min((high / MAX_SCALE) * 100, 100);
 
   return (
     <div className="grid gap-8 rounded-3xl border border-border bg-white p-6 shadow-soft sm:grid-cols-2 sm:p-8">
@@ -61,6 +68,14 @@ export default function IncomeEstimator() {
           {lakh(low)} – {lakh(high)}
         </div>
         <div className="mt-2 text-sm text-white/70">per year, as your practice grows</div>
+        <div className="mt-5 h-2 w-full overflow-hidden rounded-full bg-white/10">
+          <motion.div
+            className="h-full rounded-full bg-gold"
+            initial={false}
+            animate={{ marginLeft: `${lowPct}%`, width: `${Math.max(highPct - lowPct, 2)}%` }}
+            transition={SPRING_SOFT}
+          />
+        </div>
       </div>
 
       <p className="text-center text-xs text-mist sm:col-span-2">

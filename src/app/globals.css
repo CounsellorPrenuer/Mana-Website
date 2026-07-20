@@ -4,8 +4,8 @@
   /* Brand — a quiet variant of Mentoria's blue, not a copy of it */
   --color-navy: #10143a;
   --color-navy-light: #1b2050;
-  --color-royal: #3355e0;
-  --color-royal-light: #5b78ea;
+  --color-royal: #2e4bd6; /* deepened slightly for a richer, more premium blue — darkening only improves contrast on light backgrounds */
+  --color-royal-light: #5872e8;
 
   /* Rare accents — used sparingly, never as fills */
   --color-magenta: #d6265f;
@@ -16,7 +16,7 @@
   --color-slate: #5b6472;
   --color-mist: #6b7280; /* kept ≥4.5:1 on white for WCAG AA at small text sizes */
   --color-border: #e6e8ec;
-  --color-lavender: #f6f7fa;
+  --color-lavender: #f7f6fa; /* softened toward neutral, marginally less cool/blue cast */
 
   --background: #ffffff;
   --foreground: var(--color-ink);
