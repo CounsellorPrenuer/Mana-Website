@@ -1,39 +1,47 @@
 "use client";
 
-import { useRef } from "react";
+import { motion, useReducedMotion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { prefersReducedMotion } from "@/lib/motion";
+import { SPRING_SOFT } from "@/lib/motionConfig";
 
-const MAX_TILT = 5;
+const MAX_TILT = 6;
 
-/** Wraps children in a subtle 3D-tilt-on-hover card. Combines lift + tilt in one JS-driven transform. */
+/** Wraps children in a subtle 3D-tilt-and-lift-on-hover card, spring-eased via Framer Motion. */
 export default function TiltCard({ children, className }: { children: React.ReactNode; className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
+  const shouldReduceMotion = useReducedMotion();
+  const tiltX = useMotionValue(0);
+  const tiltY = useMotionValue(0);
+  const springX = useSpring(tiltX, SPRING_SOFT);
+  const springY = useSpring(tiltY, SPRING_SOFT);
+  const rotateX = useTransform(springY, [-0.5, 0.5], [MAX_TILT, -MAX_TILT]);
+  const rotateY = useTransform(springX, [-0.5, 0.5], [-MAX_TILT, MAX_TILT]);
 
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
-    const el = ref.current;
-    if (!el || prefersReducedMotion()) return;
-    const rect = el.getBoundingClientRect();
-    const relX = (e.clientX - rect.left) / rect.width - 0.5;
-    const relY = (e.clientY - rect.top) / rect.height - 0.5;
-    el.style.transform = `perspective(700px) translateY(-4px) rotateX(${-relY * MAX_TILT}deg) rotateY(${relX * MAX_TILT}deg)`;
+    if (shouldReduceMotion) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    tiltX.set((e.clientX - rect.left) / rect.width - 0.5);
+    tiltY.set((e.clientY - rect.top) / rect.height - 0.5);
   }
 
   function handleMouseLeave() {
-    const el = ref.current;
-    if (!el) return;
-    el.style.transform = "perspective(700px) translateY(0) rotateX(0deg) rotateY(0deg)";
+    tiltX.set(0);
+    tiltY.set(0);
   }
 
   return (
-    <div
-      ref={ref}
+    <motion.div
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={cn("transition-transform duration-300 ease-out will-change-transform", className)}
-      style={{ transformStyle: "preserve-3d" }}
+      whileHover={
+        shouldReduceMotion
+          ? undefined
+          : { y: -4, boxShadow: "0 24px 56px -20px rgba(51,85,224,0.22)" }
+      }
+      transition={SPRING_SOFT}
+      style={shouldReduceMotion ? undefined : { rotateX, rotateY, transformPerspective: 700 }}
+      className={cn("will-change-transform", className)}
     >
       {children}
-    </div>
+    </motion.div>
   );
 }

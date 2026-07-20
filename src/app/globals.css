@@ -80,6 +80,33 @@
       transform: translateX(-50%);
     }
   }
+  @keyframes blob-drift-a {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(30px, 22px) scale(1.08);
+    }
+  }
+  @keyframes blob-drift-b {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(-26px, 30px) scale(1.05);
+    }
+  }
+  @keyframes blob-drift-c {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(22px, -26px) scale(1.1);
+    }
+  }
 }
 
 body {
@@ -119,6 +146,23 @@ h6 {
 .bg-dotgrid {
   background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
   background-size: 24px 24px;
+}
+
+/* Slow-drifting soft-focus gradient blobs — the orientation hero's mesh-gradient backdrop */
+.animate-blob-drift-a {
+  animation: blob-drift-a 18s ease-in-out infinite;
+}
+.animate-blob-drift-b {
+  animation: blob-drift-b 22s ease-in-out infinite;
+}
+.animate-blob-drift-c {
+  animation: blob-drift-c 26s ease-in-out infinite;
+}
+
+/* Matte film-grain overlay, applied at very low opacity — adds texture without weight */
+.bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
 }
 
 .shadow-xs {

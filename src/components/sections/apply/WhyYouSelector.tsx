@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Briefcase, Users, GraduationCap, HeartHandshake, Shield, Sparkles } from "lucide-react";
+import { EASE_OUT } from "@/lib/motionConfig";
 
 const BACKGROUNDS = [
   {
@@ -56,10 +58,13 @@ export default function WhyYouSelector() {
     <div>
       <div className="flex flex-wrap justify-center gap-2.5">
         {BACKGROUNDS.map((b) => (
-          <button
+          <motion.button
             key={b.key}
             onClick={() => setActive(b.key)}
             aria-pressed={active === b.key}
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.96 }}
+            transition={{ duration: 0.15 }}
             className={`flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-semibold transition-colors duration-200 ${
               active === b.key
                 ? "border-navy bg-navy text-white"
@@ -68,13 +73,23 @@ export default function WhyYouSelector() {
           >
             <b.icon className="h-4 w-4" />
             {b.label}
-          </button>
+          </motion.button>
         ))}
       </div>
 
-      <div className="mt-8 rounded-3xl border border-navy/10 bg-white p-8 text-center shadow-soft sm:p-10">
-        <span className="text-xs font-bold uppercase tracking-wider text-magenta">Why you&apos;re a fit</span>
-        <p className="mx-auto mt-3 max-w-2xl text-lg leading-relaxed text-navy">{selected.pitch}</p>
+      <div className="relative mt-8 overflow-hidden rounded-3xl border border-navy/10 bg-white p-8 text-center shadow-soft sm:p-10">
+        <AnimatePresence mode="popLayout" initial={false}>
+          <motion.div
+            key={selected.key}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.35, ease: EASE_OUT }}
+          >
+            <span className="text-xs font-bold uppercase tracking-wider text-magenta">Why you&apos;re a fit</span>
+            <p className="mx-auto mt-3 max-w-2xl text-lg leading-relaxed text-navy">{selected.pitch}</p>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </div>
   );

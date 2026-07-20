@@ -19,8 +19,8 @@ import {
 } from "lucide-react";
 import Section, { SectionHeading, Eyebrow } from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
-import Reveal from "@/components/ui/Reveal";
-import StaggerReveal from "@/components/ui/StaggerReveal";
+import MotionReveal from "@/components/sections/apply/MotionReveal";
+import MotionStagger from "@/components/sections/apply/MotionStagger";
 import TiltCard from "@/components/ui/TiltCard";
 import Button from "@/components/ui/Button";
 import Accordion from "@/components/ui/Accordion";
@@ -138,7 +138,7 @@ export default function ApplyPage() {
 
       {/* What is MANA */}
       <Section bg="lavender" id="whatis">
-        <Reveal>
+        <MotionReveal>
           <div className="rounded-3xl border border-border bg-white p-8 text-center shadow-soft sm:p-14">
             <Eyebrow>New here? Start with this</Eyebrow>
             <h2 className="mt-5 text-3xl font-bold text-navy sm:text-4xl">What is MANA?</h2>
@@ -156,7 +156,7 @@ export default function ApplyPage() {
               ))}
             </div>
           </div>
-        </Reveal>
+        </MotionReveal>
       </Section>
 
       {/* Why You */}
@@ -174,7 +174,7 @@ export default function ApplyPage() {
 
       {/* Why now — condensed stat band */}
       <Section bg="lavender" className="!py-16">
-        <Reveal>
+        <MotionReveal>
           <div className="mx-auto max-w-4xl">
             <p className="text-center text-lg font-semibold text-navy sm:text-xl">
               Every family needs this. Almost no one is trained to give it.
@@ -188,7 +188,7 @@ export default function ApplyPage() {
               ))}
             </div>
           </div>
-        </Reveal>
+        </MotionReveal>
       </Section>
 
       {/* Opportunity estimator (tabbed: city scope + income) */}
@@ -207,7 +207,7 @@ export default function ApplyPage() {
       {/* The business you build */}
       <Section bg="lavender">
         <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
-          <Reveal>
+          <MotionReveal>
             <Eyebrow>The Business You Build</Eyebrow>
             <h2 className="mt-5 text-3xl font-bold leading-tight tracking-tight text-navy sm:text-4xl">
               A certificate sits in a drawer. A business changes your life.
@@ -229,8 +229,8 @@ export default function ApplyPage() {
                 </li>
               ))}
             </ul>
-          </Reveal>
-          <Reveal delay={0.1}>
+          </MotionReveal>
+          <MotionReveal delay={0.1}>
             <div className="relative overflow-hidden rounded-3xl bg-navy p-8 text-white sm:p-10">
               <h3 className="text-lg font-bold">What a practice can build</h3>
               <div className="mt-6 space-y-1">
@@ -247,7 +247,7 @@ export default function ApplyPage() {
               </div>
               <p className="mt-5 text-xs text-white/45">Illustrative, not a guarantee. Depends on your effort and market.</p>
             </div>
-          </Reveal>
+          </MotionReveal>
         </div>
       </Section>
 
@@ -258,7 +258,7 @@ export default function ApplyPage() {
           title="Built to make you business-ready, not just certified."
           align="center"
         />
-        <StaggerReveal className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <MotionStagger className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {differentiators.map((d) => (
             <TiltCard key={d.title}>
               <Card className="h-full" hover={false}>
@@ -270,7 +270,7 @@ export default function ApplyPage() {
               </Card>
             </TiltCard>
           ))}
-        </StaggerReveal>
+        </MotionStagger>
       </Section>
 
       {/* Comparison — scannable, not prose */}
@@ -280,7 +280,7 @@ export default function ApplyPage() {
           title="Most certifications end at a certificate. MANA is where your business begins."
           align="center"
         />
-        <Reveal delay={0.1}>
+        <MotionReveal delay={0.1}>
           <div className="mx-auto mt-14 max-w-4xl overflow-hidden rounded-3xl border border-border bg-white shadow-soft">
             <div className="hidden grid-cols-[1.3fr_1fr_1fr] bg-navy px-7 py-3 text-xs font-bold uppercase tracking-wide text-white sm:grid">
               <span></span>
@@ -306,7 +306,7 @@ export default function ApplyPage() {
               </div>
             ))}
           </div>
-        </Reveal>
+        </MotionReveal>
       </Section>
 
       {/* Journey — interactive timeline */}
@@ -326,7 +326,7 @@ export default function ApplyPage() {
           title="Everything it takes to guide a student, and win a school."
           align="center"
         />
-        <StaggerReveal className="mt-14 grid gap-3 sm:grid-cols-2 lg:grid-cols-3" stagger={0.05}>
+        <MotionStagger className="mt-14 grid gap-3 sm:grid-cols-2 lg:grid-cols-3" stagger={0.05}>
           {curriculumSnapshot.map((m) => (
             <div key={m.title} className="flex items-center gap-3 rounded-xl border border-border bg-white px-5 py-4 shadow-xs">
               <span className="h-fit flex-shrink-0 rounded-md bg-navy px-2.5 py-1 text-[10px] font-bold tracking-wide text-white">
@@ -335,8 +335,8 @@ export default function ApplyPage() {
               <h4 className="text-sm font-bold text-navy">{m.title}</h4>
             </div>
           ))}
-        </StaggerReveal>
-        <Reveal delay={0.2}>
+        </MotionStagger>
+        <MotionReveal delay={0.2}>
           <div className="mt-8 flex flex-wrap justify-center gap-x-10 gap-y-5 rounded-2xl border border-border bg-white px-8 py-7 text-center">
             {[
               ["60", "hours of training"],
@@ -351,7 +351,7 @@ export default function ApplyPage() {
               </div>
             ))}
           </div>
-        </Reveal>
+        </MotionReveal>
         <div className="mt-8 text-center">
           <Button href="/curriculum" variant="secondary">
             See the full curriculum
@@ -366,7 +366,7 @@ export default function ApplyPage() {
           title="A founder's support, not a freelancer's guesswork."
           align="center"
         />
-        <StaggerReveal className="mx-auto mt-14 grid max-w-5xl divide-y divide-border overflow-hidden rounded-3xl border border-border sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
+        <MotionStagger className="mx-auto mt-14 grid max-w-5xl divide-y divide-border overflow-hidden rounded-3xl border border-border sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
           {support.map((s) => (
             <div key={s.title} className="flex h-full flex-col items-center gap-3 p-8 text-center">
               <s.icon className="h-6 w-6 text-royal" />
@@ -374,7 +374,7 @@ export default function ApplyPage() {
               <p className="text-sm leading-relaxed text-slate">{s.body}</p>
             </div>
           ))}
-        </StaggerReveal>
+        </MotionStagger>
       </Section>
 
       {/* Who it's for — spacious editorial list, distinct treatment */}
@@ -384,7 +384,7 @@ export default function ApplyPage() {
           title="You don't need a counselling degree. You need this."
           align="center"
         />
-        <StaggerReveal className="mx-auto mt-14 grid max-w-4xl gap-x-12 gap-y-8 sm:grid-cols-2">
+        <MotionStagger className="mx-auto mt-14 grid max-w-4xl gap-x-12 gap-y-8 sm:grid-cols-2">
           {whoItsFor.map((w) => (
             <div key={w.title} className="flex items-start gap-4 border-b border-border pb-8">
               <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-white text-royal shadow-xs">
@@ -396,18 +396,18 @@ export default function ApplyPage() {
               </div>
             </div>
           ))}
-        </StaggerReveal>
-        <Reveal delay={0.2}>
+        </MotionStagger>
+        <MotionReveal delay={0.2}>
           <p className="mt-10 text-center text-lg font-semibold text-navy">
             What you need: a heart for young people, and the drive to build something that&apos;s yours.
           </p>
-        </Reveal>
+        </MotionReveal>
       </Section>
 
       {/* Testimonials */}
       <Section bg="white">
         <SectionHeading eyebrow="Graduate Stories" title="Talent, turned into a business." align="center" />
-        <StaggerReveal className="mt-14 grid gap-6 lg:grid-cols-3">
+        <MotionStagger className="mt-14 grid gap-6 lg:grid-cols-3">
           {testimonials.map((t) => (
             <TiltCard key={t.role}>
               <Card className="h-full" hover={false}>
@@ -419,7 +419,7 @@ export default function ApplyPage() {
               </Card>
             </TiltCard>
           ))}
-        </StaggerReveal>
+        </MotionStagger>
       </Section>
 
       {/* Pricing */}
@@ -428,7 +428,7 @@ export default function ApplyPage() {
       {/* Risk reversal — checklist strip, distinct from earlier grids */}
       <Section bg="white">
         <SectionHeading eyebrow="Your Safety Net" title="Big step. Small risk." align="center" />
-        <StaggerReveal className="mx-auto mt-14 max-w-3xl space-y-3" stagger={0.1}>
+        <MotionStagger className="mx-auto mt-14 max-w-3xl space-y-3" stagger={0.1}>
           {risks.map((r, i) => (
             <div key={r.title} className="flex items-center gap-5 rounded-2xl border border-border bg-lavender px-6 py-5">
               <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-navy text-sm font-bold text-white">
@@ -440,7 +440,7 @@ export default function ApplyPage() {
               </div>
             </div>
           ))}
-        </StaggerReveal>
+        </MotionStagger>
       </Section>
 
       {/* FAQ */}
@@ -454,7 +454,7 @@ export default function ApplyPage() {
       {/* Apply — the one deliberate dark closing moment */}
       <section id="apply" className="relative overflow-hidden bg-navy bg-dotgrid py-20 sm:py-28">
         <div className="mx-auto grid max-w-6xl gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:items-center lg:px-10">
-          <Reveal>
+          <MotionReveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white/80">
               <Rocket className="h-3.5 w-3.5" />
               Next cohort forming now · Limited seats
@@ -485,8 +485,8 @@ export default function ApplyPage() {
                 Or explore the full curriculum first <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </div>
-          </Reveal>
-          <Reveal delay={0.1}>
+          </MotionReveal>
+          <MotionReveal delay={0.1}>
             <div className="rounded-3xl bg-white p-8 shadow-soft-lg sm:p-10">
               <h3 className="text-xl font-bold text-navy">Start your application</h3>
               <p className="mt-1 text-sm text-slate">We&apos;ll be in touch within a few working days.</p>
@@ -494,7 +494,7 @@ export default function ApplyPage() {
                 <ApplyForm />
               </div>
             </div>
-          </Reveal>
+          </MotionReveal>
         </div>
       </section>
     </>
