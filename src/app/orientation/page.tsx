@@ -31,6 +31,8 @@ import JourneyTimeline from "@/components/sections/apply/JourneyTimeline";
 import WhyYouSelector from "@/components/sections/apply/WhyYouSelector";
 import OpportunityEstimator from "@/components/sections/apply/OpportunityEstimator";
 import ApplyForm from "@/components/sections/apply/ApplyForm";
+import SchoolRatioViz from "@/components/sections/apply/SchoolRatioViz";
+import SectionWave from "@/components/sections/apply/SectionWave";
 
 export const metadata: Metadata = {
   title: "Apply to MANA",
@@ -45,7 +47,6 @@ const whatIs = [
 ];
 
 const whyNowStats = [
-  { value: "~1 in 5", label: "Indian schools have a counsellor" },
   { value: "AI-era", label: "careers won't sit still" },
   { value: "Wide open", label: "market, few real guides" },
 ];
@@ -136,6 +137,8 @@ export default function ApplyPage() {
 
       <ApplyHero />
 
+      <SectionWave fromBg="#ffffff" toFill="var(--color-lavender)" light="royal" />
+
       {/* What is MANA */}
       <Section bg="lavender" id="whatis">
         <MotionReveal>
@@ -172,20 +175,31 @@ export default function ApplyPage() {
         </div>
       </Section>
 
-      {/* Why now — condensed stat band */}
+      {/* Why now — a picture, not a stat card grid */}
       <Section bg="lavender" className="!py-16">
         <MotionReveal>
           <div className="mx-auto max-w-4xl">
             <p className="text-center text-lg font-semibold text-navy sm:text-xl">
               Every family needs this. Almost no one is trained to give it.
             </p>
-            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
-              {whyNowStats.map((s) => (
-                <div key={s.label} className="rounded-2xl border border-border bg-white px-6 py-5 text-center">
-                  <div className="text-2xl font-bold text-royal">{s.value}</div>
-                  <div className="mt-1 text-sm text-slate">{s.label}</div>
-                </div>
-              ))}
+            <div className="mt-8 grid gap-4 lg:grid-cols-[1.4fr_1fr]">
+              <div className="rounded-3xl border border-border bg-white px-6 py-8 text-center sm:px-10">
+                <SchoolRatioViz />
+                <p className="mt-6 text-sm font-semibold text-navy sm:text-base">
+                  Only <span className="text-royal">~1 in 5</span> Indian schools has a counsellor
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-4 lg:grid-cols-1">
+                {whyNowStats.map((s) => (
+                  <div
+                    key={s.label}
+                    className="flex flex-col justify-center rounded-2xl border border-border bg-white px-6 py-5 text-center lg:flex-1"
+                  >
+                    <div className="text-2xl font-bold text-royal">{s.value}</div>
+                    <div className="mt-1 text-sm text-slate">{s.label}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </MotionReveal>
@@ -450,6 +464,8 @@ export default function ApplyPage() {
           <Accordion items={faqs} />
         </div>
       </Section>
+
+      <SectionWave fromBg="var(--color-lavender)" toFill="var(--color-navy)" light="gold" />
 
       {/* Apply — the one deliberate dark closing moment */}
       <section id="apply" className="relative overflow-hidden bg-navy bg-dotgrid py-20 sm:py-28">
