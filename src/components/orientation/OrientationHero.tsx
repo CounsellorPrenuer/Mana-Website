@@ -107,7 +107,7 @@ export default function OrientationHero() {
           </Button>
         </motion.div>
         <motion.p variants={fadeUp} className="mt-7 text-sm font-medium text-white/60">
-          Live on Zoom · 90 minutes · Free to attend · Hosted by Mentoria&apos;s CEO
+          Live on Zoom · 90 minutes · Free to attend · Hosted by Nikhar Arora, Mentoria&apos;s CEO
         </motion.p>
       </div>
     </motion.section>
