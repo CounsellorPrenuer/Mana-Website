@@ -12,7 +12,7 @@ import { Eyebrow } from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
 import { EASE_OUT, SPRING_GLIDE } from "@/lib/motionConfig";
 
-const HEADLINE = "See MANA for yourself. Before you decide anything.";
+const HEADLINE_LINES = ["See MANA for yourself.", "Before you decide anything."];
 
 const container: Variants = {
   hidden: {},
@@ -64,19 +64,23 @@ export default function OrientationHero() {
           style={{ background: spotlightBackground }}
         />
       )}
-      <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-8">
+      <div className="relative mx-auto max-w-4xl px-5 text-center sm:px-8">
         <motion.div variants={fadeUp}>
           <Eyebrow dark>MANA Certification · Free Orientation</Eyebrow>
         </motion.div>
         <motion.h1
           variants={headlineWords}
-          className="mt-6 text-balance text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl"
+          className="mt-6 text-4xl font-bold leading-[1.15] tracking-tight text-white sm:text-5xl lg:text-6xl"
         >
-          {HEADLINE.split(" ").map((word, i) => (
-            <span key={i} className="inline-block overflow-hidden pb-1 align-bottom">
-              <motion.span variants={wordUp} className="inline-block">
-                {word}&nbsp;
-              </motion.span>
+          {HEADLINE_LINES.map((line) => (
+            <span key={line} className="block text-balance">
+              {line.split(" ").map((word, i) => (
+                <span key={i} className="inline-block overflow-hidden pb-1 align-bottom">
+                  <motion.span variants={wordUp} className="inline-block">
+                    {word}&nbsp;
+                  </motion.span>
+                </span>
+              ))}
             </span>
           ))}
         </motion.h1>

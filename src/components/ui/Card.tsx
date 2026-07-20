@@ -12,12 +12,18 @@ export default function Card({
   return (
     <div
       className={cn(
-        "rounded-2xl border border-navy/8 bg-white p-6 sm:p-7 shadow-soft",
+        "group relative overflow-hidden rounded-2xl border border-navy/8 bg-white p-6 sm:p-7 shadow-soft",
         hover && "transition-all duration-300 hover:-translate-y-1 hover:shadow-soft-lg",
         className
       )}
     >
       {children}
+      {hover && (
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-0 bg-magenta transition-transform duration-300 ease-out group-hover:scale-x-100"
+        />
+      )}
     </div>
   );
 }
