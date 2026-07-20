@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ShieldCheck, Users, Award, GraduationCap, Bell, ExternalLink, BrainCircuit } from "lucide-react";
 import Section, { SectionHeading } from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
@@ -14,6 +15,7 @@ const featuredFaculty = [
     credentials: "Ph.D. Biotechnology · Senior AI Evaluator · 20+ Years in Academia & AI",
     bio: "Dr. Avasthi combines two decades of academic leadership, most recently at Amity University, with frontier AI evaluation work across ScaleAI, Mercor, and DataAnnotation, writing and auditing the evaluation rubrics that shape frontier model behaviour. As a Certified Career Coach and Master Counsellor at Mentoria, she has led wellness and career workshops for leadership teams at Ernst & Young, Mercedes-Benz, Britannia, and Dr. Reddy's Laboratories. That rare pairing, career-guidance depth and hands-on AI-alignment expertise, is exactly the calibration MANA's AI-literacy modules are built on.",
     linkedin: "https://www.linkedin.com/in/dr-anupama-avasthi-67014237/",
+    photo: "/faculty/anupama-avasthi.jpg",
     initials: "AA",
   },
 ];
@@ -60,8 +62,20 @@ export default function FacultyPage() {
           {featuredFaculty.map((f) => (
             <Reveal key={f.name}>
               <Card className="grid gap-8 sm:grid-cols-[auto_1fr] sm:items-start" hover={false}>
-                <div className="mx-auto flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-2xl bg-navy text-2xl font-bold text-white sm:mx-0">
-                  {f.initials}
+                <div className="relative mx-auto h-24 w-24 flex-shrink-0 overflow-hidden rounded-2xl bg-navy sm:mx-0">
+                  {f.photo ? (
+                    <Image
+                      src={f.photo}
+                      alt={f.name}
+                      fill
+                      sizes="96px"
+                      className="object-cover"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center text-2xl font-bold text-white">
+                      {f.initials}
+                    </div>
+                  )}
                 </div>
                 <div>
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
