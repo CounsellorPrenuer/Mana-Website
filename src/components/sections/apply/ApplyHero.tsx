@@ -156,7 +156,7 @@ export default function ApplyHero() {
       >
         <div>
           <motion.div variants={fadeUp}>
-            <Eyebrow>MANA by Mentoria</Eyebrow>
+            <Eyebrow>MANA by Mentoria · A Certification Program</Eyebrow>
           </motion.div>
           <motion.h1
             variants={headlineWords}
@@ -184,7 +184,8 @@ export default function ApplyHero() {
               </Button>
             </div>
             <p className="mt-5 text-sm text-mist">
-              No prior experience · Built for working adults · Limited seats
+              A certification & business-building program, not a job listing · No prior experience needed ·
+              Limited seats
             </p>
           </motion.div>
           <motion.div variants={fadeUp} className="mt-14 grid grid-cols-3 gap-6 border-t border-border pt-8">

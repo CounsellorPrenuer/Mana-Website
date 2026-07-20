@@ -26,7 +26,7 @@ export default function SchoolRatioViz() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
-      className="flex items-center justify-center gap-3 sm:gap-4"
+      className="flex items-center justify-center gap-2 sm:gap-2.5"
     >
       {Array.from({ length: TOTAL }).map((_, i) => {
         const filled = i < FILLED;
@@ -41,11 +41,11 @@ export default function SchoolRatioViz() {
               />
             )}
             <div
-              className={`relative flex h-14 w-14 items-center justify-center rounded-2xl sm:h-16 sm:w-16 ${
+              className={`relative flex h-11 w-11 items-center justify-center rounded-xl sm:h-12 sm:w-12 ${
                 filled ? "bg-royal text-white shadow-soft" : "bg-lavender text-mist"
               }`}
             >
-              <School className="h-6 w-6 sm:h-7 sm:w-7" />
+              <School className="h-5 w-5 sm:h-5.5 sm:w-5.5" />
             </div>
           </motion.div>
         );

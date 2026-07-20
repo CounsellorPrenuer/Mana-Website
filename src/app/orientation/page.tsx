@@ -35,12 +35,11 @@ import SchoolRatioViz from "@/components/sections/apply/SchoolRatioViz";
 import SectionWave from "@/components/sections/apply/SectionWave";
 import NetworkGrowth from "@/components/sections/apply/NetworkGrowth";
 import PageAtmosphere from "@/components/sections/apply/PageAtmosphere";
-import ConnectorLine from "@/components/sections/apply/ConnectorLine";
 
 export const metadata: Metadata = {
-  title: "Apply to MANA",
+  title: "Apply to MANA — Certification Program",
   description:
-    "MANA is Mentoria's certification for people who love guiding young people and want to turn that gift into a business they own. No counselling background needed. Apply to join the cohort.",
+    "MANA is Mentoria's certification program (not a job listing) for people who love guiding young people and want to turn that gift into a business they own. No counselling background needed. Apply to join the cohort.",
 };
 
 const whatIs = [
@@ -189,24 +188,19 @@ export default function ApplyPage() {
             <p className="text-center text-lg font-semibold text-navy sm:text-xl">
               Every family needs this. Almost no one is trained to give it.
             </p>
-            <div className="mt-8 grid gap-4 lg:grid-cols-[1.4fr_1fr]">
-              <div className="rounded-3xl border border-border bg-white px-6 py-8 text-center sm:px-10">
+            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+              <div className="rounded-2xl border border-border bg-white px-6 py-6 text-center">
                 <SchoolRatioViz />
-                <p className="mt-6 text-sm font-semibold text-navy sm:text-base">
-                  Only <span className="text-royal">~1 in 5</span> Indian schools has a counsellor
+                <p className="mt-4 text-sm font-semibold text-navy">
+                  Only <span className="text-royal">~1 in 5</span> schools has a counsellor
                 </p>
               </div>
-              <div className="grid grid-cols-2 gap-4 lg:grid-cols-1">
-                {whyNowStats.map((s) => (
-                  <div
-                    key={s.label}
-                    className="flex flex-col justify-center rounded-2xl border border-border bg-white px-6 py-5 text-center lg:flex-1"
-                  >
-                    <div className="text-2xl font-bold text-royal">{s.value}</div>
-                    <div className="mt-1 text-sm text-slate">{s.label}</div>
-                  </div>
-                ))}
-              </div>
+              {whyNowStats.map((s) => (
+                <div key={s.label} className="flex flex-col justify-center rounded-2xl border border-border bg-white px-6 py-6 text-center">
+                  <div className="text-2xl font-bold text-royal">{s.value}</div>
+                  <div className="mt-1 text-sm text-slate">{s.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </MotionReveal>
@@ -264,21 +258,19 @@ export default function ApplyPage() {
           title="Built to make you business-ready, not just certified."
           align="center"
         />
-        <ConnectorLine>
-          <MotionStagger className="mt-14 grid gap-6 pt-6 sm:grid-cols-2 lg:grid-cols-3 lg:pt-8">
-            {differentiators.map((d) => (
-              <TiltCard key={d.title}>
-                <Card className="h-full" hover={false}>
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-lavender text-royal">
-                    <d.icon className="h-5.5 w-5.5" />
-                  </div>
-                  <h3 className="mt-4 font-bold text-navy">{d.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate">{d.body}</p>
-                </Card>
-              </TiltCard>
-            ))}
-          </MotionStagger>
-        </ConnectorLine>
+        <MotionStagger className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {differentiators.map((d) => (
+            <TiltCard key={d.title}>
+              <Card className="h-full" hover={false}>
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-lavender text-royal">
+                  <d.icon className="h-5.5 w-5.5" />
+                </div>
+                <h3 className="mt-4 font-bold text-navy">{d.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate">{d.body}</p>
+              </Card>
+            </TiltCard>
+          ))}
+        </MotionStagger>
       </Section>
 
       {/* Comparison — scannable, not prose */}
