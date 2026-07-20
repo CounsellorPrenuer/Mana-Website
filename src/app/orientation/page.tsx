@@ -16,10 +16,14 @@ import {
 } from "lucide-react";
 import Section, { SectionHeading, Eyebrow } from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
-import Reveal from "@/components/ui/Reveal";
 import Button from "@/components/ui/Button";
 import Accordion from "@/components/ui/Accordion";
 import FinalCta from "@/components/sections/FinalCta";
+import OrientationHero from "@/components/orientation/OrientationHero";
+import OrientationReveal from "@/components/orientation/OrientationReveal";
+import OrientationStagger from "@/components/orientation/OrientationStagger";
+import OrientationCountUp from "@/components/orientation/OrientationCountUp";
+import StepConnector from "@/components/orientation/StepConnector";
 import { SITE, TRUST_STATS } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -32,7 +36,7 @@ const whyAttend = [
   {
     icon: MessagesSquare,
     title: "Get real answers, live",
-    body: "Ask anything — eligibility, time commitment, income potential, fees — and get a straight answer on the spot.",
+    body: "Ask anything: eligibility, time commitment, income potential, fees. Get a straight answer on the spot.",
   },
   {
     icon: Compass,
@@ -47,16 +51,16 @@ const whyAttend = [
   {
     icon: UserCheck,
     title: "Decide with clarity",
-    body: "Leave knowing whether MANA is right for you — that's a win either way.",
+    body: "Leave knowing whether MANA is right for you. That's a win either way.",
   },
 ];
 
 const takeaways = [
-  "A clear picture of what MANA is — and who it's really for",
+  "A clear picture of what MANA is, and who it's really for",
   "How the certification translates into an actual practice and income",
-  "The fees, the Founder's offer, and what's included — explained transparently",
+  "The fees, the Founder's offer, and what's included, explained transparently",
   "Answers to your specific questions, live",
-  "A clear view of your next steps — if you choose to take them",
+  "A clear view of your next steps, if you choose to take them",
 ];
 
 const afterSteps = [
@@ -89,35 +93,35 @@ const testimonials = [
   {
     quote:
       "I walked in with a lot of doubt and a long list of questions. I left with a clear next step and none of the sales-pitch feeling I expected.",
-    role: "Attendee → School teacher, now a practising Career Architect",
+    role: "Attendee, then school teacher, now a practising Career Architect",
   },
   {
     quote:
       "Ninety minutes, direct answers, no pressure to decide on the call. That's exactly what made me trust the programme enough to apply.",
-    role: "Attendee → HR professional, now building an independent practice",
+    role: "Attendee, then HR professional, now building an independent practice",
   },
 ];
 
 const faqs = [
-  { q: "Is the orientation really free?", a: "Yes — completely free, with no obligation to enrol." },
+  { q: "Is the orientation really free?", a: "Yes, completely free, with no obligation to enrol." },
   { q: "How long is it?", a: "90 minutes, including live Q&A." },
   {
     q: "Where is it held?",
     a: "Live on Zoom. You'll receive the joining link by WhatsApp as soon as you register.",
   },
   { q: "When are sessions held?", a: "Every day except Tuesday, Saturday and Sunday." },
-  { q: "Do I need to prepare anything?", a: "No — just bring your questions." },
+  { q: "Do I need to prepare anything?", a: "No, just bring your questions." },
   {
     q: "Will I be pressured to enrol?",
     a: "No. The orientation is to help you decide. Enrolment is entirely your choice, in your own time.",
   },
   {
     q: "Can I ask about fees and payment?",
-    a: "Absolutely — we explain the fee, the Founder's offer, and what's included, transparently.",
+    a: "Absolutely. We explain the fee, the Founder's offer, and what's included, transparently.",
   },
   {
     q: "Will I get a confirmation?",
-    a: "Yes — a WhatsApp confirmation with your Zoom link lands right after you register, plus a reminder before the session.",
+    a: "Yes, a WhatsApp confirmation with your Zoom link lands right after you register, plus a reminder before the session.",
   },
   {
     q: "What if I can't attend after registering?",
@@ -125,7 +129,7 @@ const faqs = [
   },
   {
     q: "I still have questions about the programme itself.",
-    a: "Explore the Curriculum, Certification, and FAQ pages — or ask us live at the orientation.",
+    a: "Explore the Curriculum, Certification, and FAQ pages, or ask us live at the orientation.",
   },
 ];
 
@@ -134,97 +138,57 @@ const whatsappHref = `https://wa.me/${SITE.whatsappNumber}?text=${encodeURICompo
 export default function OrientationPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-navy bg-dotgrid py-20 sm:py-28">
-        <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
-          <Reveal>
-            <Eyebrow dark>MANA Certification · Free Orientation</Eyebrow>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <h1 className="mt-6 text-balance text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
-              See MANA for yourself — before you decide anything.
-            </h1>
-          </Reveal>
-          <Reveal delay={0.16}>
-            <p className="mx-auto mt-6 max-w-2xl text-balance text-lg leading-relaxed text-white/70 sm:text-xl">
-              A free, live orientation for professionals exploring the MANA Professional Coaching
-              Certification. Get your questions answered, see how the programme actually works, and
-              decide if it&apos;s right for you — no pressure, no obligation.
-            </p>
-          </Reveal>
-          <Reveal delay={0.24}>
-            <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-              <Button href="#register" variant="gold" size="lg">
-                Register for a Free Orientation
-              </Button>
-              <Button
-                href="#why-attend"
-                variant="ghost"
-                size="lg"
-                showArrow={false}
-                className="border-white/25 text-white hover:bg-white/10"
-              >
-                ↓ See what to expect
-              </Button>
-            </div>
-          </Reveal>
-          <Reveal delay={0.32}>
-            <p className="mt-7 text-sm font-medium text-white/60">
-              Live on Zoom · 90 minutes · Free to attend · Hosted by Mentoria&apos;s CEO
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <OrientationHero />
 
       {/* Why Attend */}
       <Section bg="white" id="why-attend">
-        <SectionHeading
-          eyebrow="Why Attend"
-          title="A certification is a big decision. Start with a conversation."
-          description="You've read about MANA. The orientation is where it becomes real — where you meet the people behind it, see how it works, and get the honest answers that a webpage can't give you."
-          align="center"
-        />
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {whyAttend.map((w, i) => (
-            <Reveal key={w.title} delay={i * 0.07}>
-              <Card className="h-full">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-lavender text-royal">
-                  <w.icon className="h-5.5 w-5.5" />
-                </div>
-                <h3 className="mt-4 font-bold text-navy">{w.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate">{w.body}</p>
-              </Card>
-            </Reveal>
+        <OrientationReveal>
+          <SectionHeading
+            eyebrow="Why Attend"
+            title="A certification is a big decision. Start with a conversation."
+            description="You've read about MANA. The orientation is where it becomes real: where you meet the people behind it, see how it works, and get the honest answers that a webpage can't give you."
+            align="center"
+          />
+        </OrientationReveal>
+        <OrientationStagger className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {whyAttend.map((w) => (
+            <Card key={w.title} className="h-full">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-lavender text-royal">
+                <w.icon className="h-5.5 w-5.5" />
+              </div>
+              <h3 className="mt-4 font-bold text-navy">{w.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate">{w.body}</p>
+            </Card>
           ))}
-        </div>
+        </OrientationStagger>
       </Section>
 
       {/* What You'll Take Away */}
       <Section bg="lavender">
         <div className="mx-auto max-w-2xl">
-          <Reveal>
+          <OrientationReveal>
             <SectionHeading
               eyebrow="What You'll Take Away"
-              title="Walk away with clarity — not a sales pitch."
+              title="Walk away with clarity, not a sales pitch."
               description="In under an hour and a half, you'll have everything you need to make an informed decision."
               align="center"
             />
-            <ul className="mx-auto mt-10 max-w-xl space-y-4 text-left">
-              {takeaways.map((t) => (
-                <li key={t} className="flex items-start gap-3">
-                  <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-royal" />
-                  <span className="text-navy">{t}</span>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
+          </OrientationReveal>
+          <OrientationStagger className="mx-auto mt-10 max-w-xl space-y-3 text-left" stagger={0.06} y={12}>
+            {takeaways.map((t) => (
+              <div key={t} className="flex items-start gap-3 rounded-xl bg-white px-4 py-3 shadow-xs">
+                <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-royal" />
+                <span className="text-navy">{t}</span>
+              </div>
+            ))}
+          </OrientationStagger>
         </div>
       </Section>
 
       {/* 90 Minutes */}
       <Section bg="white">
         <div className="mx-auto max-w-2xl text-center">
-          <Reveal>
+          <OrientationReveal>
             <Eyebrow>The Time Commitment</Eyebrow>
             <h2 className="mt-5 text-3xl font-bold leading-tight text-navy sm:text-4xl">
               90 minutes to complete clarity.
@@ -242,14 +206,14 @@ export default function OrientationPage() {
                 had.&rdquo;
               </p>
             </div>
-          </Reveal>
+          </OrientationReveal>
         </div>
       </Section>
 
       {/* Who Should Attend */}
       <Section bg="lavender">
         <div className="mx-auto max-w-2xl text-center">
-          <Reveal>
+          <OrientationReveal>
             <Eyebrow>Who Should Attend</Eyebrow>
             <h2 className="mt-5 text-3xl font-bold leading-tight text-navy sm:text-4xl">
               Come along if you&apos;re exploring a career in guidance or coaching.
@@ -259,7 +223,7 @@ export default function OrientationPage() {
               professionals all attend our orientations, whether you&apos;re seriously considering MANA
               or simply curious.{" "}
               <a href="/who-should-join" className="font-semibold text-royal hover:text-navy">
-                Want the detail on fit? See Who Should Join →
+                Want the detail on fit? See Who Should Join
               </a>
             </p>
             <div className="mt-8">
@@ -267,46 +231,51 @@ export default function OrientationPage() {
                 Register for a Free Orientation
               </Button>
             </div>
-          </Reveal>
+          </OrientationReveal>
         </div>
       </Section>
 
       {/* What Happens After */}
       <Section bg="white">
-        <SectionHeading
-          eyebrow="What Happens After"
-          title="No pressure. No obligation. Your pace."
-          align="center"
-        />
-        <div className="mt-14 grid gap-6 sm:grid-cols-3">
-          {afterSteps.map((s, i) => (
-            <Reveal key={s.title} delay={i * 0.08}>
-              <div className="h-full rounded-2xl border border-border bg-lavender p-6">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-navy text-sm font-bold text-white">
+        <OrientationReveal>
+          <SectionHeading
+            eyebrow="What Happens After"
+            title="No pressure. No obligation. Your pace."
+            align="center"
+          />
+        </OrientationReveal>
+        <div className="relative mt-14">
+          <StepConnector />
+          <OrientationStagger className="relative grid gap-6 sm:grid-cols-3" stagger={0.12}>
+            {afterSteps.map((s) => (
+              <div key={s.title} className="h-full rounded-2xl border border-border bg-lavender p-6">
+                <span className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full bg-navy text-sm font-bold text-white ring-4 ring-lavender">
                   {s.n}
                 </span>
                 <h3 className="mt-4 font-bold text-navy">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate">{s.body}</p>
               </div>
-            </Reveal>
-          ))}
+            ))}
+          </OrientationStagger>
         </div>
-        <Reveal delay={0.2}>
+        <OrientationReveal delay={0.15}>
           <p className="mx-auto mt-10 max-w-xl text-center text-sm font-medium text-slate">
             There&apos;s no obligation to enrol. Many attendees join simply to learn, and that&apos;s
             completely welcome.
           </p>
-        </Reveal>
+        </OrientationReveal>
       </Section>
 
       {/* Meet Your Host */}
       <Section bg="lavender">
         <div className="mx-auto max-w-2xl text-center">
-          <Reveal>
+          <OrientationReveal>
             <Eyebrow>Meet Your Host</Eyebrow>
             <h2 className="mt-5 text-3xl font-bold leading-tight text-navy sm:text-4xl">
               Hosted by someone who&apos;s done the work.
             </h2>
+          </OrientationReveal>
+          <OrientationReveal delay={0.1} y={28}>
             <Card className="mx-auto mt-8 text-left" hover={false}>
               <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start">
                 <div className="flex h-20 w-20 flex-shrink-0 items-center justify-center rounded-2xl bg-navy text-xl font-bold text-white">
@@ -335,19 +304,21 @@ export default function OrientationPage() {
                 </div>
               </div>
             </Card>
+          </OrientationReveal>
+          <OrientationReveal delay={0.2}>
             <div className="mt-8">
               <Button href="#register" size="lg">
                 Register for a Free Orientation
               </Button>
             </div>
-          </Reveal>
+          </OrientationReveal>
         </div>
       </Section>
 
       {/* Schedule & How It Works */}
       <Section bg="white">
         <div className="mx-auto max-w-2xl text-center">
-          <Reveal>
+          <OrientationReveal>
             <Eyebrow>Schedule &amp; How It Works</Eyebrow>
             <h2 className="mt-5 text-3xl font-bold leading-tight text-navy sm:text-4xl">
               Pick a day. Save your seat.
@@ -357,91 +328,105 @@ export default function OrientationPage() {
               that suits you and register, you&apos;ll get a WhatsApp confirmation with your Zoom joining
               link right away.
             </p>
-            <div className="mx-auto mt-8 flex max-w-xl flex-wrap justify-center gap-3">
-              {scheduleChips.map((c) => (
-                <span
-                  key={c.label}
-                  className="flex items-center gap-2 rounded-full border border-border bg-lavender px-4 py-2 text-sm font-semibold text-navy"
-                >
-                  <c.icon className="h-4 w-4 text-royal" />
-                  {c.label}
-                </span>
-              ))}
-            </div>
+          </OrientationReveal>
+          <OrientationStagger
+            className="mx-auto mt-8 flex max-w-xl flex-wrap justify-center gap-3"
+            stagger={0.06}
+            y={10}
+          >
+            {scheduleChips.map((c) => (
+              <span
+                key={c.label}
+                className="flex items-center gap-2 rounded-full border border-border bg-lavender px-4 py-2 text-sm font-semibold text-navy"
+              >
+                <c.icon className="h-4 w-4 text-royal" />
+                {c.label}
+              </span>
+            ))}
+          </OrientationStagger>
+          <OrientationReveal delay={0.15}>
             <div className="mt-9">
               <Button href="#register" size="lg">
                 Register for a Free Orientation
               </Button>
             </div>
-          </Reveal>
+          </OrientationReveal>
         </div>
       </Section>
 
       {/* Trust band */}
       <Section bg="navy" className="bg-dotgrid">
         <div className="mx-auto max-w-3xl text-center">
-          <Reveal>
+          <OrientationReveal>
             <h2 className="text-balance text-2xl font-bold leading-snug text-white sm:text-3xl">
               Backed by India&apos;s leading career discovery ecosystem.
             </h2>
-            <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4">
-              {TRUST_STATS.map((s) => (
-                <div key={s.label}>
-                  <div className="text-2xl font-bold text-gold sm:text-3xl">{s.value}</div>
-                  <div className="mt-1 text-xs font-medium text-white/60 sm:text-sm">{s.label}</div>
+          </OrientationReveal>
+          <OrientationStagger className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4" stagger={0.08} y={14}>
+            {TRUST_STATS.map((s) => (
+              <div key={s.label}>
+                <div className="text-2xl font-bold text-gold sm:text-3xl">
+                  <OrientationCountUp value={s.value} />
                 </div>
-              ))}
-            </div>
+                <div className="mt-1 text-xs font-medium text-white/60 sm:text-sm">{s.label}</div>
+              </div>
+            ))}
+          </OrientationStagger>
+          <OrientationReveal delay={0.15}>
             <p className="mx-auto mt-8 max-w-lg text-sm text-white/60">
               When you train with Mentoria, you&apos;re backed by a name schools, students, and parents
               already trust.
             </p>
-          </Reveal>
+          </OrientationReveal>
         </div>
       </Section>
 
       {/* Testimonials */}
       <Section bg="lavender">
-        <SectionHeading
-          eyebrow="Hear From Attendees"
-          title="Hear from people who started exactly where you are."
-          description="Professionals who attended an orientation, enrolled, and built a practice."
-          align="center"
-        />
-        <div className="mt-14 grid gap-6 sm:grid-cols-2">
-          {testimonials.map((t, i) => (
-            <Reveal key={t.role} delay={i * 0.08}>
-              <Card className="h-full">
-                <Quote className="h-7 w-7 text-magenta/40" />
-                <p className="mt-4 text-sm leading-relaxed text-navy">{t.quote}</p>
-                <div className="mt-6 border-t border-navy/8 pt-4">
-                  <div className="text-xs font-semibold text-slate">{t.role}</div>
-                </div>
-              </Card>
-            </Reveal>
+        <OrientationReveal>
+          <SectionHeading
+            eyebrow="Hear From Attendees"
+            title="Hear from people who started exactly where you are."
+            description="Professionals who attended an orientation, enrolled, and built a practice."
+            align="center"
+          />
+        </OrientationReveal>
+        <OrientationStagger className="mt-14 grid gap-6 sm:grid-cols-2">
+          {testimonials.map((t) => (
+            <Card key={t.role} className="h-full">
+              <Quote className="h-7 w-7 text-magenta/40" />
+              <p className="mt-4 text-sm leading-relaxed text-navy">{t.quote}</p>
+              <div className="mt-6 border-t border-navy/8 pt-4">
+                <div className="text-xs font-semibold text-slate">{t.role}</div>
+              </div>
+            </Card>
           ))}
-        </div>
-        <Reveal delay={0.2}>
+        </OrientationStagger>
+        <OrientationReveal delay={0.15}>
           <div className="mt-10 text-center">
             <Button href="#register" variant="secondary">
               Register for a Free Orientation
             </Button>
           </div>
-        </Reveal>
+        </OrientationReveal>
       </Section>
 
       {/* FAQ */}
       <Section bg="white">
-        <SectionHeading eyebrow="Orientation FAQs" title="Everything about the session, answered." align="center" />
-        <div className="mx-auto mt-14 max-w-3xl">
-          <Accordion items={faqs} />
-        </div>
+        <OrientationReveal>
+          <SectionHeading eyebrow="Orientation FAQs" title="Everything about the session, answered." align="center" />
+        </OrientationReveal>
+        <OrientationReveal delay={0.1}>
+          <div className="mx-auto mt-14 max-w-3xl">
+            <Accordion items={faqs} />
+          </div>
+        </OrientationReveal>
       </Section>
 
       {/* Registration */}
       <section id="register" className="relative overflow-hidden bg-navy bg-dotgrid py-20 sm:py-28">
         <div className="mx-auto max-w-2xl px-5 text-center sm:px-8">
-          <Reveal>
+          <OrientationReveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white/80">
               <HelpCircle className="h-3.5 w-3.5" />
               Takes less than a minute
@@ -468,6 +453,8 @@ export default function OrientationPage() {
                 Prefer to chat first? WhatsApp us
               </Button>
             </div>
+          </OrientationReveal>
+          <OrientationReveal delay={0.15} y={32}>
             <div className="mx-auto mt-10 overflow-hidden rounded-3xl bg-white shadow-soft-lg">
               <iframe
                 src="https://forms.gle/jE8fytyuam4viMpL7"
@@ -475,10 +462,10 @@ export default function OrientationPage() {
                 className="h-[720px] w-full"
                 loading="lazy"
               >
-                Loading registration form…
+                Loading registration form&hellip;
               </iframe>
             </div>
-          </Reveal>
+          </OrientationReveal>
         </div>
       </section>
 
